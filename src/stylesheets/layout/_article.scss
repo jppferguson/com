@@ -1,0 +1,17 @@
+.tag {
+  margin-left: .5em;
+}
+.article-preview {
+  position: relative;
+  padding-bottom: 4em;
+  &:after {
+    border-bottom: 4px solid;
+    bottom: 2em;
+    left: 0;
+    content: '';
+    opacity: .1;
+    position: absolute;
+    width: 25%;
+    max-width: 150px;
+  }
+}

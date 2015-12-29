@@ -1,0 +1,30 @@
+.section {
+  background-color: $block-default-background;
+}
+.bg-light   { background-color: $colour-background-light; }
+.bg-dark    { background-color: $colour-background-dark; }
+.bg-green   { background-color: $colour-background-green; }
+.bg-blue    { background-color: $colour-background-blue; }
+.bg-orange  { background-color: $colour-background-orange; }
+.bg-yellow  { background-color: $colour-background-yellow; }
+.bg-home {
+  background: $colour-background-dark url(../img/bg-home.jpg) no-repeat 50% 50%;
+  background-size: cover;
+}
+.bg-journal {
+  background-image: url(../img/bg-journal.png);
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+}
+.bg-profile {
+  background-image: url(../img/bg-profile.png);
+  background-repeat: no-repeat;
+  background-position: -1% 50%;
+}
+
+.reverse {
+  color: $colour-reverse-text;
+  a {
+    color: $colour-reverse-link;
+  }
+}

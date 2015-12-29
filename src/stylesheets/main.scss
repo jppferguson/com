@@ -2,9 +2,20 @@
 // variables
 @import "_variables";
 
+// vendor
+@import "vendor/bootstrap";
+
 // common
-@import "common/_typography";
+@import "common/animations";
+@import "common/buttons";
+@import "common/colours";
+@import "common/forms";
+@import "common/images";
+@import "common/typography";
 
 // layout
-@import "layout/_header";
+@import "layout/main";
+@import "layout/article";
+@import "layout/header";
+@import "layout/footer";
 

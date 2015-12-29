@@ -1,0 +1,96 @@
+html {
+  background: $base-body-background;
+  min-height: 100%;
+}
+body {
+  margin: 0;
+  width: 100%;
+  overflow-y: scroll; /* keep to stop horizontal "jump" between pages */
+}
+
+.border-box {
+  box-sizing: border-box;
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+}
+.relative {
+  position: relative;
+}
+.center-center {
+  @extend .center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate3d(-50%,-50%,0);
+}
+.bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.vh-50 {
+  @extend .border-box;
+  min-height: 50vh;
+}
+.vh-90 {
+  @extend .border-box;
+  min-height: 90vh;
+}
+
+.section {
+  padding: 100px 0;
+}
+.smoked-glass {
+  background-color: rgba(0,0,0,.3)
+}
+
+/* Little fix for contact page */
+.form-group.col-sm-6 {
+  &:first-child { padding-left: 0; }
+  &:last-child  { padding-right: 0; }
+}
+
+.tile {
+  background: $colour-background-green;
+  height: 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 0 0 60%;
+  margin-bottom: 2rem;
+  .tile-link,
+  .tile-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .tile-img {
+    opacity: .15;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: 1;
+    transform: scale(1.2);
+    transform-origin: 50% 50%;
+    transition: transform 2s ease-in-out;
+  }
+  .tile-link {
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+  }
+  .tile-content {
+    @extend .center-center;
+    z-index: 50;
+  }
+  &:hover .tile-img {
+    transform: scale(1);
+  }
+}
+.profile-img {
+  border: solid 10px $colour-background-light;
+  max-width: 200px;
+}

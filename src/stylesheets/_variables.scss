@@ -1,4 +1,37 @@
 
 // Colours
-$colour-background-header:   #eee;
-$colour-text:                #333;
+$colour-background-light:   #fffff9;
+$colour-background-green:   #8c7;
+$colour-background-blue:    #28a;
+$colour-background-orange:  #553;
+$colour-background-dark:    #3b3b3b;
+$colour-background-yellow:  #fed51a;
+
+
+$base-body-background: #222;
+$block-default-background: $colour-background-light;
+
+// Reverse
+$colour-reverse-background: $colour-background-dark;
+$colour-reverse-text:       #ffe;
+$colour-reverse-link:       #ffe;
+
+
+// Vendor stuff
+$enable-flex: true;
+$enable-rounded: false;
+$brand-primary: $colour-background-dark;
+$input-btn-border-width: 2px;
+$font-size-root: 18px;
+
+// $gray-dark:                 #373a3c;
+// $gray:                      #55595c;
+$gray-light:                #a8a8a8;
+// $gray-lighter:              #eceeef;
+// $gray-lightest:             #f7f7f9;
+
+// $brand-primary:             #0275d8;
+// $brand-success:             #5cb85c;
+// $brand-info:                #5bc0de;
+// $brand-warning:             #f0ad4e;
+// $brand-danger:              #d9534f;

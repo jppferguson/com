@@ -1,13 +1,120 @@
-
-html {
-  color: $colour-text;
-  font-family: 'Arial', serif;
-  font-size: 18px;
-  line-height: 1.8;
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|Alegreya:400,400italic,600|Alegreya+SC:400,400italic,700);
+body {
+  color: #444;
+  font-family: 'Alegreya', serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-
 a {
   color: #555;
-  font-size: 90%;
   font-weight: bold;
+  position: relative;
+  text-decoration: none;
+  transition: all 150ms ease-in-out;
+  // &.text-link:hover:after,
+  &:after {
+    border-bottom: solid .075em;
+    opacity: 0;
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    transition: all 200ms ease-in-out;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    outline: none;
+    text-decoration: none;
+  }
+  &:hover:after,
+  &:active:after,
+  &:focus:after,
+  &.active:after {
+    opacity: .4;
+    width: 100%;
+  }
+}
+a.non-text-link:after,
+.non-text-link a:after {
+  display: none;
+}
+
+hr {
+  background: none;
+  border: solid #ddddd9;
+  border-width: 3px 0 0;
+  max-width: 200px;
+  margin: 4em auto;
+}
+
+.sans {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.bold {
+  font-weight: 600;
+}
+.inline {
+  display: inline;
+  padding-left: 0;
+}
+.center { text-align: center; }
+.list-inline li { display: inline; }
+.list-no-bullets {
+  padding-left: 0;
+  li {
+    list-style: none;
+  }
+}
+.list-inline-bullets li {
+  display: inline;
+  &:before {
+    color: $gray;
+    content: '•';
+    margin: 0 .5em;
+  }
+}
+
+// h1, .h1 { font-size: 2rem; }
+// h2, .h2 { font-size: 3rem; }
+// h3, .h3 { font-size: 1.5rem; }
+// h4, .h4 { font-size: 1rem; }
+h5, .h5 {
+  font-size: 1rem;
+  margin: 0;
+}
+ h1, h2, h3, h4, h5,
+.h1,.h2,.h3,.h4,.h5 {
+  margin-bottom: 1.5rem;
+}
+
+ h1, h3, h4, h5,
+.h1,.h3,.h4,.h5 {
+  font-weight: 600;
+  @extend .sans;
+}
+h2, .h2 {
+  a {
+    font-weight: 300;
+  }
+}
+.btn-text {
+  position: relative;
+  text-decoration: none;
+  &:after {
+    content: '→';
+    opacity: 0;
+    position: relative;
+    left: .2em;
+    transition: 150ms ease-in-out;
+  }
+  &:hover:after {
+    opacity: 1;
+    left: .5em;
+  }
 }

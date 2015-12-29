@@ -1,0 +1,12 @@
+.btn {
+  @extend .sans, .non-text-link;
+  transition: 200ms ease;
+  text-decoration: none;
+}
+.reverse .btn {
+  border: solid 2px $colour-reverse-text;
+  &:hover {
+    background: $colour-reverse-text;
+    color: $colour-reverse-background;
+  }
+}
