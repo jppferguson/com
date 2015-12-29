@@ -1,0 +1,9 @@
+.reverse.bg-dark.header-offset.vh-50.relative
+  .container.center-center
+    h1(ng-bind-html="article.title.rendered") {{article.title.rendered}}
+
+section.section
+  .container
+    .row
+      .col-lg-8.col-lg-push-2
+        article(ng-bind-html="article.content.rendered") {{article.content.rendered}}

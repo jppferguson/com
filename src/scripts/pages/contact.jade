@@ -1,0 +1,31 @@
+.reverse.bg-blue.header-offset.vh-50.relative
+  .container.center-center
+    h1 Let’s talk
+    p.lead Have an interesting project? Awesome!
+      br
+      strong Let’s have a chat about how I can help you.
+  .center.bottom.smoked-glass.p-a-2
+    .container: small Plus: If you need further man-power on your project, I might know someone to help you out as well.
+
+section.section
+  .container
+    .row
+      .col-lg-6.col-lg-push-3
+        .form-group.row(floating-label="name")
+          label Full name
+          input.form-control
+        .form-group.row(floating-label="email")
+          label Email Address
+          input.form-control
+        .row
+          .col-sm-6.form-group(floating-label="budget")
+            label Budget
+            input.form-control
+          .col-sm-6.form-group(floating-label="timeline")
+            label Timeline
+            input.form-control(ng-model="timeline" placeholder="Timeline")
+        .form-group.row(floating-label="enquiry")
+          label How can I help you?
+          textarea.form-control(elastic)
+        .form-group.row
+          button.pull-sm-right.btn.btn-sm.btn-primary-outline(type="submit") Send message

@@ -1,7 +1,18 @@
-include ./includes/header.jade
+doctype
+html.no-js(ng-app="App")
+  head
+    base(href="/")
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title Jamie Ferguson
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel="stylesheet", href="/assets/css/main.css")
+  body
+    loading(isLoading)
+    ui-view(name="site-header")
+    .ui-view-container
+      ui-view
+    ui-view(name="site-footer")
 
-header.header
-  h1 FESK
-section: p Hi There!
-
-include ./includes/footer.jade
+    script(src="/assets/js/app.js")

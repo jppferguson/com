@@ -1,0 +1,15 @@
+.reverse.bg-green.header-offset.vh-50.relative(background-image="http://wordpress.jppferguson.com/{{item.featured_image_thumbnail_url}}")
+  .container.center-center(ng-hide="isLoading")
+    h1(ng-bind-html="item.title.rendered") {{ item.title.rendered }}
+    p.lead {{ item.subheader }}
+
+section.section
+  .container
+    .row
+      .col-lg-8(ng-hide="isLoading")
+        div(ng-bind-html="item.content.rendered") {{item.content.rendered}}
+      .col-lg-4
+        div(ng-repeat="(taxonomy_name, taxonomy) in item.taxonomies_list" ng-show="taxonomy[0]")
+          h5 {{taxonomy_name}}
+          ul.list-no-bullets
+            li(ng-repeat="tag in taxonomy") {{tag.name}}
