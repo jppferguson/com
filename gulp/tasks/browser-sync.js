@@ -14,11 +14,13 @@ gulp.task( 'browser-sync', function() {
     server: {
       baseDir: config.destinations.root,
       middleware: function( req, res, next ) {
-        var fileName = url.parse( req.url )
-        fileName = fileName.href.split( fileName.search ).join( "" )
-        var fileExists = fs.existsSync( config.destinations.root + fileName )
+        var fileName
+        var fileExists
+        fileName   = url.parse( req.url )
+        fileName   = fileName.href.split( fileName.search ).join( '' )
+        fileExists = fs.existsSync( config.destinations.root + fileName )
         if ( !fileExists && fileName.indexOf( 'browser-sync-client' ) < 0 ) {
-            req.url = '/index.html'
+          req.url = '/index.html'
         }
         return next()
       }
