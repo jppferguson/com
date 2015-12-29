@@ -26,7 +26,10 @@ gulp.task( 'styles:build', function() {
     .pipe( gulpif( minifyStyles, minify() ) )
     .pipe( gulpif( sourceMaps, sourcemaps.write( './' ) ) )
     .pipe( gulpif( minifyStyles, gulp.dest( config.destinations.styles ) ) )
-    .pipe( gulpif( browserSync.active, browserSync.reload( { stream: true } ) ) )
+    .pipe( gulpif( browserSync.active, browserSync.reload( {
+      stream: true,
+      match: '**/*.css'
+    } ) ) )
 } )
 
 gulp.task( 'styles:watch', [ 'styles:build' ], function() {
