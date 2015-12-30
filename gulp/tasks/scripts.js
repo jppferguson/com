@@ -10,10 +10,11 @@ import gulp        from 'gulp'
 import gulpif      from 'gulp-if'
 import handleError from '../helpers/handle-error'
 import jadeify     from 'jadeify'
+import ngAnnotate  from 'browserify-ngannotate'
 import path        from 'path'
 import source      from 'vinyl-source-stream'
 import sourcemaps  from 'gulp-sourcemaps'
-import minifyify   from 'minifyify'
+import uglify      from 'gulp-uglify'
 import util        from 'gulp-util'
 import watchify    from 'watchify'
 
@@ -37,10 +38,7 @@ function buildBundle( filename, watch ) {
   // Do transformation tasks here
   bundler.transform( babelify )
   bundler.transform( jadeify )
-  bundler.plugin( minifyify, {
-    map: false,           // handle with sourcemaps
-    minify: minifyBundle  // pass-through
-  } )
+  bundler.transform( ngAnnotate )
 
   rebundle = function() {
     return bundler.bundle()
@@ -51,6 +49,9 @@ function buildBundle( filename, watch ) {
         sourcemaps.init( {
           loadMaps: true  // loads map from browserify file
         } )
+      ) )
+      .pipe( gulpif( minifyBundle,
+        uglify( { mangle: false } )
       ) )
       .pipe( gulpif( sourceMaps,
         sourcemaps.write( './' ) // writes .map file
