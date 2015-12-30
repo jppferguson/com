@@ -22,9 +22,9 @@ export default function( $compile ) {
       $label.attr( 'for', id )
 
       return {
-        post: function postLink( scope, iElement, iAttrs, controller ) {
-           $compile( iElement )( scope )
-         }
+        post: function postLink( $scope, $linkElem ) {
+          $compile( $linkElem )( $scope )
+        }
       }
     }
   }

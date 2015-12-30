@@ -3,11 +3,11 @@
 export default function( $rootScope, $scope, $http, $location, $sce, CONFIG ) {
 
   var page = $location.path().substring( 1 )
-  if( page === '' ) {
+  if ( page === '' ) {
     page = 'profile'
   }
 
-  $rootScope.isLoading += 1
+  $rootScope.isLoading = $rootScope.isLoading + 1
   $http.get( CONFIG.API_ENDPOINT + 'pages/?filter[name]=' + page )
     .then( function( res ) {
       angular.forEach( res.data, function( value, key ) {
@@ -17,6 +17,6 @@ export default function( $rootScope, $scope, $http, $location, $sce, CONFIG ) {
         this[key].content.rendered = $sce.trustAsHtml( value.content.rendered )
       }, res.data )
       $scope.article = res.data[0]
-      $rootScope.isLoading -= 1
+      $rootScope.isLoading = $rootScope.isLoading - 1
     } )
 }

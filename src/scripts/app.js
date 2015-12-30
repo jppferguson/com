@@ -46,7 +46,7 @@ app.config( [ '$interpolateProvider', '$stateProvider', '$locationProvider', '$h
   $httpProvider.defaults.cache = true
 
   // Make a trailing slash optional for all routes
-  $urlMatcherFactoryProvider.strictMode(false)
+  $urlMatcherFactoryProvider.strictMode( false )
 
   // Use request parameters instead of a json payload
   $httpProvider.defaults.transformRequest = function( data ) {
@@ -60,7 +60,7 @@ app.config( [ '$interpolateProvider', '$stateProvider', '$locationProvider', '$h
 
 } ] )
 
-app.run( [ '$rootScope', '$log', '$anchorScroll' ,'$window', function( $rootScope, $log, $anchorScroll, $window ) {
+app.run( [ '$rootScope', '$log', '$anchorScroll', '$window', function( $rootScope, $log, $anchorScroll, $window ) {
 
   // ensure we scroll to the top on route change
   // From: http://stackoverflow.com/questions/21055952
@@ -70,9 +70,9 @@ app.run( [ '$rootScope', '$log', '$anchorScroll' ,'$window', function( $rootScop
       var retval = orig.apply( this, Array.prototype.slice.call( arguments ) )
       $anchorScroll()
       return retval
-    };
-  };
-  wrap( 'pushState')
+    }
+  }
+  wrap( 'pushState' )
   wrap( 'replaceState' )
 
   // get rid of iOS' gnarly delay for a more native feel

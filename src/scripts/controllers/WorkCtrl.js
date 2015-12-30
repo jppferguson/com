@@ -1,7 +1,7 @@
 'use strict'
 
 export default function( $rootScope, $scope, $http, $sce, $sanitize, readingTime, CONFIG ) {
-  $rootScope.isLoading += 1
+  $rootScope.isLoading = $rootScope.isLoading + 1
   $scope.featuredImages = 4
   $http.get( CONFIG.API_ENDPOINT + 'portfolio' )
     .then( function( resultsPosts ) {
@@ -23,6 +23,6 @@ export default function( $rootScope, $scope, $http, $sce, $sanitize, readingTime
         // }
       }, resultsPosts.data )
       $scope.items = resultsPosts.data
-      $rootScope.isLoading -= 1
+      $rootScope.isLoading = $rootScope.isLoading - 1
     } )
 }

@@ -1,7 +1,7 @@
 'use strict'
 
 export default function( $rootScope, $scope, $http, $stateParams, $sce, $sanitize, readingTime, CONFIG ) {
-  $rootScope.isLoading += 1
+  $rootScope.isLoading = $rootScope.isLoading + 1
   $scope.tag = $stateParams.tag
   $http.get( CONFIG.API_ENDPOINT + 'posts?filter[tag]=' + $stateParams.tag )
     .then( function( resultsPosts ) {
@@ -14,6 +14,6 @@ export default function( $rootScope, $scope, $http, $stateParams, $sce, $sanitiz
         this[key].tags = value.taxonomies_list.post_tag
       }, resultsPosts.data )
       $scope.articles = resultsPosts.data
-      $rootScope.isLoading -= 1
+      $rootScope.isLoading = $rootScope.isLoading - 1
     } )
 }
