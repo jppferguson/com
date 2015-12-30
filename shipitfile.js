@@ -29,7 +29,10 @@ module.exports = function ( shipit ) {
     },
 
     staging: {
-      servers: 'deploy@staging.jppferguson.com'
+      // branch: 'staging',
+      deployTo: '/var/www/staging.jppferguson.com',
+      servers: 'deploy@utopia.digo.jppferguson.com',
+      postNpmInstall: 'gulp prod'
     }
 
   } )
