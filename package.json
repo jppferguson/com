@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "setup": "npm install",
-    "test": "gulp tests:build"
+    "test": "./node_modules/karma/bin/karma start test/karma.conf.js --single-run"
   },
   "engines": {
     "node": "^0.12.x",
@@ -15,6 +15,7 @@
   "devDependencies": {
     "angular": "1.4.7",
     "angular-animate": "^1.4.8",
+    "angular-mocks": "^1.4.8",
     "angular-sanitize": "^1.4.8",
     "angular-ui-router": "^0.2.15",
     "babel-core": "^6.3.17",
@@ -46,6 +47,14 @@
     "imagemin-pngquant": "^4.2.0",
     "jade": "^1.11.0",
     "jadeify": "^4.4.0",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.12.37",
+    "karma-browserify": "^4.0.0",
+    "karma-coverage": "^0.2.7",
+    "karma-jasmine": "^0.3.6",
+    "karma-mocha": "^0.1.10",
+    "karma-mocha-reporter": "^1.0.0",
+    "karma-phantomjs-launcher": "^0.1.4",
     "lodash": "^3.10.0",
     "run-sequence": "^1.1.4",
     "shipit-cli": "^1.4.1",
