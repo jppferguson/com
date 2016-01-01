@@ -18,6 +18,7 @@ module.exports = function ( karma ) {
       // app
       'dist/assets/js/app.js',
       // vendor
+      'node_modules/angular/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
       // tests
       'test/unit/**/*.js'
