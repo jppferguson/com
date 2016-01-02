@@ -1,4 +1,6 @@
 module.exports = function ( shipit ) {
+  var sshPort = process.env.SSH_PORT ? parseInt( process.env.SSH_PORT ) : 22
+
   require( 'shipit-deploy' )( shipit )
   require( 'shipit-npm' )( shipit )
 
@@ -29,9 +31,9 @@ module.exports = function ( shipit ) {
     },
 
     staging: {
-      // branch: 'staging',
+      branch: 'staging',
       deployTo: '/var/www/staging.jppferguson.com',
-      servers: 'deploy@utopia.digo.jppferguson.com',
+      servers: 'deploy@staging.jppferguson.com:' + sshPort,
       postNpmInstall: 'gulp prod'
     }
 
