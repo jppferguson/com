@@ -3,17 +3,20 @@
     h1(ng-bind-html="item.title.rendered") {{ item.title.rendered }}
     p.lead {{ item.custom_meta.subheader }}
 
-section.section
+section.section(ng-hide="isLoading")
   .container
     .row
-      .col-lg-8(ng-hide="isLoading")
-        div(ng-bind-html="item.content.rendered") {{item.content.rendered}}
+      .col-lg-8
+        div(ng-bind-html="item.content.rendered") {{ item.content.rendered }}
         aside(like-what-you-see)
       .col-lg-4
+        div
+          h5 Date
+          p {{ item.date | date: 'MMMM yyyy' }}
         div(ng-repeat="(taxonomy_name, taxonomy) in item.taxonomies_list" ng-show="taxonomy[0]")
-          h5 {{taxonomy_name}}
+          h5 {{ taxonomy_name }}
           ul.list-no-bullets
-            li(ng-repeat="tag in taxonomy") {{tag.name}}
+            li(ng-repeat="tag in taxonomy") {{ tag.name }}
         a.btn.btn-sm.btn-primary(href="{{ item.custom_meta.url }}" ng-hide="item.custom_meta.online === false || !item.custom_meta.url") Visit site &rarr;
         i(ng-show="item.custom_meta.online === 'false'") Site offline :'(
 
