@@ -15,7 +15,7 @@ section.section.bg-dark.reverse
       .col-md-6(ng-repeat="item in items | limitTo:2" ng-hide="isLoading")
         .tile(style="background-color:{{item.header_colour}};")
           a.tile-link.non-text-link(ui-sref="site.work.post({slug: item.slug})")
-          img.tile-img(ng-src="http://wordpress.jppferguson.com{{item.featured_image_thumbnail_url}}")
+          img.tile-img(ng-src="{{item.featured_image_thumbnail_url}}")
           .tile-content
             h3(ng-bind-html="item.title.rendered") {{ item.title.rendered }}
             p {{ item.custom_meta.subheader }}
