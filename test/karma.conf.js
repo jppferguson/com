@@ -10,17 +10,17 @@ module.exports = function ( karma ) {
 
     // preprocess matching files before serving them to the browser
     preprocessors: {
-      'src/scripts/**/*.js': [ 'browserify', 'coverage' ],
-      'test/unit/**/*.js': [ 'browserify' ],
+      'src/scripts/**/*': [ 'browserify' ],
+      // 'test/unit/**/*.js': [ 'browserify' ],
     },
 
     files: [
       // app
-      'dist/assets/js/app.js',
       // vendor
       'node_modules/angular/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
       // tests
+      'src/scripts/**/*',
       'test/unit/**/*.js'
     ],
 
@@ -72,10 +72,11 @@ module.exports = function ( karma ) {
 
     browserify: {
       debug: true,
-      extensions: ['.js'],
-      watch: true,
+      // extensions: ['.js'],
+      // watch: true,
       transform: [
         'babelify',
+        'jadeify',
         'browserify-ngannotate',
         'browserify-istanbul',
       ]
