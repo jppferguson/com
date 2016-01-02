@@ -8,6 +8,7 @@ section.section
     .row
       .col-lg-8(ng-hide="isLoading")
         div(ng-bind-html="item.content.rendered") {{item.content.rendered}}
+        aside(like-what-you-see)
       .col-lg-4
         div(ng-repeat="(taxonomy_name, taxonomy) in item.taxonomies_list" ng-show="taxonomy[0]")
           h5 {{taxonomy_name}}
