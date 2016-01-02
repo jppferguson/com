@@ -18,7 +18,7 @@ section.section.bg-dark.reverse
           img.tile-img(ng-src="http://wordpress.jppferguson.com{{item.featured_image_thumbnail_url}}")
           .tile-content
             h3(ng-bind-html="item.title.rendered") {{ item.title.rendered }}
-            p {{ item.subheader }}
+            p {{ item.custom_meta.subheader }}
     .row
       .col-md-12
         a.btn.btn-primary-outline(ui-sref="site.work.index") All Work

@@ -11,3 +11,11 @@ section.section
     .row
       .col-lg-8.col-lg-push-2(ng-hide="isLoading")
         article(ng-bind-html="article.content.rendered") {{article.content.rendered}}
+
+    .row
+      .col-sm-4
+        a.btn.btn-sm.btn-primary(ui-sref="site.journal.post({ slug: article.adjacent_posts.prev.post_name })" ng-show="article.adjacent_posts.prev") &larr; Previous
+      .col-sm-4.text-center
+        a.btn.btn-sm.btn-primary(ui-sref="site.journal.index") All Articles
+      .col-sm-4.text-right
+        a.btn.btn-sm.btn-primary(ui-sref="site.journal.post({ slug: article.adjacent_posts.next.post_name })" ng-show="article.adjacent_posts.next") Next &rarr;

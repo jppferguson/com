@@ -1,7 +1,7 @@
 .reverse.bg-green.header-offset.vh-50.relative(background-image="http://wordpress.jppferguson.com/{{item.featured_image_thumbnail_url}}")
   .container.center-center(ng-hide="isLoading")
     h1(ng-bind-html="item.title.rendered") {{ item.title.rendered }}
-    p.lead {{ item.subheader }}
+    p.lead {{ item.custom_meta.subheader }}
 
 section.section
   .container
@@ -14,3 +14,13 @@ section.section
           h5 {{taxonomy_name}}
           ul.list-no-bullets
             li(ng-repeat="tag in taxonomy") {{tag.name}}
+        a.btn.btn-sm.btn-primary(href="{{ item.custom_meta.url }}" ng-hide="item.custom_meta.online === false || !item.custom_meta.url") Visit site &rarr;
+        i(ng-show="item.custom_meta.online === 'false'") Site offline :'(
+
+    .row
+      .col-sm-4
+        a.btn.btn-sm.btn-primary(ui-sref="site.work.post({ slug: item.adjacent_posts.prev.post_name })" ng-show="item.adjacent_posts.prev") &larr; Previous
+      .col-sm-4.text-center
+        a.btn.btn-sm.btn-primary(ui-sref="site.work.index") All Work
+      .col-sm-4.text-right
+        a.btn.btn-sm.btn-primary(ui-sref="site.work.post({ slug: item.adjacent_posts.next.post_name })" ng-show="item.adjacent_posts.next") Next &rarr;
