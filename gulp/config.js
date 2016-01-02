@@ -59,10 +59,9 @@ config.sources.tests.karma = {
   configFile: __dirname + '/../' + config.sources.tests.root + '/karma.conf.js',
   browsers: [ 'PhantomJS' ],
   mochaReporter: {
-    output : 'minimal'
+    output: 'minimal'
   }
 }
-
 
 
 // setup destinations object
