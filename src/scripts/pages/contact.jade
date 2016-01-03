@@ -20,10 +20,18 @@ section.section
         .row
           .col-sm-6.form-group(floating-label="budget")
             label Budget
-            input.form-control
+            select.c-select.form-control
+              option(value="Less than £1,000") Less than £1,000
+              option(value="Between £1,000 and £2,500") Between £1,000 and £2,500
+              option(value="Between £2,500 and £5,000") Between £2,500 and £5,000
+              option(value="More than £5,000") More than £5,000
           .col-sm-6.form-group(floating-label="timeline")
             label Timeline
-            input.form-control(ng-model="timeline" placeholder="Timeline")
+            select.c-select.form-control
+              option(value="ASAP or within a few days") ASAP or within a few days
+              option(value="A couple of weeks") A couple of weeks
+              option(value="A month or two") A month or two
+              option(value="Several months") Several months
         .form-group.row(floating-label="enquiry")
           label How can I help you?
           textarea.form-control(elastic)

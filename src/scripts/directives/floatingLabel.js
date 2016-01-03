@@ -7,7 +7,7 @@ export default function( $compile ) {
     template: '',
     compile: function( $elem, attr ) {
       var $label = angular.element( $elem[0].querySelector( 'label' ) )
-      var $input = angular.element( $elem[0].querySelector( 'input,textarea' ) )
+      var $input = angular.element( $elem[0].querySelector( '.form-control' ) )
       var id = attr.floatingLabel
       var text = $label.text()
 
@@ -15,7 +15,11 @@ export default function( $compile ) {
 
       $input.attr( 'id', id )
       $input.attr( 'ng-model', id )
-      $input.attr( 'placeholder', text )
+      if( $input[0].nodeName === 'SELECT' ) {
+        $input.prepend(angular.element('<option value="" disabled>' + text + '</option>'))
+      } else {
+        $input.attr( 'placeholder', text )
+      }
 
       $label.attr( 'ng-class', '{\'show-hide\' : true}' )
       $label.attr( 'ng-show', id )
