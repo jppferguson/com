@@ -20,7 +20,6 @@ gulp.task( 'karma:watch', function() {
   // Disable the coverage reporter while we're watching
   config.sources.tests.karma.coverageReporter = {}
   config.sources.tests.karma.coverageReporter.reporters = []
-  config.sources.tests.karma.preprocessors = {}
   server = new karma.Server( config.sources.tests.karma, done )
   server.start()
   return done
