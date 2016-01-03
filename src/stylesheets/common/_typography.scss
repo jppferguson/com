@@ -89,28 +89,14 @@ hr {
   }
 }
 
-// h1, .h1 { font-size: 2rem; }
-// h2, .h2 { font-size: 3rem; }
-// h3, .h3 { font-size: 1.5rem; }
-// h4, .h4 { font-size: 1rem; }
-h5, .h5 {
-  font-size: 1rem;
-  margin: 0;
-}
- h1, h2, h3, h4, h5,
-.h1,.h2,.h3,.h4,.h5 {
-  margin-bottom: 1.5rem;
-}
-
  h1, h3, h4, h5,
 .h1,.h3,.h4,.h5 {
   font-weight: 600;
   @extend .sans;
 }
-h2, .h2 {
-  a {
-    font-weight: 300;
-  }
+h2, .h2,
+h2 a, .h2 a {
+  font-weight: 300;
 }
 .btn-text {
   position: relative;
