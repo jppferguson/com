@@ -1,22 +1,4 @@
-$footer-height: 300px;
-
-/* Sticky footer */
-html {
-  min-height: 100%;
-  position: relative;
-}
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: $footer-height;
-}
 .footer {
-  @extend .border-box;
-  font-size: 1rem;
   padding: 50px 0;
-  position: absolute;
-  bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
-  height: $footer-height;
-  z-index: 1;
 }

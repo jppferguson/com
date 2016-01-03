@@ -1,7 +1,7 @@
 .reverse.bg-home.header-offset.vh-90.relative
   .container.center-center
     h1.bold Hi, I’m Jamie.
-    p.h2 I specialise in
+    p.lead I specialise in
       em=" crafting "
       | digital experiences.
     .p-t-3: a.btn.btn-primary-outline(ui-sref="site.work.index") View some work I've done
@@ -26,11 +26,11 @@ section.section.bg-dark.reverse
 
 section.section.bg-light.bg-journal
   .container(ng-controller="JournalCtrl")
-    h3 Journal
+    h3 Recent Articles
     article.article-preview(ng-repeat="article in articles" ng-hide="isLoading")
       h2
         a(ui-sref="site.journal.post({slug: article.slug})" ng-bind-html="article.title.rendered") {{ article.title.rendered }}
-      p About a {{ article.readingTime }} read from
+      p.lead About a {{ article.readingTime }} read from
         = ' '
         em {{ article.date | date:format:'mediumDate' }}.
         a.tag(ng-repeat="tag in article.tags" ui-sref="site.journal.tag({tag: tag.name})" ng-show="article.tags[0]") \#{{tag.name}}
@@ -39,5 +39,6 @@ section.section.bg-light.bg-journal
 section.section.bg-green.bg-profile.reverse
   .container(ng-controller="PageCtrl")
     h3 Profile
+    h2 I'm a kiwi
     div(ng-bind-html="article.excerpt.rendered") {{article.excerpt.rendered}}
     a.btn.btn-primary-outline(ui-sref="site.profile") Also I like cats

@@ -16,15 +16,8 @@ $colour-reverse-background: $colour-background-dark;
 $colour-reverse-text:       #ffe;
 $colour-reverse-link:       #ffe;
 
-
-// Vendor stuff
-$enable-flex: true;
-$enable-rounded: false;
-$brand-primary: $colour-background-dark;
-$input-btn-border-width: 2px;
-$font-size-root: 18px;
-
-// $gray-dark:                 #373a3c;
+// Colours
+$gray-dark:                 #373a3c;
 // $gray:                      #55595c;
 $gray-light:                #a8a8a8;
 // $gray-lighter:              #eceeef;
@@ -35,3 +28,47 @@ $gray-light:                #a8a8a8;
 // $brand-info:                #5bc0de;
 // $brand-warning:             #f0ad4e;
 // $brand-danger:              #d9534f;
+
+
+// Vendor stuff
+$enable-flex: true;
+$enable-rounded: false;
+$brand-primary: $colour-background-dark;
+$input-btn-border-width: 2px;
+
+$body-color:                 $gray-dark;
+$font-family-sans-serif:     'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family-serif:          'Alegreya', Georgia, 'Times New Roman', Times, serif;
+// $font-family-monospace:      Menlo, Monaco, Consolas, 'Courier New', monospace;
+$font-family-base:           $font-family-serif;
+
+// Font sizes
+$font-size-root:        14px;
+$font-size-root-sm-up:  16px;
+$font-size-root-md-up:  18px;
+$font-size-root-lg-up:  20px;
+
+$font-size-base:  1.125rem; // 18px
+$font-size-lg:    1.25rem;  // 18px
+$font-size-sm:    .875rem;  // 18px
+$font-size-xs:    .75rem;   // 18px
+
+$font-size-h1:    3rem;     // 48px
+$font-size-h2:    3.75rem;  // 60px
+$font-size-h3:    1.75rem;  // 28px
+$font-size-h4:    1.5rem;   // 24px
+$font-size-h5:    1.25rem;  // 20px
+$font-size-h6:    1rem;     // 18px
+
+$display1-size:   6rem;     // 96px
+$display2-size:   5.5rem;   // 88px
+$display3-size:   4.5rem;   // 72px
+$display4-size:   3.5rem;   // 56px
+
+$display1-weight: 300;
+$display2-weight: 300;
+$display3-weight: 300;
+$display4-weight: 300;
+
+$line-height:    1.8;
+$lead-font-size: 1.5rem;

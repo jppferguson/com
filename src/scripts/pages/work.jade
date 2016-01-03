@@ -11,11 +11,11 @@ section.section.vh-50.bg-dark.reverse.relative(ng-repeat="item in items | limitT
         .img-window
           i
           a(ui-sref="site.work.post({slug: item.slug})")
-            img.img-fluid(ng-src="http://wordpress.jppferguson.com{{item.featured_image_thumbnail_url}}" ng-show="item.featured_image_thumbnail_url")
+            img.img-fluid(ng-src="{{item.featured_image_thumbnail_url}}" ng-show="item.featured_image_thumbnail_url")
       .col-md-6(ng-class="{'col-md-pull-6': $index % 2 && item.featured_image_thumbnail_url }")
         h2.h1
           a(ui-sref="site.work.post({slug: item.slug})" ng-bind-html="item.title.rendered") {{item.title.rendered}}
-        p.h2 {{ item.custom_meta.subheader }}
+        p.lead {{ item.custom_meta.subheader }}
         a.btn.btn-sm.btn-primary-outline(ui-sref="site.work.post({slug: item.slug})") Find out more
 
 section.section.bg-dark.reverse.relative

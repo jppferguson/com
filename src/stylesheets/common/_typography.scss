@@ -1,10 +1,25 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|Alegreya:400,400italic,600|Alegreya+SC:400,400italic,700);
+
+/* Responsive typography */
+@include media-breakpoint-up(sm) {
+  html { font-size: $font-size-root-sm-up; }
+}
+@include media-breakpoint-up(md) {
+  html { font-size: $font-size-root-md-up; }
+}
+@include media-breakpoint-up(lg) {
+  html { font-size: $font-size-root-lg-up; }
+}
+
+
 body {
-  color: #444;
-  font-family: 'Alegreya', serif;
-  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.sans {
+  font-family: $font-family-sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .05em;
 }
 a {
   color: #555;
@@ -48,12 +63,6 @@ hr {
   border-width: 3px 0 0;
   max-width: 200px;
   margin: 4em auto;
-}
-
-.sans {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: .05em;
 }
 
 .bold {
