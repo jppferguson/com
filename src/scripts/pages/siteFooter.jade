@@ -1,14 +1,14 @@
 footer.footer.section.reverse.bg-dark.text-xs-center.text-md-left
   .container
     .row
-      .col-md-3.col-xs-6
+      .col-md-3.col-xs-6.text-xs-right.text-md-left
         ul.list-no-bullets.sans
           li: a(ui-sref="site.index") Home
           li: a(ui-sref="site.work.index") Work
           li: a(ui-sref="site.profile") Profile
           li: a(ui-sref="site.journal.index") Journal
           li: a(ui-sref="site.contact") Contact
-      .col-md-3.col-xs-6
+      .col-md-3.col-xs-6.text-xs-left
         ul.list-no-bullets.sans
           li: a(href="http://github.com/jppferguson") Github
           li: a(href="http://twitter.com/jppferguson") Twitter
@@ -27,7 +27,8 @@ footer.footer.section.reverse.bg-dark.text-xs-center.text-md-left
           =', or '
           a(href="http://me.jppferguson.com") a feed of what I’ve been up to
           | .
-
+  hr.hr-full
+  .container
     .copyright
       p.inline.text-muted Copyright &copy; 1987 – 2015 Jamie Ferguson. All Rights Reserved.
       ul.inline.list-inline-bullets
