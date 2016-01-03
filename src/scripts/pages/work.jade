@@ -12,7 +12,7 @@ section.section.vh-50.bg-dark.reverse.relative(ng-repeat="item in items | limitT
           i
           a(ui-sref="site.work.post({slug: item.slug})")
             img.img-fluid(ng-src="{{item.featured_image_thumbnail_url}}" ng-show="item.featured_image_thumbnail_url")
-      .col-md-6(ng-class="{'col-md-pull-6': $index % 2 && item.featured_image_thumbnail_url }")
+      div(ng-class="{ 'col-md-pull-6': $index % 2 && item.featured_image_thumbnail_url, 'col-md-6': item.featured_image_thumbnail_url, 'col-md-12': !item.featured_image_thumbnail_url }")
         h2.h1
           a(ui-sref="site.work.post({slug: item.slug})" ng-bind-html="item.title.rendered") {{item.title.rendered}}
         p.lead {{ item.custom_meta.subheader }}
@@ -20,7 +20,7 @@ section.section.vh-50.bg-dark.reverse.relative(ng-repeat="item in items | limitT
 
 section.section.bg-dark.reverse.relative
   .container
-    h4 From the Archive
+    h4.p-b-3 From the Archive
     article.article-preview(ng-repeat="item in items | limitTo : 10 : featuredImages" ng-hide="isLoading" style="background-color:{{item.header_colour}};")
       h2: a(ui-sref="site.work.post({slug: item.slug})" ng-bind-html="item.title.rendered") {{item.title.rendered}}
       p {{ item.subheader }}

@@ -11,7 +11,7 @@ section.section.bg-dark.reverse
   .container(ng-controller="WorkCtrl")
     .row
       .col-md-12
-        h3 Featured Case Studies
+        h4.p-b-3 Featured Case Studies
       .col-md-6(ng-repeat="item in items | limitTo:2" ng-hide="isLoading")
         .tile(style="background-color:{{item.header_colour}};")
           a.tile-link.non-text-link(ui-sref="site.work.post({slug: item.slug})")
@@ -26,7 +26,7 @@ section.section.bg-dark.reverse
 
 section.section.bg-light.bg-journal
   .container(ng-controller="JournalCtrl")
-    h3 Recent Articles
+    h4.p-b-3 Recent Articles
     article.article-preview(ng-repeat="article in articles" ng-hide="isLoading")
       h2
         a(ui-sref="site.journal.post({slug: article.slug})" ng-bind-html="article.title.rendered") {{ article.title.rendered }}
@@ -38,7 +38,7 @@ section.section.bg-light.bg-journal
 
 section.section.bg-green.bg-profile.reverse
   .container(ng-controller="PageCtrl")
-    h3 Profile
+    h4.p-b-3 Profile
     h2 I'm a kiwi
     div(ng-bind-html="article.excerpt.rendered") {{article.excerpt.rendered}}
     a.btn.btn-primary-outline(ui-sref="site.profile") Also I like cats
