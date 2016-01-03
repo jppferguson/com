@@ -10,7 +10,7 @@ module.exports = function ( shipit ) {
       workspace: '/tmp/deploy_jppferguson_com',
       dirToCopy: 'dist',
       deployTo: '/tmp/deploy_to',
-      currentPath: 'www',
+      currentPath: 'html',
       repositoryUrl: 'https://github.com/jppferguson/com.git',
       ignores: ['.git', 'node_modules'],
       rsync: ['--del'],

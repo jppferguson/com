@@ -59,7 +59,7 @@
     "lodash": "^3.10.0",
     "run-sequence": "^1.1.4",
     "shipit-cli": "^1.4.1",
-    "shipit-deploy": "^2.1.2",
+    "shipit-deploy": "jppferguson/shipit-deploy#feature-new-options",
     "shipit-npm": "^0.2.0",
     "uglifyify": "^3.0.1",
     "vinyl-buffer": "^1.0.0",
