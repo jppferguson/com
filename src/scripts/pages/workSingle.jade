@@ -10,15 +10,20 @@ section.section(ng-hide="isLoading")
         div(ng-bind-html="item.content.rendered") {{ item.content.rendered }}
         aside(like-what-you-see)
       .col-lg-4
-        div
-          h5 Date
-          p {{ item.date | date: 'MMMM yyyy' }}
-        div(ng-repeat="(taxonomy_name, taxonomy) in item.taxonomies_list" ng-show="taxonomy[0]")
-          h5 {{ taxonomy_name }}
-          ul.list-no-bullets
-            li(ng-repeat="tag in taxonomy") {{ tag.name }}
-        a.btn.btn-sm.btn-primary(href="{{ item.custom_meta.url }}" ng-hide="item.custom_meta.online === false || !item.custom_meta.url") Visit site &rarr;
-        i(ng-show="item.custom_meta.online === 'false'") Site offline :'(
+        .card
+          .card-header.sans
+            | Key Facts
+          .list-group.list-group-flush
+            .list-group-item
+              h5.list-group-item-heading Date
+              p.list-group-item-text {{ item.date | date: 'MMMM yyyy' }}
+            .list-group-item(ng-repeat="(taxonomy_name, taxonomy) in item.taxonomies_list" ng-show="taxonomy[0]")
+              h5.list-group-item-heading {{ taxonomy_name }}
+              ul.list-group-item-text.list-no-bullets
+                li(ng-repeat="tag in taxonomy") {{ tag.name }}
+          .card-block
+            a.card-link.btn.btn-sm.btn-primary.btn-block(href="{{ item.custom_meta.url }}" ng-hide="item.custom_meta.online === false || !item.custom_meta.url") Visit site &rarr;
+            i(ng-show="item.custom_meta.online === 'false'") Site offline :'(
 
     .row
       .col-sm-4
