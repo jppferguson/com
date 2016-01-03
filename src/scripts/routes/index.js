@@ -9,6 +9,7 @@ import pageProfile       from '../pages/profile.jade'
 import pageJournal       from '../pages/journal.jade'
 import pageJournalTag    from '../pages/journalTag.jade'
 import pageJournalSingle from '../pages/journalSingle.jade'
+import pageStyleguide    from '../pages/styleguide.jade'
 import pageWork          from '../pages/work.jade'
 import pageWorkSingle    from '../pages/workSingle.jade'
 import pageContact       from '../pages/contact.jade'
@@ -117,6 +118,10 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
       url: 'sitemap/',
       controller: 'PageCtrl',
       template: pageGeneral
+    } )
+    .state( 'site.styleguide', {
+      url: 'styleguide/',
+      template: pageStyleguide
     } )
     .state( 'site.404', {
       url: '404/',
