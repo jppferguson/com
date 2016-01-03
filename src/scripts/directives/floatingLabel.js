@@ -15,8 +15,8 @@ export default function( $compile ) {
 
       $input.attr( 'id', id )
       $input.attr( 'ng-model', id )
-      if( $input[0].nodeName === 'SELECT' ) {
-        $input.prepend(angular.element('<option value="" disabled>' + text + '</option>'))
+      if ( $input[0].nodeName === 'SELECT' ) {
+        $input.prepend( angular.element( '<option value="" disabled>' + text + '</option>' ) )
       } else {
         $input.attr( 'placeholder', text )
       }
