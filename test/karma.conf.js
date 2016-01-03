@@ -16,11 +16,10 @@ module.exports = function ( karma ) {
 
     files: [
       // app
+      'src/scripts/**/*',
       // vendor
-      'node_modules/angular/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
       // tests
-      'src/scripts/**/*',
       'test/unit/**/*.js'
     ],
 
