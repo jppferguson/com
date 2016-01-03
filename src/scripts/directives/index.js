@@ -1,6 +1,7 @@
 'use strict'
 import a               from './a'
 import backgroundImage from './backgroundImage'
+import backgroundColour from './backgroundColour'
 import elastic         from './elastic'
 import floatingLabel   from './floatingLabel'
 import likeWhatYouSee  from './likeWhatYouSee'
@@ -11,6 +12,7 @@ import workItem        from './workItem'
 
 var appDirectives = angular.module( 'appDirectives', [] )
   .directive( 'a',               a )
+  .directive( 'backgroundColour', backgroundColour )
   .directive( 'backgroundImage', backgroundImage )
   .directive( 'elastic',         elastic )
   .directive( 'floatingLabel',   floatingLabel )

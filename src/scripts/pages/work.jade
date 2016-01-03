@@ -4,7 +4,7 @@
     p.lead Here are some projects I’ve worked on.
     p Go on — pick one.
 
-section.section.vh-50.bg-dark.reverse.relative(ng-repeat="item in items | limitTo:featuredImages" ng-hide="isLoading" style="background-color:{{item.header_colour}};")
+section.section.vh-50.bg-dark.reverse.relative(ng-repeat="item in items | limitTo:featuredImages" ng-hide="isLoading" background-colour="{{ item.custom_meta.header_colour }}" ng-class="{ 'bg-blue': !item.custom_meta.header_colour }")
   .container
     .row.flex-center
       .col-md-6(ng-show="item.featured_image_thumbnail_url" ng-class="{'col-md-push-6': $index % 2 }")
