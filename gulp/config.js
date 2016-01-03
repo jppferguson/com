@@ -27,6 +27,16 @@ config.sources.fonts = {}
 config.sources.fonts.root = src + '/fonts'
 config.sources.fonts.glob = config.sources.fonts.root + '/**/*'
 
+config.sources.icons = {}
+config.sources.icons.root = src + '/icons'
+config.sources.icons.className = 'icon'
+config.sources.icons.fontName = 'iconfont'
+config.sources.icons.fontPath = '../fonts/'
+config.sources.icons.formats = [ 'ttf', 'eot', 'woff' ]
+config.sources.icons.sassFile = '_icons.scss'
+config.sources.icons.template = config.sources.icons.root + '/_template.scss'
+config.sources.icons.glob = config.sources.icons.root + '/**/*.svg'
+
 config.sources.images = {}
 config.sources.images.root = src + '/images'
 config.sources.images.glob = config.sources.images.root + '/**/*'

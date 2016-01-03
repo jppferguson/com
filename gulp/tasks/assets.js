@@ -2,11 +2,14 @@
 
 import browserSync from 'browser-sync'
 import config      from '../config'
+import consolidate from 'gulp-consolidate'
 import gulp        from 'gulp'
 import gulpif      from 'gulp-if'
 import handleError from '../helpers/handle-error'
+import iconfont    from 'gulp-iconfont'
 import imagemin    from 'gulp-imagemin'
 import pngquant    from 'imagemin-pngquant'
+import rename      from 'gulp-rename'
 
 /*
  * Fonts
@@ -19,6 +22,30 @@ gulp.task( 'fonts:build', function() {
 
 gulp.task( 'fonts:watch', [ 'fonts:build' ], function() {
   gulp.watch( config.sources.fonts.glob, [ 'fonts:build' ] )
+} )
+
+
+gulp.task( 'iconfont:build', function() {
+  return gulp.src( [ config.sources.icons.glob ] )
+    .pipe( iconfont( {
+      fontName: config.sources.icons.fontName,
+      appendUnicode: false,
+      formats: config.sources.icons.formats,
+      timestamp: Math.round( Date.now() / 1000 )
+    } ) )
+    .on( 'glyphs', function( glyphs ) {
+      var fontConfig = config.sources.icons
+      fontConfig.glyphs = glyphs
+      gulp.src( config.sources.icons.template )
+        .pipe( consolidate( 'lodash', fontConfig ) )
+        .pipe( rename( config.sources.icons.sassFile ) )
+        .pipe( gulp.dest( config.sources.styles.root ) )
+    } )
+    .pipe( gulp.dest( config.destinations.fonts ) )
+} )
+
+gulp.task( 'iconfont:watch', [ 'iconfont:build' ], function() {
+  gulp.watch( config.sources.icons.glob, [ 'iconfont:build' ] )
 } )
 
 
@@ -62,5 +89,5 @@ gulp.task( 'public:watch', [ 'public:build' ], function() {
  * All together now
  *******************************/
 
-gulp.task( 'assets:build', [ 'fonts:build', 'images:build', 'public:build' ] )
-gulp.task( 'assets:watch', [ 'fonts:watch', 'images:watch', 'public:watch' ] )
+gulp.task( 'assets:build', [ 'fonts:build', 'iconfont:build', 'images:build', 'public:build' ] )
+gulp.task( 'assets:watch', [ 'fonts:watch', 'iconfont:watch', 'images:watch', 'public:watch' ] )
