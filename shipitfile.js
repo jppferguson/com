@@ -2,7 +2,6 @@ module.exports = function ( shipit ) {
   var sshPort = process.env.SSH_PORT ? parseInt( process.env.SSH_PORT ) : 22
 
   require( 'shipit-deploy' )( shipit )
-  require( 'shipit-npm' )( shipit )
 
   shipit.initConfig( {
 
@@ -35,25 +34,39 @@ module.exports = function ( shipit ) {
       deployTo: '/var/www/staging.jppferguson.com',
       servers: 'deploy@utopia.digo.jppferguson.com:' + sshPort,
       postNpmInstall: 'gulp prod'
+    },
+
+    craptest: {
+      deployTo: '/var/www/staging.jppferguson.com2',
+      repositoryUrl: 'https://github.com/jppferguson/com.git',
+      servers: 'deploy@utopia222.digo.jppferguson.com:' + sshPort,
+      postNpmInstall: 'gulp prod'
     }
 
   } )
 
   // Events
+  .on( 'fetched', function() {
+    shipit.start( 'npm:install' )
+  } )
   .on( 'npm_installed', function() {
     if( typeof shipit.config.postNpmInstall === 'string' ) {
-      shipit.start( 'post-npm-install' )
+      shipit.start( 'npm:post-install' )
     }
   } )
 
-  // Tasks
-  shipit.blTask('post-npm-install', function () {
-    //postNpmInstall: 'gulp --env="{environment_name}"'
-    //the NG_ENV environment var is not necessary here but should be set in our CI scripts before running shipit deploy. eg NG_ENV={environment_name} shipit {environment_name} deploy
 
-    var postNpmRemote = typeof shipit.config.npm !== 'undefined' ? shipit.config.npm.remote !== false : true
-    var method = postNpmRemote ? 'remote' : 'local'
-    var postNpmInstallPath = postNpmRemote ? shipit.releasePath || shipit.currentPath : shipit.config.workspace
-    return shipit[ method ]( 'cd '+postNpmInstallPath+' && '+shipit.config.postNpmInstall )
+  // Tasks
+  shipit.blTask( 'npm:install', function () {
+    return shipit.local( 'npm install' ).then( function ( res ) {
+      shipit.emit( 'npm_installed' )
+      return res.child.stdout
+    } ).catch( function ( e ) {
+      throw new Error( e )
+      process.exit( 1 )
+    } )
+  } )
+  shipit.blTask('npm:post-install', function () {
+    return shipit.local( shipit.config.postNpmInstall )
   } )
 }
