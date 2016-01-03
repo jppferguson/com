@@ -18,7 +18,10 @@ config.sources.root = src
 
 config.sources.www = {}
 config.sources.www.root = src + '/public'
-config.sources.www.glob = config.sources.www.root + '/**/*'
+config.sources.www.glob = [
+  config.sources.www.root + '/**/*',
+  config.sources.www.root + '/.htaccess'
+]
 
 config.sources.fonts = {}
 config.sources.fonts.root = src + '/fonts'
