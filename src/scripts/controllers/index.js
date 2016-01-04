@@ -1,4 +1,5 @@
 'use strict'
+import FooterCtrl        from './FooterCtrl'
 import PageCtrl          from './PageCtrl'
 import IndexCtrl         from './IndexCtrl'
 import JournalCtrl       from './JournalCtrl'
@@ -8,6 +9,7 @@ import WorkCtrl          from './WorkCtrl'
 import WorkSingleCtrl    from './WorkSingleCtrl'
 
 var appControllers = angular.module( 'appControllers', [] )
+  .controller( 'FooterCtrl',        FooterCtrl )
   .controller( 'PageCtrl',          PageCtrl )
   .controller( 'IndexCtrl',         IndexCtrl )
   .controller( 'JournalCtrl',       JournalCtrl )

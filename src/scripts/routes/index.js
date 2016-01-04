@@ -104,21 +104,6 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
       url: 'contact/',
       template: pageContact
     } )
-    .state( 'site.legals', {
-      url: 'legals/',
-      controller: 'PageCtrl',
-      template: pageGeneral
-    } )
-    .state( 'site.privacy', {
-      url: 'privacy/',
-      controller: 'PageCtrl',
-      template: pageGeneral
-    } )
-    .state( 'site.sitemap', {
-      url: 'sitemap/',
-      controller: 'PageCtrl',
-      template: pageGeneral
-    } )
     .state( 'site.styleguide', {
       url: 'styleguide/',
       template: pageStyleguide
@@ -127,5 +112,10 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
       url: '404/',
       template: page404
     } )
-
+    // automagic pages
+    .state( 'site.page', {
+      url: ':page/',
+      controller: 'PageCtrl',
+      template: pageGeneral
+    } )
 } ] )

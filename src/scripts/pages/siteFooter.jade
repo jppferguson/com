@@ -32,7 +32,7 @@ footer.footer.section.reverse.bg-dark.text-xs-center.text-md-left(ng-controller=
           =' '
           a(href="http://github.com/jppferguson/dotfiles") Dotfiles
           =', '
-          a(href="/stuff-i-use/") Stuff I use
+          a(ui-sref="site.page({page:'stuff-i-use'})") Stuff I use
           =', or '
           a(href="http://me.jppferguson.com") a feed of what I’ve been up to
           | .
@@ -41,7 +41,7 @@ footer.footer.section.reverse.bg-dark.text-xs-center.text-md-left(ng-controller=
     .copyright
       p.inline.text-muted Copyright &copy; 1987 – {{ date | date:'yyyy' }} Jamie Ferguson. All Rights Reserved.
       ul.inline.list-inline-bullets
-        li: a(ui-sref="site.privacy") Privacy Policy
-        li: a(ui-sref="site.legals") Legal Notice
-        li: a(ui-sref="site.sitemap") Sitemap
+        li: a(ui-sref="site.page({page:'privacy'})") Privacy Policy
+        li: a(ui-sref="site.page({page:'legals'})") Legal Notice
+        li: a(ui-sref="site.page({page:'sitemap'})") Sitemap
         li: a(ui-sref="site.styleguide") Style Guide

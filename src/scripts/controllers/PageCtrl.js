@@ -1,6 +1,6 @@
 'use strict'
 
-export default function( $rootScope, $scope, $http, $location, $sce, CONFIG ) {
+export default function( $rootScope, $scope, $http, $location, $sce, CONFIG, pageTitle ) {
 
   var page = $location.path().substring( 1 )
   if ( page === '' ) {
@@ -10,13 +10,19 @@ export default function( $rootScope, $scope, $http, $location, $sce, CONFIG ) {
   $rootScope.isLoading = $rootScope.isLoading + 1
   $http.get( CONFIG.API_ENDPOINT + 'pages/?filter[name]=' + page )
     .then( function( res ) {
-      angular.forEach( res.data, function( value, key ) {
+      var pageData = res.data[0]
+      if ( pageData ) {
         // trust each title, content and excerpt in the object
-        this[key].title.rendered = $sce.trustAsHtml( value.title.rendered )
-        this[key].excerpt.rendered = $sce.trustAsHtml( value.excerpt.rendered )
-        this[key].content.rendered = $sce.trustAsHtml( value.content.rendered )
-      }, res.data )
-      $scope.article = res.data[0]
-      $rootScope.isLoading = $rootScope.isLoading - 1
+        pageData.title.rendered = $sce.trustAsHtml( pageData.title.rendered )
+        pageData.excerpt.rendered = $sce.trustAsHtml( pageData.excerpt.rendered )
+        pageData.content.rendered = $sce.trustAsHtml( pageData.content.rendered )
+
+        $scope.page = pageData
+        $rootScope.isLoading = $rootScope.isLoading - 1
+      } else {
+        // 404 if there's no data...
+        $location.url( '/404' )
+      }
+
     } )
 }
