@@ -21,6 +21,19 @@ body {
   text-transform: uppercase;
   letter-spacing: .05em;
 }
+.h1, .h2, .h3, .h4, .h5, .h6,
+ h1,  h2,  h3,  h4,  h5,  h6 {
+  @extend .sans;
+}
+.display-1, .display-2, .display-3, .display-4 {
+  font-family: $font-family-serif;
+  letter-spacing: normal;
+  text-transform: none;
+  a {
+    font-weight: inherit;
+  }
+}
+
 a {
   color: #555;
   font-weight: bold;
@@ -111,15 +124,6 @@ hr {
   }
 }
 
- h1, h3, h4, h5,
-.h1,.h3,.h4,.h5 {
-  font-weight: 600;
-  @extend .sans;
-}
-h2, .h2,
-h2 a, .h2 a {
-  font-weight: 300;
-}
 .btn-text {
   position: relative;
   text-decoration: none;

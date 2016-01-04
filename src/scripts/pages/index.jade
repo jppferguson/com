@@ -29,7 +29,7 @@ section.section.bg-light.bg-journal
   .container(ng-controller="JournalCtrl")
     h4.p-b-3 Recent Articles
     article.article-preview(ng-repeat="article in articles" ng-hide="isLoading")
-      h2
+      h2.display-3
         a(ui-sref="site.journal.post({slug: article.slug})" ng-bind-html="article.title.rendered") {{ article.title.rendered }}
       p.lead About a {{ article.readingTime }} read from
         = ' '
@@ -40,6 +40,6 @@ section.section.bg-light.bg-journal
 section.section.bg-green.bg-profile.reverse
   .container(ng-controller="PageCtrl")
     h4.p-b-3 Profile
-    h2 I'm a kiwi
+    h2.display-3 I'm a kiwi
     div(ng-bind-html="article.excerpt.rendered") {{article.excerpt.rendered}}
     a.btn.btn-primary-outline(ui-sref="site.profile") Also I like cats
