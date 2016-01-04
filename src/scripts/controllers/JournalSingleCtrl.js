@@ -1,6 +1,6 @@
 'use strict'
 
-export default function( $rootScope, $scope, $stateParams, JournalFactory ) {
+export default function( $rootScope, $scope, $stateParams, $location, JournalFactory ) {
 
   $rootScope.isLoading = $rootScope.isLoading + 1
 

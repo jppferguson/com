@@ -12,10 +12,4 @@ section.section
     .row
       .col-lg-8.col-lg-push-2
         p.lead I’m Jamie Ferguson, a freelance Creative Developer working in London, UK.
-        article(ng-bind-html="article.content.rendered") {{article.content.rendered}}
-
-        //- p From an early age I was fascinated with how things worked. It was this curiosity which led me to teach myself to both design &amp; code in my teenage years. Since then I have been driven to constantly update my skillset and keep up with the ever-changing medium that is technology. I’m a natural problem solver with an eye for the little details, something that shows through in the quality of my work. I’m always looking for new and more efficient ways of doing things. I’d describe myself as a pretty quiet fellow who enjoys a good laugh, even if it’s at my own expense.
-
-        //- h3 F.Y.I. I’m from the other side of the world, so I often say things a bit differently.
-        //- p I might sound like I’m asking for a pin when I’m actually mean pen, or what to put something in a bun when I mean bin. Just don’t ask me to say “deck” in client meetings.
-
+        div(ng-bind-html="page.content.rendered") {{ page.content.rendered }}
