@@ -34,19 +34,15 @@ module.exports = function ( shipit ) {
       deployTo: '/var/www/staging.jppferguson.com',
       servers: 'deploy@utopia.digo.jppferguson.com:' + sshPort,
       postNpmInstall: 'gulp prod'
-    },
-
-    craptest: {
-      deployTo: '/var/www/staging.jppferguson.com2',
-      repositoryUrl: 'https://github.com/jppferguson/com.git',
-      servers: 'deploy@utopia222.digo.jppferguson.com:' + sshPort,
-      postNpmInstall: 'gulp prod'
     }
 
   } )
 
   // Events
   .on( 'fetched', function() {
+    shipit.start( 'npm:copy' )
+  } )
+  .on( 'npm_copied', function() {
     shipit.start( 'npm:install' )
   } )
   .on( 'npm_installed', function() {
@@ -57,16 +53,19 @@ module.exports = function ( shipit ) {
 
 
   // Tasks
+  shipit.blTask('npm:copy', function () {
+    shipit.local( 'ln -s ${PWD}/node_modules ' + shipit.config.workspace + '/node_modules' )
+    shipit.emit( 'npm_copied' )
+  } )
   shipit.blTask( 'npm:install', function () {
-    return shipit.local( 'npm install' ).then( function ( res ) {
+    return shipit.local( 'cd ' + shipit.config.workspace + ' && npm install' ).then( function ( res ) {
       shipit.emit( 'npm_installed' )
-      return res.child.stdout
     } ).catch( function ( e ) {
       throw new Error( e )
       process.exit( 1 )
     } )
   } )
   shipit.blTask('npm:post-install', function () {
-    return shipit.local( shipit.config.postNpmInstall )
+    return shipit.local( 'cd ' + shipit.config.workspace + ' && ' + shipit.config.postNpmInstall )
   } )
 }

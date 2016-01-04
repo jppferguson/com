@@ -11,7 +11,7 @@ import nano         from 'gulp-cssnano'
 import rename       from 'gulp-rename'
 import sourcemaps   from 'gulp-sourcemaps'
 
-gulp.task( 'styles:build', function() {
+gulp.task( 'styles:build', [ 'iconfont:build' ], function() {
   var sourceMaps   = !global.isProduction && !!config.settings.sourceMaps
   var minifyStyles = global.isProduction || config.settings.minify
 
