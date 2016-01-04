@@ -1,4 +1,16 @@
-.reverse.bg-green.header-offset.vh-50.relative
+.reverse.bg-yellow.header-offset.vh-50.relative
   .container.center-center
-    h1 404
-    p.lead Not found
+    h1 Uh oh...
+    p.lead
+      b Error 404
+      = " — "
+      em Page Not Found
+
+section.section
+  .container.text-xs-center
+    p: strong Sorry, but we can't find the page you were looking for.
+    small: em The file may have been moved or deleted.
+    hr
+    p.lead You could try typing the address again, or
+
+    a.btn.btn-md.btn-secondary(ui-sref="site.index") return to the homepage
