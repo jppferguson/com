@@ -13,12 +13,14 @@ import pageStyleguide    from '../pages/styleguide.jade'
 import pageWork          from '../pages/work.jade'
 import pageWorkSingle    from '../pages/workSingle.jade'
 import pageContact       from '../pages/contact.jade'
+import RedirectOldRoutes from './RedirectOldRoutes'
 import TrailingSlash     from './TrailingSlash'
 
 export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', function( $stateProvider, $urlRouterProvider ) {
 
   $urlRouterProvider
     .otherwise( '/404' )
+    .rule( RedirectOldRoutes )
     .rule( TrailingSlash )
 
   $stateProvider
