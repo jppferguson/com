@@ -16,6 +16,23 @@
 .example-leave.example-leave-active {
   opacity: 0;
 }
+.animate-down {
+  animation: 2000ms infinite scroll-down ease-in-out;
+}
+
+@keyframes scroll-down {
+  0% {
+    transform: translateY(-.25em);
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(.25em);
+  }
+}
 
 .loading {
   @extend .sans;
