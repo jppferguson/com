@@ -1,4 +1,4 @@
-footer.footer.section.reverse.bg-dark.text-xs-center.text-md-left
+footer.footer.section.reverse.bg-dark.text-xs-center.text-md-left(ng-controller="FooterCtrl")
   .container
     .row
       .col-md-3.col-xs-6.text-xs-right.text-md-left
@@ -39,7 +39,7 @@ footer.footer.section.reverse.bg-dark.text-xs-center.text-md-left
   hr.hr-full
   .container
     .copyright
-      p.inline.text-muted Copyright &copy; 1987 – 2015 Jamie Ferguson. All Rights Reserved.
+      p.inline.text-muted Copyright &copy; 1987 – {{ date | date:'yyyy' }} Jamie Ferguson. All Rights Reserved.
       ul.inline.list-inline-bullets
         li: a(ui-sref="site.privacy") Privacy Policy
         li: a(ui-sref="site.legals") Legal Notice
