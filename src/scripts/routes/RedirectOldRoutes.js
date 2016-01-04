@@ -6,7 +6,7 @@ export default function( $injector, $location ) {
 
   var redirections = {
     '/about/': '/profile/',
-    '/blog/':  '/journal/',
+    '/blog/': '/journal/'
   }
 
   // check if in redirections object

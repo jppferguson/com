@@ -44,7 +44,9 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
       controller: 'IndexCtrl',
       template: pageIndex,
       resolve: {
-        $title: function() { return 'Welcome - ' }
+        $title: function() {
+          return 'Welcome - '
+        }
       }
     } )
     .state( 'site.journal', {
@@ -59,7 +61,9 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
       controller: 'JournalCtrl',
       template: pageJournal,
       resolve: {
-        $title: function() { return 'Journal - ' }
+        $title: function() {
+          return 'Journal - '
+        }
       }
     } )
     .state( 'site.journal.tag', {
@@ -83,7 +87,7 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
         postTitle: [ '$stateParams', 'JournalFactory', function( $stateParams, JournalFactory ) {
           return JournalFactory.single( $stateParams.slug ).then( function( item ) {
             return item.title.rendered
-          })
+          } )
         } ],
         $title: [ 'postTitle', function( postTitle ) {
           return postTitle + ' - '
@@ -102,7 +106,9 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
       controller: 'WorkCtrl',
       template: pageWork,
       resolve: {
-        $title: function() { return 'Work - ' }
+        $title: function() {
+          return 'Work - '
+        }
       }
     } )
     .state( 'site.work.post', {
@@ -113,7 +119,7 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
         postTitle: [ '$stateParams', 'WorkFactory', function( $stateParams, WorkFactory ) {
           return WorkFactory.single( $stateParams.slug ).then( function( item ) {
             return item.title.rendered
-          })
+          } )
         } ],
         $title: [ 'postTitle', function( postTitle ) {
           return postTitle + ' - '
@@ -126,28 +132,36 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
       controller: 'PageCtrl',
       template: pageProfile,
       resolve: {
-        $title: function() { return 'Profile - ' }
+        $title: function() {
+          return 'Profile - '
+        }
       }
     } )
     .state( 'site.contact', {
       url: 'contact/',
       template: pageContact,
       resolve: {
-        $title: function() { return 'Contact - ' }
+        $title: function() {
+          return 'Contact - '
+        }
       }
     } )
     .state( 'site.styleguide', {
       url: 'styleguide/',
       template: pageStyleguide,
       resolve: {
-        $title: function() { return 'Style Guide - ' }
+        $title: function() {
+          return 'Style Guide - '
+        }
       }
     } )
     .state( 'site.404', {
       url: '404/',
       template: page404,
       resolve: {
-        $title: function() { return 'Error 404 - ' }
+        $title: function() {
+          return 'Error 404 - '
+        }
       }
     } )
     // automagic pages
@@ -159,7 +173,7 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
         pageTitle: [ '$stateParams', 'PageFactory', function( $stateParams, PageFactory ) {
           return PageFactory.get( $stateParams.page ).then( function( item ) {
             return item.title.rendered
-          })
+          } )
         } ],
         $title: [ 'pageTitle', function( pageTitle ) {
           return pageTitle + ' - '

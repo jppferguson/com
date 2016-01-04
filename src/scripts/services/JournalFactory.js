@@ -1,7 +1,20 @@
 'use strict'
 
 export default function( $http, $sanitize, $sce, readingTime, CONFIG ) {
+
   var factory = {}
+
+  function trustHTMLContent( data ) {
+    angular.forEach( data, function( value, key ) {
+      // trust each title, content and excerpt in the object
+      this[key].title.rendered = $sce.trustAsHtml( value.title.rendered )
+      this[key].excerpt.rendered = $sce.trustAsHtml( value.excerpt.rendered )
+      this[key].content.rendered = $sce.trustAsHtml( value.content.rendered )
+      this[key].readingTime = readingTime.get( $sanitize( value.content.rendered ) )
+      this[key].tags = value.taxonomies_list.post_tag
+    }, data )
+    return data
+  }
 
   factory.latest = function() {
 
@@ -30,17 +43,6 @@ export default function( $http, $sanitize, $sce, readingTime, CONFIG ) {
     } )
   }
 
-  function trustHTMLContent( data ) {
-    angular.forEach( data, function( value, key ) {
-      // trust each title, content and excerpt in the object
-      this[key].title.rendered = $sce.trustAsHtml( value.title.rendered )
-      this[key].excerpt.rendered = $sce.trustAsHtml( value.excerpt.rendered )
-      this[key].content.rendered = $sce.trustAsHtml( value.content.rendered )
-      this[key].readingTime = readingTime.get( $sanitize( value.content.rendered ) )
-      this[key].tags = value.taxonomies_list.post_tag
-    }, data )
-    return data
-  }
 
   return factory
 
