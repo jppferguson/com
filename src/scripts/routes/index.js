@@ -13,26 +13,13 @@ import pageStyleguide    from '../pages/styleguide.jade'
 import pageWork          from '../pages/work.jade'
 import pageWorkSingle    from '../pages/workSingle.jade'
 import pageContact       from '../pages/contact.jade'
+import TrailingSlash     from './TrailingSlash'
 
 export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', function( $stateProvider, $urlRouterProvider ) {
 
-  $urlRouterProvider.otherwise( '/404' )
-
-  // From: https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions#how-to-make-a-trailing-slash-optional-for-all-routes
-  $urlRouterProvider.rule( function( $injector, $location ) {
-    var path = $location.url()
-
-    // check to see if the path already has a slash where it should be
-    if ( path[ path.length - 1 ] === '/' || path.indexOf( '/?' ) > -1 ) {
-      return null
-    }
-
-    if ( path.indexOf( '?' ) > -1 ) {
-      return path.replace( '?', '/?' )
-    }
-
-    return path + '/'
-  } )
+  $urlRouterProvider
+    .otherwise( '/404' )
+    .rule( TrailingSlash )
 
   $stateProvider
     .state( 'site', {
