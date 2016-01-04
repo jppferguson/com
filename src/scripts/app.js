@@ -60,7 +60,7 @@ app.config( [ '$interpolateProvider', '$stateProvider', '$locationProvider', '$h
 
 } ] )
 
-app.run( [ '$rootScope', '$log', '$anchorScroll', '$window', function( $rootScope, $log, $anchorScroll, $window ) {
+app.run( [ '$rootScope', '$log', '$anchorScroll', '$window', '$timeout', '$state', function( $rootScope, $log, $anchorScroll, $window, $timeout, $state ) {
 
   // ensure we scroll to the top on route change
   // From: http://stackoverflow.com/questions/21055952
@@ -93,6 +93,31 @@ app.run( [ '$rootScope', '$log', '$anchorScroll', '$window', function( $rootScop
     $log.info( 'fromParams', fromParams )
     $log.groupEnd()
   } )
+
+  $rootScope.$on("$stateChangeSuccess", function() {
+    var title = getTitleValue($state.$current.locals.globals.$title);
+    $timeout(function() {
+      $rootScope.$title = title;
+    });
+
+    $rootScope.$breadcrumbs = [];
+    var state = $state.$current;
+    while(state) {
+      if(state.resolve && state.resolve.$title) {
+        $rootScope.$breadcrumbs.unshift({
+          title: getTitleValue(state.locals.globals.$title),
+          state: state.self.name,
+          stateParams: state.locals.globals.$stateParams
+        })
+      }
+      state = state.parent;
+    }
+  });
+
+  function getTitleValue(title) {
+    return angular.isFunction(title) ? title() : title;
+  }
+
 
 
 } ] )
