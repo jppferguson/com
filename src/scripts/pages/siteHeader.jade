@@ -1,7 +1,7 @@
 header.header.container
   .container-fluid
     .row
-      .col-md-4
+      .col-md-4.col-xs-12
         .brand
           a.non-text-link(ui-sref-active="active" ui-sref="site.index")
             span.logo
@@ -13,7 +13,7 @@ header.header.container
                 br
                 em Edinburgh, U.K
 
-      nav.sans.col-md-7.pull-md-right.text-md-right
+      nav.sans.col-xs-12.col-md-7.pull-md-right.text-md-right
         ul.list-inline
           li: a(ui-sref-active="active" ui-sref="site.work.index" ui-sref-active-if="site.work") Work
           li: a(ui-sref-active="active" ui-sref="site.profile") Profile
