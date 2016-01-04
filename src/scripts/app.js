@@ -80,7 +80,7 @@ app.run( [ '$rootScope', '$log', '$anchorScroll', '$window', function( $rootScop
 
   // Watch for URL changes so we can track them in GA
   // $rootScope.$on( '$locationChangeSuccess', function( event, next, current ) {
-  //   // console.log(['$locationChangeSuccess', next, current])
+  //   $log.info( next, current )
   // } )
   $rootScope.$on( '$stateChangeError', function $stateChangeError( event, toState, toParams, fromState, fromParams, error ) {
     $log.group()
