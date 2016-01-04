@@ -11,6 +11,7 @@ import pageJournalTag    from '../pages/journalTag.jade'
 import pageJournalSingle from '../pages/journalSingle.jade'
 import pageStyleguide    from '../pages/styleguide.jade'
 import pageWork          from '../pages/work.jade'
+import pageStuff         from '../pages/stuff.jade'
 import pageWorkSingle    from '../pages/workSingle.jade'
 import pageContact       from '../pages/contact.jade'
 import RedirectOldRoutes from './RedirectOldRoutes'
@@ -152,6 +153,15 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
       resolve: {
         $title: function() {
           return 'Style Guide - '
+        }
+      }
+    } )
+    .state( 'site.stuff', {
+      url: 'stuff/',
+      template: pageStuff,
+      resolve: {
+        $title: function() {
+          return 'Stuff - '
         }
       }
     } )

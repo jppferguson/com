@@ -1,0 +1,65 @@
+.reverse.bg-green.header-offset.vh-50.relative
+  .container.center-center
+    h1 Stuff...
+    p.lead Just some random bits and pieces that don't fit anywhere else.
+  .bottom
+    .center-center
+      img.profile-img.img-circle(src="/assets/img/jamie-ferguson.jpg")
+
+section.section
+  .container
+    .row
+      .col-xs-12
+        h3 Music
+        p I enjoy listening to a fairly wide range of music. This includes house, trance, alternative, rock and drum &amp; bass.
+        p Music discovery services such as
+          = " "
+          a(href="https://spotify.com/user/jppferguson") Spotify
+          = " and "
+          a(href="http://hypem.com/jppferguson") Hype Machine
+          | , that I use quite often, have really changed how I listen to music.
+        p You can see a bit of a snapshot of what I've been listening to recently below.
+      .col-xs-12(ng-controller="MusicCtrl")
+        .row
+          .col-xs-6
+            h4 Top Tracks
+            ul.list-no-bullets
+              li.clearfix.p-b-1(ng-repeat="track in tracks")
+                a.pull-xs-left.p-r-1.non-text-link(href="{{ track.url }}"): img.img-circle(ng-src="{{ track.image[1]['#text'] }}")
+                h6: a(href="{{ track.url }}") {{ track.name }}
+                .small: a(href="{{ track.artist.url }}") {{ track.artist.name }}
+          .col-xs-6
+            h4 Top Artists
+            ul.list-no-bullets
+              li.clearfix.p-b-1(ng-repeat="artist in artists")
+                a.pull-xs-left.p-r-1.non-text-link(href="{{ artist.url }}"): img.img-circle(ng-src="{{ artist.image[1]['#text'] }}")
+                h6: a(href="{{ artist.url }}") {{ artist.name }}
+                .small {{ artist.playcount }} Plays
+
+
+    .row
+      .col-6
+        h4 Favourite interfaces
+          sup 2
+        ul
+          li: a(href="http://squareup.com" target="_blank") Square
+          li: a(href="http://panic.com" target="_blank") Panic
+          li: a(href="http://nest.com" target="_blank") Nest
+          li: a(href="http://new.myspace.com" target="_blank") New MySpace
+          li: a(href="http://squarespace.com" target="_blank") Squarespace
+          li: a(href="http://path.com" target="_blank") Path
+          li: a(href="http://flipboard.com" target="_blank") Flipboard
+      .col-6
+        h4 Services
+        ul
+          li: a(href="https://delicious.com/jppferguson" target="_blank") Delicious
+          li: a(href="http://instagram.com/jppferguson" target="_blank") Instagram
+          li: a(href="http://github.com/jppferguson" target="_blank") Github
+          li: a(href="https://plus.google.com/114783144880535828241" target="_blank" rel="me") Google+
+      .col-12
+        p: small
+          sup 2
+          | Yes-siree, I like it clean and minimal. If you do too, why not
+          = ' '
+          a(href="/contact.html") get in touch
+          | .
