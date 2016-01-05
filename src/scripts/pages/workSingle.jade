@@ -9,7 +9,7 @@ section.section(ng-hide="isLoading")
       .col-lg-8
         div(ng-bind-html="item.content.rendered") {{ item.content.rendered }}
         aside(like-what-you-see)
-      .col-lg-4
+      .col-xs-12.col-lg-4
         .card
           .card-header.sans
             | Key Facts
@@ -19,16 +19,21 @@ section.section(ng-hide="isLoading")
               p.list-group-item-text {{ item.date | date: 'MMMM yyyy' }}
             .list-group-item(ng-repeat="(taxonomy_name, taxonomy) in item.taxonomies_list" ng-show="taxonomy[0]")
               h5.list-group-item-heading {{ taxonomy_name }}
-              ul.list-group-item-text.list-no-bullets
+              ul.list-group-item-text.list-no-bullets(ng-show="taxonomy_name != 'technology'")
                 li(ng-repeat="tag in taxonomy") {{ tag.name }}
+              ul.list-group-item-text.list-icon-bullets(ng-show="taxonomy_name == 'technology'")
+                li(ng-repeat="tag in taxonomy")
+                  i(class="icon icon-{{ tag.slug }}")
+                  | {{ tag.name }}
           .card-block
             a.card-link.btn.btn-sm.btn-primary.btn-block(href="{{ item.custom_meta.url }}" ng-hide="item.custom_meta.online === false || !item.custom_meta.url") Visit site &rarr;
             i(ng-show="item.custom_meta.online === 'false'") Site offline :'(
 
+    hr
     .row
-      .col-sm-4
-        a.btn.btn-sm.btn-primary(ui-sref="site.work.post({ slug: item.adjacent_posts.prev.post_name })" ng-show="item.adjacent_posts.prev") &larr; Previous
-      .col-sm-4.text-center
-        a.btn.btn-sm.btn-primary(ui-sref="site.work.index") All Work
-      .col-sm-4.text-right
-        a.btn.btn-sm.btn-primary(ui-sref="site.work.post({ slug: item.adjacent_posts.next.post_name })" ng-show="item.adjacent_posts.next") Next &rarr;
+      .col-xs-4
+        a.btn.btn-sm.btn-block.text-xs-left(ui-sref="site.work.post({ slug: item.adjacent_posts.prev.post_name })" ng-show="item.adjacent_posts.prev") &larr; Previous
+      .col-xs-4.text-center
+        a.btn.btn-sm.btn-block(ui-sref="site.work.index") All Work
+      .col-xs-4
+        a.btn.btn-sm.btn-block.text-xs-right(ui-sref="site.work.post({ slug: item.adjacent_posts.next.post_name })" ng-show="item.adjacent_posts.next") Next &rarr;
