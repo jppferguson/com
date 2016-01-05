@@ -3,6 +3,7 @@
 import angular        from 'angular'
 import fastClick      from 'fastclick'
 import ngAnimate      from 'angular-animate'
+import ngGA           from 'angular-google-analytics'
 import ngRouter       from 'angular-ui-router'
 import ngSanitize     from 'angular-sanitize'
 
@@ -16,6 +17,7 @@ var app
 
 var appDependencies = [
   ngAnimate,
+  ngGA.name,
   ngRouter,
   ngSanitize
 ]
@@ -38,7 +40,7 @@ app.constant( 'CONFIG', {
   API_ENDPOINT: 'http://wordpress.jppferguson.com/wp-json/wp/v2/'
 } )
 
-app.config( [ '$interpolateProvider', '$stateProvider', '$locationProvider', '$httpProvider', '$urlMatcherFactoryProvider', function( $interpolateProvider, $stateProvider, $locationProvider, $httpProvider, $urlMatcherFactoryProvider ) {
+app.config( [ '$interpolateProvider', '$stateProvider', '$locationProvider', '$httpProvider', '$urlMatcherFactoryProvider', 'AnalyticsProvider', function( $interpolateProvider, $stateProvider, $locationProvider, $httpProvider, $urlMatcherFactoryProvider, AnalyticsProvider ) {
 
   $locationProvider.html5Mode( true )
 
@@ -47,6 +49,13 @@ app.config( [ '$interpolateProvider', '$stateProvider', '$locationProvider', '$h
 
   // Make a trailing slash optional for all routes
   $urlMatcherFactoryProvider.strictMode( false )
+
+  // Setup Google Analytics
+  AnalyticsProvider
+    // .setAccount( 'UA-XXXXX-xx' )
+    .setPageEvent( '$stateChangeSuccess' )
+    .disableAnalytics( true )
+    // .enterDebugMode( true )
 
   // Use request parameters instead of a json payload
   $httpProvider.defaults.transformRequest = function( data ) {
@@ -60,7 +69,7 @@ app.config( [ '$interpolateProvider', '$stateProvider', '$locationProvider', '$h
 
 } ] )
 
-app.run( [ '$rootScope', '$log', '$anchorScroll', '$window', '$timeout', '$state', function( $rootScope, $log, $anchorScroll, $window, $timeout, $state ) {
+app.run( [ '$rootScope', '$log', '$anchorScroll', '$window', '$timeout', '$state', 'Analytics', function( $rootScope, $log, $anchorScroll, $window, $timeout, $state, Analytics ) {
 
   // ensure we scroll to the top on route change
   // From: http://stackoverflow.com/questions/21055952
@@ -77,6 +86,11 @@ app.run( [ '$rootScope', '$log', '$anchorScroll', '$window', '$timeout', '$state
 
   // get rid of iOS' gnarly delay for a more native feel
   fastClick.FastClick.attach( document.body )
+
+  // Output message if GA debug mode is enabled
+  if( Analytics.configuration.debugMode ) {
+    $log.info( 'GA debug mode is enabled' )
+  }
 
   // Watch for URL changes so we can track them in GA
   // $rootScope.$on( '$locationChangeSuccess', function( event, next, current ) {
