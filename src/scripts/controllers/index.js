@@ -1,4 +1,5 @@
 'use strict'
+import CVCtrl            from './CVCtrl'
 import FooterCtrl        from './FooterCtrl'
 import MusicCtrl         from './MusicCtrl'
 import PageCtrl          from './PageCtrl'
@@ -10,6 +11,7 @@ import WorkCtrl          from './WorkCtrl'
 import WorkSingleCtrl    from './WorkSingleCtrl'
 
 var appControllers = angular.module( 'appControllers', [] )
+  .controller( 'CVCtrl',            CVCtrl )
   .controller( 'FooterCtrl',        FooterCtrl )
   .controller( 'PageCtrl',          PageCtrl )
   .controller( 'MusicCtrl',         MusicCtrl )
