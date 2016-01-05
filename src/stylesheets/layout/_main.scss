@@ -34,7 +34,8 @@ body {
 
 .vh-50 {
   @extend .border-box;
-  min-height: 50vh;
+  height: 50vh;
+  min-height: 300px;
 }
 .vh-90 {
   @extend .border-box;
