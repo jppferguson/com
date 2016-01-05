@@ -38,11 +38,11 @@ footer.footer.section.reverse.bg-dark.text-xs-center.text-md-left(ng-controller=
           | .
   hr.hr-full
   .container
+    ul.list-inline-bullets.pull-lg-right.text-lg-right
+      li: a(ui-sref="site.page({page:'privacy'})") Privacy Policy
+      li: a(ui-sref="site.page({page:'legals'})") Legal Notice
+      li: a(ui-sref="site.page({page:'sitemap'})") Sitemap
+      li: a(ui-sref="site.page({page:'colophon'})") Colophon
+      li: a(ui-sref="site.styleguide") Style Guide
     .copyright
-      p.inline.text-muted Copyright &copy; 1987 – {{ date | date:'yyyy' }} Jamie Ferguson. All Rights Reserved.
-      ul.inline.list-inline-bullets
-        li: a(ui-sref="site.page({page:'privacy'})") Privacy Policy
-        li: a(ui-sref="site.page({page:'legals'})") Legal Notice
-        li: a(ui-sref="site.page({page:'sitemap'})") Sitemap
-        li: a(ui-sref="site.page({page:'colophon'})") Colophon
-        li: a(ui-sref="site.styleguide") Style Guide
+      p.text-muted Copyright &copy; 1987 – {{ date | date:'yyyy' }} Jamie Ferguson. All Rights Reserved.

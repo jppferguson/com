@@ -115,12 +115,20 @@ hr {
     }
   }
 }
-.list-inline-bullets li {
-  display: inline;
-  &:before {
-    color: $gray;
-    content: '•';
-    margin: 0 .5em;
+.list-inline-bullets {
+  padding-left: 0;
+  li {
+    display: inline;
+    &:before {
+      color: $gray;
+      content: '•';
+      margin: 0 .5em;
+    }
+    &:first-child {
+      &:before {
+        display: none;
+      }
+    }
   }
 }
 
