@@ -1,21 +1,20 @@
-header.header.container
-  .container-fluid
-    .row
-      .col-md-4.col-xs-12
-        .brand
-          a.non-text-link(ui-sref-active="active" ui-sref="site.index")
-            span.logo
-            span.text-wrap
-              span.text
-                strong Jamie Ferguson
-                br
-                | Creative Developer
-                br
-                em Edinburgh, U.K
+header.header(ng-controller="HeaderCtrl" ng-class="{ 'nav-open': nav.isOpen, 'nav-fixed': nav.isFixed, 'nav-in-view': nav.inView }")
+  nav.main-nav(main-nav)
+    .ferg-burger.hidden-md-up.pull-xs-right(ng-click="nav.isOpen = !nav.isOpen; nav.isFixed")
+      i.om
+      i.nom
+      i.nom
+    .brand
+      a.non-text-link(ui-sref-active="active" ui-sref="site.index")
+        span.logo
+        span.text-wrap
+          span.text Jamie Ferguson
+          br
+          span.text Creative Developer
+    .nav
+      ul.list-inline.pull-sm-right.sans
+        li: a(ui-sref-active="active" ui-sref="site.work.index" ui-sref-active-if="site.work") Work
+        li: a(ui-sref-active="active" ui-sref="site.profile") Profile
+        li: a(ui-sref-active="active" ui-sref="site.journal.index" ui-sref-active-if="site.journal") Journal
+        li: a(ui-sref-active="active" ui-sref="site.contact") Contact
 
-      nav.sans.col-xs-12.col-md-7.pull-md-right.text-md-right
-        ul.list-inline
-          li: a(ui-sref-active="active" ui-sref="site.work.index" ui-sref-active-if="site.work") Work
-          li: a(ui-sref-active="active" ui-sref="site.profile") Profile
-          li: a(ui-sref-active="active" ui-sref="site.journal.index" ui-sref-active-if="site.journal") Journal
-          li: a(ui-sref-active="active" ui-sref="site.contact") Contact

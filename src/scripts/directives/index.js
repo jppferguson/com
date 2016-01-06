@@ -6,6 +6,7 @@ import elastic         from './elastic'
 import floatingLabel   from './floatingLabel'
 import likeWhatYouSee  from './likeWhatYouSee'
 import loading         from './loading'
+import mainNav         from './mainNav'
 import readingTime     from './readingTime'
 import uiSrefActiveIf  from './uiSrefActiveIf'
 import workItem        from './workItem'
@@ -18,6 +19,7 @@ var appDirectives = angular.module( 'appDirectives', [] )
   .directive( 'floatingLabel',   floatingLabel )
   .directive( 'likeWhatYouSee',  likeWhatYouSee )
   .directive( 'loading',         loading )
+  .directive( 'mainNav',         mainNav )
   .directive( 'readingTime',     readingTime )
   .directive( 'uiSrefActiveIf',  uiSrefActiveIf )
   .directive( 'workItem',        workItem )
