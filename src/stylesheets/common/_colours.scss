@@ -1,12 +1,19 @@
 .section {
   background-color: $block-default-background;
 }
+// TODO: process these with a sass-map/mixin
 .bg-light   { background-color: $colour-background-light; }
 .bg-dark    { background-color: $colour-background-dark; }
 .bg-green   { background-color: $colour-background-green; }
 .bg-blue    { background-color: $colour-background-blue; }
 .bg-orange  { background-color: $colour-background-orange; }
 .bg-yellow  { background-color: $colour-background-yellow; }
+.header-bg-green { .nav:after, .main-nav { background-color: $colour-background-green; } }
+.header-bg-blue { .nav:after, .main-nav { background-color: $colour-background-blue; } }
+.header-bg-orange { .nav:after, .main-nav { background-color: $colour-background-orange; } }
+.header-bg-yellow { .nav:after, .main-nav { background-color: $colour-background-yellow; } }
+
+
 .bg-home {
   background: $colour-background-dark url(../img/bg-home.jpg) no-repeat 50% 50%;
   background-size: cover;

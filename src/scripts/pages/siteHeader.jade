@@ -1,20 +1,20 @@
-header.header(ng-controller="HeaderCtrl" ng-class="{ 'nav-open': nav.isOpen, 'nav-fixed': nav.isFixed, 'nav-in-view': nav.inView }")
-  nav.main-nav(main-nav)
-    .ferg-burger.hidden-md-up.pull-xs-right(ng-click="nav.isOpen = !nav.isOpen; nav.isFixed")
-      i.om
-      i.nom
-      i.nom
-    .brand
-      a.non-text-link(ui-sref-active="active" ui-sref="site.index")
-        span.logo
-        span.text-wrap
-          span.text Jamie Ferguson
-          br
-          span.text Creative Developer
-    .nav
-      ul.list-inline.pull-sm-right.sans
-        li: a(ui-sref-active="active" ui-sref="site.work.index" ui-sref-active-if="site.work") Work
-        li: a(ui-sref-active="active" ui-sref="site.profile") Profile
-        li: a(ui-sref-active="active" ui-sref="site.journal.index" ui-sref-active-if="site.journal") Journal
-        li: a(ui-sref-active="active" ui-sref="site.contact") Contact
+header.header.reverse(ng-controller="HeaderCtrl")
+  .nav(ng-class="{ 'nav-open': nav.isOpen, 'nav-fixed': nav.isFixed, 'nav-in-view': nav.inView, 'nav-past-header': nav.isPastHeader }" main-nav)
+    .container.relative
+      button.ferg-burger.hidden-md-up.pull-xs-right(type="button" ng-click="nav.isOpen = !nav.isOpen; nav.inView = true") Menu
+        b.un-top
+        p.atty
+        b.un-base
+      a.brand.non-text-link(ui-sref-active="active" ui-sref="site.index")
+        .logo
+          .text-wrap
+            .text Jamie Ferguson
+            .text Creative Developer
+      nav.main-nav.sans(ng-class="{ 'nav-open': nav.isOpen}")
+        ul.list-no-bullets.pull-sm-right
+          li.hidden-md-up: a(ui-sref-active="active" ng-click="nav.isOpen = false; nav.inView = true" ui-sref="site.index") Home
+          li: a(ui-sref-active="active" ng-click="nav.isOpen = false; nav.inView = true" ui-sref="site.work.index" ui-sref-active-if="site.work") Work
+          li: a(ui-sref-active="active" ng-click="nav.isOpen = false; nav.inView = true" ui-sref="site.profile") Profile
+          li: a(ui-sref-active="active" ng-click="nav.isOpen = false; nav.inView = true" ui-sref="site.journal.index" ui-sref-active-if="site.journal") Journal
+          li: a(ui-sref-active="active" ng-click="nav.isOpen = false; nav.inView = true" ui-sref="site.contact") Contact
 
