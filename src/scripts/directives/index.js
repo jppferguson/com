@@ -4,6 +4,7 @@ import backgroundImage from './backgroundImage'
 import backgroundColour from './backgroundColour'
 import elastic         from './elastic'
 import floatingLabel   from './floatingLabel'
+import headerHeight    from './headerHeight'
 import likeWhatYouSee  from './likeWhatYouSee'
 import loading         from './loading'
 import mainNav         from './mainNav'
@@ -17,6 +18,7 @@ var appDirectives = angular.module( 'appDirectives', [] )
   .directive( 'backgroundImage', backgroundImage )
   .directive( 'elastic',         elastic )
   .directive( 'floatingLabel',   floatingLabel )
+  .directive( 'headerHeight',    headerHeight )
   .directive( 'likeWhatYouSee',  likeWhatYouSee )
   .directive( 'loading',         loading )
   .directive( 'mainNav',         mainNav )
