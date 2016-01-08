@@ -3,6 +3,7 @@
 import angular        from 'angular'
 import fastClick      from 'fastclick'
 import ngAnimate      from 'angular-animate'
+import ngCookies      from 'angular-cookies'
 import ngGA           from 'angular-google-analytics'
 import ngRouter       from 'angular-ui-router'
 import ngSanitize     from 'angular-sanitize'
@@ -17,6 +18,7 @@ var app
 
 var appDependencies = [
   ngAnimate,
+  ngCookies,
   ngGA.name,
   ngRouter,
   ngSanitize

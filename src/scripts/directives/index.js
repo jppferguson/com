@@ -2,6 +2,7 @@
 import a               from './a'
 import backgroundImage from './backgroundImage'
 import backgroundColour from './backgroundColour'
+import cookieConsent   from './cookieConsent'
 import elastic         from './elastic'
 import floatingLabel   from './floatingLabel'
 import headerHeight    from './headerHeight'
@@ -16,6 +17,7 @@ var appDirectives = angular.module( 'appDirectives', [] )
   .directive( 'a',               a )
   .directive( 'backgroundColour', backgroundColour )
   .directive( 'backgroundImage', backgroundImage )
+  .directive( 'cookieConsent',   cookieConsent )
   .directive( 'elastic',         elastic )
   .directive( 'floatingLabel',   floatingLabel )
   .directive( 'headerHeight',    headerHeight )
