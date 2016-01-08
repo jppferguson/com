@@ -12,6 +12,11 @@ section.section
       .col-lg-8.col-lg-push-2(ng-hide="isLoading")
         article(ng-bind-html="article.content.rendered") {{article.content.rendered}}
 
+    hr
+
+    .row
+      .col-xs-12.col-lg-8.col-lg-push-2(disqus="article.id")
+
     .row
       .col-sm-4
         a.btn.btn-sm.btn-primary(ui-sref="site.journal.post({ slug: article.adjacent_posts.prev.post_name })" ng-show="article.adjacent_posts.prev") &larr; Previous

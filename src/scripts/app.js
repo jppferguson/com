@@ -4,6 +4,7 @@ import angular        from 'angular'
 import fastClick      from 'fastclick'
 import ngAnimate      from 'angular-animate'
 import ngCookies      from 'angular-cookies'
+import ngDisqus       from 'angular-disqus/angular-disqus'
 import ngGA           from 'angular-google-analytics'
 import ngRouter       from 'angular-ui-router'
 import ngSanitize     from 'angular-sanitize'
@@ -19,6 +20,7 @@ var app
 var appDependencies = [
   ngAnimate,
   ngCookies,
+  'ngDisqus',
   ngGA.name,
   ngRouter,
   ngSanitize
@@ -42,7 +44,7 @@ app.constant( 'CONFIG', {
   API_ENDPOINT: 'http://wordpress.jppferguson.com/wp-json/wp/v2/'
 } )
 
-app.config( [ '$interpolateProvider', '$stateProvider', '$locationProvider', '$httpProvider', '$urlMatcherFactoryProvider', 'AnalyticsProvider', function( $interpolateProvider, $stateProvider, $locationProvider, $httpProvider, $urlMatcherFactoryProvider, AnalyticsProvider ) {
+app.config( [ '$interpolateProvider', '$stateProvider', '$locationProvider', '$disqusProvider', '$httpProvider', '$urlMatcherFactoryProvider', 'AnalyticsProvider', function( $interpolateProvider, $stateProvider, $locationProvider, $disqusProvider, $httpProvider, $urlMatcherFactoryProvider, AnalyticsProvider ) {
 
   $locationProvider.html5Mode( true )
 
@@ -51,6 +53,8 @@ app.config( [ '$interpolateProvider', '$stateProvider', '$locationProvider', '$h
 
   // Make a trailing slash optional for all routes
   $urlMatcherFactoryProvider.strictMode( false )
+
+  $disqusProvider.setShortname( 'jppferguson' )
 
   // Setup Google Analytics
   AnalyticsProvider
