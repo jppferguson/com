@@ -28,16 +28,21 @@ section.section(ng-hide="isLoading")
             a.card-link.btn.btn-sm.btn-primary.btn-block(href="{{ item.custom_meta.url }}" ng-hide="item.custom_meta.online === false || !item.custom_meta.url") Visit site &rarr;
             i(ng-show="item.custom_meta.online === 'false'") Site offline :'(
 
-    hr
-    .row
-      .col-xs-4
-        a.btn.btn-sm.btn-block.text-xs-left(ui-sref="site.work.post({ slug: item.adjacent_posts.prev.post_name })" ng-show="item.adjacent_posts.prev") &larr; Previous
-      .col-xs-4.text-center
-        a.btn.btn-sm.btn-block(ui-sref="site.work.index") All Work
-      .col-xs-4
-        a.btn.btn-sm.btn-block.text-xs-right(ui-sref="site.work.post({ slug: item.adjacent_posts.next.post_name })" ng-show="item.adjacent_posts.next") Next &rarr;
+  hr.hr-full
 
-section.section.reverse(background-colour="{{ item.custom_meta.header_colour }}")
+  .container
+
+    .row
+      .col-xs-4.text-xs-left
+        a.btn.btn-sm.btn-link(ui-sref="site.work.post({ slug: item.adjacent_posts.prev.post_name })" ng-show="item.adjacent_posts.prev") &larr; Previous
+        button.btn.btn-sm.btn-link(type="button" ng-hide="item.adjacent_posts.prev" disabled) &larr; Previous
+      .col-xs-4.text-center
+        a.btn.btn-sm.btn-link.btn-block(ui-sref="site.work.index") All Work
+      .col-xs-4.text-xs-right
+        a.btn.btn-sm.btn-link(ui-sref="site.work.post({ slug: item.adjacent_posts.next.post_name })" ng-show="item.adjacent_posts.next") Next &rarr;
+        button.btn.btn-sm.btn-link(type="button" ng-hide="item.adjacent_posts.next" disabled) Next Article &rarr;
+
+section.bg-green.section.reverse(background-colour="{{ item.custom_meta.header_colour }}")
   .container.text-xs-center
     h4 Like what you see?
     p I can help you with your next project, or maybe even work with you.

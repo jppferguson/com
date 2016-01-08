@@ -22,11 +22,11 @@ section.section
   .container
 
     .row
-      .col-sm-4
-        a.btn.btn-sm.btn-primary(ui-sref="site.journal.post({ slug: article.adjacent_posts.prev.post_name })" ng-show="article.adjacent_posts.prev") &larr; Previous Article
-        button.btn.btn-sm.btn-primary(type="button" ng-hide="article.adjacent_posts.prev" disabled) &larr; Previous Article
-      .col-sm-4.text-center
-        a.btn.btn-sm.btn-primary(ui-sref="site.journal.index") All Articles
-      .col-sm-4.text-right
-        a.btn.btn-sm.btn-primary(ui-sref="site.journal.post({ slug: article.adjacent_posts.next.post_name })" ng-show="article.adjacent_posts.next") Next Article &rarr;
-        button.btn.btn-sm.btn-primary(type="button" ng-hide="article.adjacent_posts.next" disabled) Next Article &rarr;
+      .col-xs-4.text-xs-left
+        a.btn.btn-sm.btn-link(ui-sref="site.journal.post({ slug: article.adjacent_posts.prev.post_name })" ng-show="article.adjacent_posts.prev") &larr; Previous Article
+        button.btn.btn-sm.btn-link.text-xs-left(type="button" ng-hide="article.adjacent_posts.prev" disabled) &larr; Previous Article
+      .col-xs-4.text-center
+        a.btn.btn-sm.btn-link.btn-block(ui-sref="site.journal.index") All Articles
+      .col-xs-4.text-xs-right
+        a.btn.btn-sm.btn-link(ui-sref="site.journal.post({ slug: article.adjacent_posts.next.post_name })" ng-show="article.adjacent_posts.next") Next Article &rarr;
+        button.btn.btn-sm.btn-link(type="button" ng-hide="article.adjacent_posts.next" disabled) Next Article &rarr;
