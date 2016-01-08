@@ -10,3 +10,8 @@
     color: $colour-reverse-background;
   }
 }
+.btn-xs {
+  font-size: .6rem;
+  padding: $btn-padding-y-sm $btn-padding-x-sm;
+  line-height: 1.2;
+}
