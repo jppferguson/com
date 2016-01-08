@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|Alegreya:400,400italic,600|Alegreya+SC:400,400italic,700);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|Alegreya:400,400italic,600|Source+Code+Pro);
 
 /* Responsive typography */
 @include media-breakpoint-up(sm) {
@@ -32,11 +32,14 @@ body {
   a {
     font-weight: inherit;
   }
+  @include media-breakpoint-down(sm) {
+    font-size: 3rem;
+  }
 }
 
 a {
   color: #555;
-  font-weight: bold;
+  font-weight: 600;
   position: relative;
   text-decoration: none;
   transition: all 150ms ease-in-out;
@@ -50,6 +53,9 @@ a {
     left: 0;
     width: 0%;
     transition: all 200ms ease-in-out;
+    .touchevents & {
+      display: none;
+    }
   }
   &:hover,
   &:active,
