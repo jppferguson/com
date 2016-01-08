@@ -6,6 +6,9 @@ var dest         = 'dist'
 // used for linting
 config.gulpPath = './gulp'
 
+// this file
+config.configFile = 'gulp/config.js'
+
 // setup settings object
 config.settings = {}
 config.settings.autoprefixer = 'last 2 versions'
@@ -46,6 +49,13 @@ config.sources.images.glob = config.sources.images.root + '/**/*'
 config.sources.scripts = {}
 config.sources.scripts.root = src + '/scripts'
 config.sources.scripts.glob = config.sources.scripts.root + '/**/*.js'
+config.sources.scripts.modernizr = {}
+config.sources.scripts.modernizr.tests = [
+  "touchevents"
+]
+config.sources.scripts.modernizr.options = [
+  "setClasses"
+]
 config.sources.scripts.build = [
   config.sources.scripts.root + '/app.js'
 ]

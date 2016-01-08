@@ -10,6 +10,7 @@ import gulp        from 'gulp'
 import gulpif      from 'gulp-if'
 import handleError from '../helpers/handle-error'
 import jadeify     from 'jadeify'
+import modernizr   from 'gulp-modernizr'
 import ngAnnotate  from 'browserify-ngannotate'
 import path        from 'path'
 import source      from 'vinyl-source-stream'
@@ -85,10 +86,28 @@ function buildBundles( glob, watch ) {
 }
 
 // Tasks
-gulp.task( 'scripts:build', function() {
+gulp.task( 'modernizr:build', function() {
+  gulp.src( config.sources.scripts.build[0] )
+    .pipe( modernizr( config.sources.scripts.modernizr ) )
+    .pipe( uglify() )
+    .pipe( gulp.dest( config.destinations.scripts ) )
+} )
+
+gulp.task( 'modernizr:watch', [ 'modernizr:build' ], function() {
+  gulp.watch( config.configFile, [ 'modernizr:build' ] )
+} )
+
+gulp.task( 'browserify:build', function() {
   return buildBundles( config.sources.scripts.build, false )
 } )
 
-gulp.task( 'scripts:watch', function() {
+gulp.task( 'browserify:watch', function() {
   return buildBundles( config.sources.scripts.build, true )
 } )
+
+/*
+ * All together now
+ *******************************/
+
+gulp.task( 'scripts:build', [ 'browserify:build', 'modernizr:build' ] )
+gulp.task( 'scripts:watch', [ 'browserify:watch', 'modernizr:watch' ] )
