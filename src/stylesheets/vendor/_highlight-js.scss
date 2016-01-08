@@ -1,0 +1,12 @@
+/*!
+ * Highlight JS
+ */
+
+// Syntax highlighting theme
+@import  url("../../node_modules/highlight.js/styles/solarized-dark.css");
+
+// subtle overrides
+p .hljs {
+  display: inline;
+  padding: .2em;
+}

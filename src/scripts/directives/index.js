@@ -6,6 +6,7 @@ import cookieConsent   from './cookieConsent'
 import elastic         from './elastic'
 import floatingLabel   from './floatingLabel'
 import headerHeight    from './headerHeight'
+import highlight       from './highlight'
 import likeWhatYouSee  from './likeWhatYouSee'
 import loading         from './loading'
 import mainNav         from './mainNav'
@@ -21,6 +22,7 @@ var appDirectives = angular.module( 'appDirectives', [] )
   .directive( 'elastic',         elastic )
   .directive( 'floatingLabel',   floatingLabel )
   .directive( 'headerHeight',    headerHeight )
+  .directive( 'highlight',       highlight )
   .directive( 'likeWhatYouSee',  likeWhatYouSee )
   .directive( 'loading',         loading )
   .directive( 'mainNav',         mainNav )
