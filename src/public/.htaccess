@@ -1,10 +1,16 @@
 <ifModule mod_rewrite.c>
+
     RewriteEngine On
-    # put all favicons in their own folder
+
+    # Move favicons to their own folder, but handle requests as if they were in the root
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(android-chrome|apple-touch-icon|browserconfig|favicon|manifest|mstile|safari-pinned-tab)(.*)?$ assets/favicon/$1$2 [L]
 
+    # Pipe non handled requests to the SPA
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} !index
     RewriteRule (.*) index.html [L]
+
 </ifModule>
