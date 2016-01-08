@@ -1,4 +1,4 @@
-.reverse.bg-green.header-offset.vh-50.relative(header-height)
+.reverse.bg-blue.header-offset.vh-50.relative(header-height)
   .container.center-center
     h1 Work
     p.lead Here are some projects I’ve worked on.
@@ -15,7 +15,7 @@ section.section.vh-50.bg-dark.reverse.relative(ng-repeat="item in items | limitT
           ul.list-inline.icons
             li(ng-repeat="tag in item.taxonomies_list.technology")
               i(class="icon icon-{{ tag.slug }}")
-      div(ng-class="{ 'col-md-pull-6': $index % 2 && item.featured_image_thumbnail_url, 'col-md-6': item.featured_image_thumbnail_url, 'col-md-12': !item.featured_image_thumbnail_url }")
+      .work-content(ng-class="{ 'col-md-pull-6': $index % 2 && item.featured_image_thumbnail_url, 'col-md-6': item.featured_image_thumbnail_url, 'col-md-12': !item.featured_image_thumbnail_url }")
         h2.h1
           a(ui-sref="site.work.post({slug: item.slug})" ng-bind-html="item.title.rendered") {{item.title.rendered}}
         p.lead {{ item.custom_meta.subheader }}
@@ -29,4 +29,4 @@ section.section.relative
         img.img-circle.img-small.img-drop.pull-xs-left(ng-src="{{item.featured_image_thumbnail_url}}" ng-show="item.featured_image_thumbnail_url")
       h3: a(ui-sref="site.work.post({slug: item.slug})" ng-bind-html="item.title.rendered") {{item.title.rendered}}
       p {{ item.custom_meta.subheader }}
-      a.btn.btn-sm.btn-primary-outline(ui-sref="site.work.post({slug: item.slug})") Find out more
+      a.btn.btn-xs.btn-primary-outline(ui-sref="site.work.post({slug: item.slug})") Find out more

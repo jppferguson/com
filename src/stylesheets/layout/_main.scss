@@ -33,9 +33,7 @@ body {
 }
 
 .vh-50 {
-  @extend .border-box;
-  height: 50vh;
-  min-height: 300px;
+  min-height: 50vh;
 }
 .vh-90 {
   @extend .border-box;
@@ -116,6 +114,15 @@ body {
   line-height: 20px;
   position: relative;
 }
+.work-content {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  @include media-breakpoint-down(md) {
+    h2 { font-size: 2rem; }
+    .lead { font-size: 1.2rem; }
+  }
+}
+
 .cookie-consent {
   padding: 1em 0;
   bottom: 0;

@@ -2,6 +2,10 @@
   @extend .sans, .non-text-link;
   transition: 200ms ease;
   text-decoration: none;
+  .icon {
+    margin-right: .5em;
+    vertical-align: middle;
+  }
 }
 .reverse .btn {
   border: solid 2px $colour-reverse-text;
@@ -14,4 +18,32 @@
   font-size: .6rem;
   padding: $btn-padding-y-sm $btn-padding-x-sm;
   line-height: 1.2;
+}
+.btn-group-or {
+  .or {
+    display: inline-block;
+    font-size: 50%;
+    font-weight: bold;
+    line-height: 3;
+    border: none;
+    padding-left: 1em;
+    padding-right: 1em;
+    &:hover {
+      background: inherit;
+      color: inherit;
+      cursor: default;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    .btn,
+    .or {
+      display: block;
+      width: 100%;
+    }
+    .or:before,
+    .or:after {
+      content: '-';
+    }
+  }
+
 }

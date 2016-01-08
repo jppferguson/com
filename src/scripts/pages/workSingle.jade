@@ -8,7 +8,6 @@ section.section(ng-hide="isLoading")
     .row
       .col-lg-8
         div(ng-bind-html="item.content.rendered") {{ item.content.rendered }}
-        aside(like-what-you-see)
       .col-xs-12.col-lg-4
         .card
           .card-header.sans
@@ -37,3 +36,16 @@ section.section(ng-hide="isLoading")
         a.btn.btn-sm.btn-block(ui-sref="site.work.index") All Work
       .col-xs-4
         a.btn.btn-sm.btn-block.text-xs-right(ui-sref="site.work.post({ slug: item.adjacent_posts.next.post_name })" ng-show="item.adjacent_posts.next") Next &rarr;
+
+section.section.reverse(background-colour="{{ item.custom_meta.header_colour }}")
+  .container.text-xs-center
+    h4 Like what you see?
+    p I can help you with your next project, or maybe even work with you.
+    .btn-group.btn-group-or(role="group")
+      a.btn.btn-sm.btn-primary-outline(ui-sref="site.profile")
+        i.icon.icon-question-circle
+        | More about me
+      b.btn.btn-sm.or or
+      a.btn.btn-sm.btn-primary-outline(ui-sref="site.contact")
+        i.icon.icon-comments-o
+        | Get in touch
