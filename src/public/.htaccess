@@ -1,5 +1,8 @@
 <ifModule mod_rewrite.c>
     RewriteEngine On
+    # put all favicons in their own folder
+    RewriteRule ^(android-chrome|apple-touch-icon|browserconfig|favicon|manifest|mstile|safari-pinned-tab)(.*)?$ assets/favicon/$1$2 [L]
+
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} !index
