@@ -93,9 +93,9 @@ gulp.task( 'modernizr:build', function() {
     .pipe( gulp.dest( config.destinations.scripts ) )
 } )
 
-gulp.task( 'modernizr:watch', [ 'modernizr:build' ], function() {
-  gulp.watch( config.configFile, [ 'modernizr:build' ] )
-} )
+// gulp.task( 'modernizr:watch', [ 'modernizr:build' ], function() {
+//   gulp.watch( config.configFile, [ 'modernizr:build' ] )
+// } )
 
 gulp.task( 'browserify:build', function() {
   return buildBundles( config.sources.scripts.build, false )
@@ -110,4 +110,4 @@ gulp.task( 'browserify:watch', function() {
  *******************************/
 
 gulp.task( 'scripts:build', [ 'browserify:build', 'modernizr:build' ] )
-gulp.task( 'scripts:watch', [ 'browserify:watch', 'modernizr:watch' ] )
+gulp.task( 'scripts:watch', [ 'browserify:watch', 'modernizr:build' ] )

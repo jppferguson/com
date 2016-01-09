@@ -42,6 +42,7 @@ gulp.task( 'iconfont:build', function() {
         .pipe( gulp.dest( config.sources.styles.root ) )
     } )
     .pipe( gulp.dest( config.destinations.fonts ) )
+    .pipe( gulpif( browserSync.active, browserSync.reload( { stream: true, once: true } ) ) )
 } )
 
 gulp.task( 'iconfont:watch', [ 'iconfont:build' ], function() {

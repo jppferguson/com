@@ -12,7 +12,7 @@ import nano         from 'gulp-cssnano'
 import rename       from 'gulp-rename'
 import sourcemaps   from 'gulp-sourcemaps'
 
-gulp.task( 'styles:build', [ 'iconfont:build' ], function() {
+gulp.task( 'styles:compile', function() {
   var sourceMaps   = !global.isProduction && !!config.settings.sourceMaps
   var minifyStyles = global.isProduction || config.settings.minify
 
@@ -35,5 +35,6 @@ gulp.task( 'styles:build', [ 'iconfont:build' ], function() {
 } )
 
 gulp.task( 'styles:watch', [ 'styles:build' ], function() {
-  gulp.watch( config.sources.styles.glob, [ 'styles:build' ] )
+  gulp.watch( config.sources.styles.glob, [ 'styles:compile' ] )
 } )
+gulp.task( 'styles:build', [ 'styles:compile', 'iconfont:build' ] )
