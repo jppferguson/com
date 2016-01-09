@@ -3,10 +3,10 @@
 import autoprefixer from 'gulp-autoprefixer'
 import browserSync  from 'browser-sync'
 import config       from '../config'
+import cssimport    from 'gulp-cssimport'
 import gulp         from 'gulp'
 import gulpif       from 'gulp-if'
 import handleError  from '../helpers/handle-error'
-import importCss    from 'gulp-import-css'
 import sass         from 'gulp-sass'
 import nano         from 'gulp-cssnano'
 import rename       from 'gulp-rename'
@@ -19,7 +19,7 @@ gulp.task( 'styles:build', [ 'iconfont:build' ], function() {
   return gulp.src( config.sources.styles.build, { base: config.sources.styles.root } )
     .pipe( gulpif( sourceMaps, sourcemaps.init() ) )
     .pipe( sass() )
-    .pipe( importCss() )
+    .pipe( cssimport() )
     .on( 'error', handleError )
     .pipe( autoprefixer( config.settings.autoprefixer ) )
     .pipe( gulpif( sourceMaps, sourcemaps.write() ) )
