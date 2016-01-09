@@ -9,8 +9,8 @@
     "test": "./node_modules/karma/bin/karma start test/karma.conf.js --single-run"
   },
   "engines": {
-    "node": "^0.12.x",
-    "npm": "^2.1.x"
+    "node": "^5.3.x",
+    "npm": "^3.3.x"
   },
   "devDependencies": {
     "angular": "^1.4.8",
