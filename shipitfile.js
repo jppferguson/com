@@ -13,8 +13,7 @@ module.exports = function ( shipit ) {
       repositoryUrl: 'https://github.com/jppferguson/com.git',
       ignores: ['.git', 'node_modules'],
       rsync: ['--del'],
-      keepReleases: 2,
-      // key: '/path/to/key',
+      keepReleases: 5,
       shallowClone: true,
       postNpmInstall: 'gulp prod',
       npm: {
@@ -23,8 +22,9 @@ module.exports = function ( shipit ) {
     },
 
     development: {
-      // branch: 'development',
+      branch: 'development',
       deployTo: '/var/www/site/stage.jppf.dev',
+      keepReleases: 2,
       servers: 'deploy@jcloud.dvm',
       postNpmInstall: 'gulp prod'
     },
@@ -32,6 +32,14 @@ module.exports = function ( shipit ) {
     staging: {
       branch: 'staging',
       deployTo: '/var/www/staging.jppferguson.com',
+      keepReleases: 2,
+      servers: 'deploy@utopia.digo.jppferguson.com:' + sshPort,
+      postNpmInstall: 'gulp prod'
+    },
+
+    production: {
+      branch: 'master',
+      deployTo: '/var/www/jppferguson.com',
       servers: 'deploy@utopia.digo.jppferguson.com:' + sshPort,
       postNpmInstall: 'gulp prod'
     }
