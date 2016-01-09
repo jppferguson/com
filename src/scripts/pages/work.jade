@@ -17,7 +17,7 @@ section.section.vh-50.bg-dark.reverse.relative(ng-repeat="item in items | limitT
               i(class="icon icon-{{ tag.slug }}")
       .work-content(ng-class="{ 'col-md-pull-6': $index % 2 && item.featured_image_thumbnail_url, 'col-md-6': item.featured_image_thumbnail_url, 'col-md-12': !item.featured_image_thumbnail_url }")
         h2.h1
-          a(ui-sref="site.work.post({slug: item.slug})" ng-bind-html="item.title.rendered") {{item.title.rendered}}
+          a(ui-sref="site.work.post({slug: item.slug})" ng-bind-html="item.title.rendered" prevent-orphans) {{item.title.rendered}}
         p.lead {{ item.custom_meta.subheader }}
         a.btn.btn-sm.btn-primary-outline(ui-sref="site.work.post({slug: item.slug})") Find out more
 
@@ -25,8 +25,11 @@ section.section.relative
   .container
     h4.p-b-3 From the Archive
     article.article-preview.clearfix(ng-repeat="item in items | limitTo : 10 : featuredImages" ng-hide="isLoading" style="background-color:{{item.header_colour}};")
-      a(ui-sref="site.work.post({slug: item.slug})")
-        img.img-circle.img-small.img-drop.pull-xs-left(ng-src="{{item.featured_image_thumbnail_url}}" ng-show="item.featured_image_thumbnail_url")
-      h3: a(ui-sref="site.work.post({slug: item.slug})" ng-bind-html="item.title.rendered") {{item.title.rendered}}
-      p {{ item.custom_meta.subheader }}
-      a.btn.btn-xs.btn-primary-outline(ui-sref="site.work.post({slug: item.slug})") Find out more
+      .row.flex-center
+        .col-xs-4.col-md-3
+          a(ui-sref="site.work.post({slug: item.slug})")
+            img.img-circle.img-fluid.img-drop.pull-xs-left(ng-src="{{item.featured_image_thumbnail_url}}" ng-show="item.featured_image_thumbnail_url")
+        .col-xs-8.col-md-9
+          h3: a(ui-sref="site.work.post({slug: item.slug})" ng-bind-html="item.title.rendered") {{item.title.rendered}}
+          p {{ item.custom_meta.subheader }}
+          a.btn.btn-xs.btn-primary-outline(ui-sref="site.work.post({slug: item.slug})") Find out more
