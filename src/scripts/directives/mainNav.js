@@ -3,15 +3,15 @@
 export default function( $window, ScrollFactory, $rootScope ) {
   return {
     restrict: 'A',
-    link: function( $scope, $element ) {
+    link: function( $scope ) {
       var headerHeight = 0
       // TODO: actually calculate this
       var elemHeight = 100
 
       // watch for headerHeight changes
-      $rootScope.$watch( 'headerHeight', function( newHeight, oldHeight ) {
+      $rootScope.$watch( 'headerHeight', function( newHeight ) {
         headerHeight = newHeight || 500
-      } );
+      } )
 
       // listen for scroll updated events
       $scope.$on( 'scroll:updated', function( event, scroll ) {
@@ -19,14 +19,13 @@ export default function( $window, ScrollFactory, $rootScope ) {
       } )
 
       function mainNavShowHideOnScroll( scrollPosition, isScrollingDown ) {
-        var pastHeader = ( scrollPosition >= headerHeight - elemHeight )
+        var pastHeader = scrollPosition >= headerHeight - elemHeight
         // $scope.nav.isFixed = pastHeader
         $scope.nav.isPastHeader = pastHeader
-        if( isScrollingDown && scrollPosition >= headerHeight - elemHeight + 500 ) {
+        if ( isScrollingDown && scrollPosition >= headerHeight - elemHeight + 500 ) {
           // $scope.nav.isFixed = true
           $scope.nav.inView = false
-        }
-        else {
+        } else {
           $scope.nav.inView = true
         }
         $scope.$apply()

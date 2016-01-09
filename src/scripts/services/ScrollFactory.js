@@ -2,11 +2,11 @@
 
 export default function( $rootScope, $window ) {
   var scroll = {
-    down:     true,
+    down: true,
     previous: 0,
-    current:  0
+    current: 0
   }
-  angular.element( $window ).bind( "scroll", function() {
+  angular.element( $window ).bind( 'scroll', function() {
     scroll.prev    = scroll.current
     scroll.down    = scroll.prev < this.pageYOffset
     scroll.current = this.pageYOffset

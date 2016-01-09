@@ -94,7 +94,7 @@ app.run( [ '$rootScope', '$log', '$anchorScroll', '$window', '$timeout', '$state
   fastClick.FastClick.attach( document.body )
 
   // Output message if GA debug mode is enabled
-  if( Analytics.configuration.debugMode ) {
+  if ( Analytics.configuration.debugMode ) {
     $log.info( 'GA debug mode is enabled' )
   }
 

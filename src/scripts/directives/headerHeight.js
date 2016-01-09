@@ -10,11 +10,11 @@ export default function( $rootScope, $window ) {
       }
 
       function cleanUp() {
-        angular.element( $window ).off('resize', checkHeaderHeight )
+        angular.element( $window ).off( 'resize', checkHeaderHeight )
       }
 
       // bind on resize
-      angular.element( $window ).bind( "resize", checkHeaderHeight )
+      angular.element( $window ).bind( 'resize', checkHeaderHeight )
       checkHeaderHeight()
 
       $scope.$on( '$destroy', cleanUp )
