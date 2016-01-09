@@ -11,7 +11,21 @@ config.configFile = 'gulp/config.js'
 
 // setup settings object
 config.settings = {}
-config.settings.autoprefixer = 'last 2 versions'
+config.settings.autoprefixer = [
+  'Android >= 2.3',
+  'BlackBerry >= 7',
+  'Chrome >= 9',
+  'Firefox >= 4',
+  'Explorer >= 9',
+  'iOS >= 5',
+  'Opera >= 11',
+  'Safari >= 5',
+  'OperaMobile >= 11',
+  'OperaMini >= 6',
+  'ChromeAndroid >= 9',
+  'FirefoxAndroid >= 4',
+  'ExplorerMobile >= 9'
+]
 config.settings.minify = false
 config.settings.sourceMaps = true
 
@@ -51,10 +65,19 @@ config.sources.scripts.root = src + '/scripts'
 config.sources.scripts.glob = config.sources.scripts.root + '/**/*.js'
 config.sources.scripts.modernizr = {}
 config.sources.scripts.modernizr.tests = [
-  "touchevents"
+  'css/flexbox',
+  'css/flexboxlegacy',
+  'css/flexboxtweener',
+  'css/vhunit',
+  'flexbox',
+  'flexboxlegacy',
+  'flexboxtweener',
+  'vhunit',
+  'touchevents'
 ]
 config.sources.scripts.modernizr.options = [
-  "setClasses"
+  'setClasses',
+  'html5shiv'
 ]
 config.sources.scripts.build = [
   config.sources.scripts.root + '/app.js'

@@ -23,7 +23,7 @@ body {
   top: 50%;
   left: 50%;
   width: 100%;
-  transform: translate3d(-50%,-50%,0);
+  transform: translate(-50%,-50%);
 }
 .bottom {
   position: absolute;
@@ -34,10 +34,16 @@ body {
 
 .vh-50 {
   min-height: 50vh;
+  .no-cssvhunit & {
+    min-height: 500px;
+  }
 }
 .vh-90 {
   @extend .border-box;
   min-height: 90vh;
+  .no-cssvhunit & {
+    min-height: 800px;
+  }
 }
 
 .section {
@@ -138,3 +144,4 @@ body {
     }
   }
 }
+

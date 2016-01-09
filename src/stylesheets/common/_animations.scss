@@ -46,7 +46,8 @@
   position: fixed;
   opacity: 1;
   pointer-events: none;
-  transition: opacity 150ms ease;
+  transition: opacity 0ms 150ms ease, visibility 150ms 0ms ease;
+  visibility: visible;
   z-index: 999;
   &:before {
     $loadSize: 42px;
@@ -66,6 +67,7 @@
   }
   &.hide {
     opacity: 0;
+    visibility: hidden;
   }
 }
 
