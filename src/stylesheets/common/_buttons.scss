@@ -2,6 +2,7 @@
   @extend .sans, .non-text-link;
   transition: 200ms ease;
   text-decoration: none;
+  text-shadow: none;
   .icon {
     margin-right: .5em;
     vertical-align: middle;

@@ -42,11 +42,11 @@ $header-transition-out-duration: 240ms;
     transition: all 300ms ease-in-out;
     visibility: hidden;
     &:nth-child(1) {
-      color: rgba(255,255,255,.8);
+      color: rgba($colour-reverse-text,.8);
       text-transform: uppercase;
     }
     &:nth-child(2) {
-      color: rgba(255,255,255,.55);
+      color: rgba($colour-reverse-text,.55);
       transition-delay: 100ms;
     }
   }

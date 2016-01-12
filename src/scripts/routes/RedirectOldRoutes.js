@@ -1,6 +1,6 @@
 'use strict'
 
-export default function( $injector, $location ) {
+export default function( $injector, $location, $log ) {
 
   var path = $location.url()
 

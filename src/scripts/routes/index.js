@@ -87,7 +87,7 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
       resolve: {
         postTitle: [ '$stateParams', 'JournalFactory', function( $stateParams, JournalFactory ) {
           return JournalFactory.single( $stateParams.slug ).then( function( item ) {
-            return item.title.rendered
+            return item ? item.title ? item.title.rendered : false : false
           } )
         } ],
         $title: [ 'postTitle', function( postTitle ) {
@@ -119,7 +119,7 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
       resolve: {
         postTitle: [ '$stateParams', 'WorkFactory', function( $stateParams, WorkFactory ) {
           return WorkFactory.single( $stateParams.slug ).then( function( item ) {
-            return item.title.rendered
+            return item ? item.title ? item.title.rendered : false : false
           } )
         } ],
         $title: [ 'postTitle', function( postTitle ) {
@@ -182,7 +182,7 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
       resolve: {
         pageTitle: [ '$stateParams', 'PageFactory', function( $stateParams, PageFactory ) {
           return PageFactory.get( $stateParams.page ).then( function( item ) {
-            return item.title.rendered
+            return item ? item.title ? item.title.rendered : false : false
           } )
         } ],
         $title: [ 'pageTitle', function( pageTitle ) {

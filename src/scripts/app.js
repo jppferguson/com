@@ -109,7 +109,6 @@ app.run( [ '$rootScope', '$log', '$anchorScroll', '$window', '$timeout', '$state
   //   $log.info( next, current )
   // } )
   $rootScope.$on( '$stateChangeError', function $stateChangeError( event, toState, toParams, fromState, fromParams, error ) {
-    $log.group()
     $log.error( '$stateChangeError', error )
     $log.error( error.stack )
     $log.info( 'event', event )
@@ -117,7 +116,6 @@ app.run( [ '$rootScope', '$log', '$anchorScroll', '$window', '$timeout', '$state
     $log.info( 'toParams', toParams )
     $log.info( 'fromState', fromState )
     $log.info( 'fromParams', fromParams )
-    $log.groupEnd()
   } )
 
   function getTitleValue( title ) {

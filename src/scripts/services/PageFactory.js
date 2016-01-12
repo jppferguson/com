@@ -9,7 +9,14 @@ export default function( $http, $sce, API ) {
 
     return $http.get( apiPath ).then( function( resp ) {
 
-      var pageData = resp.data[0]
+      var pageData
+
+      if( resp.data.length === 0) {
+        return false
+      }
+
+      pageData = resp.data[0]
+
       // trust each title, content and excerpt in the object
       pageData.title.rendered = $sce.trustAsHtml( pageData.title.rendered )
       pageData.excerpt.rendered = $sce.trustAsHtml( pageData.excerpt.rendered )
