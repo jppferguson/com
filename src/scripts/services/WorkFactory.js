@@ -1,6 +1,6 @@
 'use strict'
 
-export default function( $http, $sce, CONFIG ) {
+export default function( $http, $sce, API ) {
 
   var factory = {}
 
@@ -16,7 +16,7 @@ export default function( $http, $sce, CONFIG ) {
 
   factory.get = function() {
 
-    return $http.get( CONFIG.API_ENDPOINT + 'portfolio' ).then( function( res ) {
+    return $http.get( API.ENDPOINT + 'portfolio' ).then( function( res ) {
 
       return trustHTMLContent( res.data )
 
@@ -25,7 +25,7 @@ export default function( $http, $sce, CONFIG ) {
 
   factory.single = function( slug ) {
 
-    return $http.get( CONFIG.API_ENDPOINT + 'portfolio/?filter[name]=' + slug ).then( function( res ) {
+    return $http.get( API.ENDPOINT + 'portfolio/?filter[name]=' + slug ).then( function( res ) {
 
       return trustHTMLContent( res.data )[ 0 ]
 

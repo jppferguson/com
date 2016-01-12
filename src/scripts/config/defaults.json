@@ -1,0 +1,13 @@
+{
+  "ENV": "defaults",
+  "LOG": true,
+  "API": {
+    "ENDPOINT": "http://wordpress.jppferguson.com/wp-json/wp/v2/"
+  },
+  "GA": {
+    "ACCOUNT": "UA-XXXXX-XX",
+    "DEBUGMODE": false,
+    "ENABLED": false
+  }
+}
+

@@ -6,10 +6,10 @@ describe( 'Unit: JournalCtrl', function() {
   beforeEach( angular.mock.module( 'App' ) )
 
   describe( 'with httpBackend', function() {
-    beforeEach( inject( function( $controller, $rootScope, $httpBackend, $sce, $sanitize, readingTime, CONFIG ) {
+    beforeEach( inject( function( $controller, $rootScope, $httpBackend, $sce, $sanitize, readingTime, API ) {
       $scope = $rootScope.$new()
 
-      $httpBackend.when( 'GET', CONFIG.API_ENDPOINT + 'posts')
+      $httpBackend.when( 'GET', API.ENDPOINT + 'posts')
         .respond( [ {
           title:   { rendered: 'title'},
           excerpt: { rendered: 'excerpt'},

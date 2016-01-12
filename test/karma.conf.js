@@ -25,6 +25,7 @@ module.exports = function ( karma ) {
 
     exclude: [
       '**/__**',
+      'src/scripts/_config.js',
       'test/coverage/**',
       'test/karma.conf.js',
     ],

@@ -1,6 +1,6 @@
 'use strict'
 
-export default function( $http, $sanitize, $sce, readingTime, CONFIG ) {
+export default function( $http, $sanitize, $sce, readingTime, API ) {
 
   var factory = {}
 
@@ -18,7 +18,7 @@ export default function( $http, $sanitize, $sce, readingTime, CONFIG ) {
 
   factory.latest = function() {
 
-    return $http.get( CONFIG.API_ENDPOINT + 'posts' ).then( function( res ) {
+    return $http.get( API.ENDPOINT + 'posts' ).then( function( res ) {
 
       return trustHTMLContent( res.data )
 
@@ -27,7 +27,7 @@ export default function( $http, $sanitize, $sce, readingTime, CONFIG ) {
 
   factory.tag = function( tag ) {
 
-    return $http.get( CONFIG.API_ENDPOINT + 'posts?filter[tag]=' + tag ).then( function( res ) {
+    return $http.get( API.ENDPOINT + 'posts?filter[tag]=' + tag ).then( function( res ) {
 
       return trustHTMLContent( res.data )
 
@@ -36,7 +36,7 @@ export default function( $http, $sanitize, $sce, readingTime, CONFIG ) {
 
   factory.single = function( slug ) {
 
-    return $http.get( CONFIG.API_ENDPOINT + 'posts/?filter[name]=' + slug ).then( function( res ) {
+    return $http.get( API.ENDPOINT + 'posts/?filter[name]=' + slug ).then( function( res ) {
 
       return trustHTMLContent( res.data )[ 0 ]
 

@@ -62,6 +62,7 @@ config.sources.images.glob = config.sources.images.root + '/**/*'
 
 config.sources.scripts = {}
 config.sources.scripts.root = src + '/scripts'
+config.sources.scripts.config = config.sources.scripts.root + '/config'
 config.sources.scripts.glob = config.sources.scripts.root + '/**/*.js'
 config.sources.scripts.modernizr = {}
 config.sources.scripts.modernizr.tests = [

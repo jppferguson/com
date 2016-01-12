@@ -9,6 +9,7 @@ import ngGA           from 'angular-google-analytics'
 import ngRouter       from 'angular-ui-router'
 import ngSanitize     from 'angular-sanitize'
 
+import appConfig      from './_config'
 import appRoutes      from './routes'
 import appControllers from './controllers'
 import appDirectives  from './directives'
@@ -26,6 +27,7 @@ var appDependencies = [
   ngSanitize
 ]
 var customModules = [
+  appConfig,
   appRoutes,
   appControllers,
   appDirectives,
@@ -40,11 +42,7 @@ customModules.forEach( function( model ) {
 
 app = angular.module( 'App', appDependencies )
 
-app.constant( 'CONFIG', {
-  API_ENDPOINT: 'http://wordpress.jppferguson.com/wp-json/wp/v2/'
-} )
-
-app.config( [ '$interpolateProvider', '$stateProvider', '$locationProvider', '$disqusProvider', '$httpProvider', '$urlMatcherFactoryProvider', 'AnalyticsProvider', function( $interpolateProvider, $stateProvider, $locationProvider, $disqusProvider, $httpProvider, $urlMatcherFactoryProvider, AnalyticsProvider ) {
+app.config( function( $compileProvider, $disqusProvider, $httpProvider, $interpolateProvider, $locationProvider, $logProvider, $urlMatcherFactoryProvider, AnalyticsProvider, ENV, GA, LOG ) {
 
   $locationProvider.html5Mode( true )
 
@@ -56,12 +54,20 @@ app.config( [ '$interpolateProvider', '$stateProvider', '$locationProvider', '$d
 
   $disqusProvider.setShortname( 'jppferguson' )
 
+  // Log debug to the console
+  $logProvider.debugEnabled( LOG )
+
+  // Debug info, see: <https://docs.angularjs.org/guide/production>
+  $compileProvider.debugInfoEnabled( ENV === 'production' )
+
   // Setup Google Analytics
   AnalyticsProvider
-    // .setAccount( 'UA-XXXXX-xx' )
+    .setAccount( GA.ACCOUNT )
     .setPageEvent( '$stateChangeSuccess' )
-    .disableAnalytics( true )
-    // .enterDebugMode( true )
+    .disableAnalytics( !GA.ENABLED )
+  if( GA.DEBUGMODE ) {
+    AnalyticsProvider.enterDebugMode()
+  }
 
   // Use request parameters instead of a json payload
   $httpProvider.defaults.transformRequest = function( data ) {
@@ -73,7 +79,7 @@ app.config( [ '$interpolateProvider', '$stateProvider', '$locationProvider', '$d
 
   $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded charset=UTF-8'
 
-} ] )
+} )
 
 app.run( [ '$rootScope', '$log', '$anchorScroll', '$window', '$timeout', '$state', 'Analytics', function( $rootScope, $log, $anchorScroll, $window, $timeout, $state, Analytics ) {
 

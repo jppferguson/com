@@ -1,11 +1,11 @@
 'use strict'
 
-export default function( $http, $sce, CONFIG ) {
+export default function( $http, $sce, API ) {
   var factory = {}
 
   factory.get = function( slug ) {
 
-    var apiPath = CONFIG.API_ENDPOINT + 'pages/?filter[name]=' + slug
+    var apiPath = API.ENDPOINT + 'pages/?filter[name]=' + slug
 
     return $http.get( apiPath ).then( function( resp ) {
 
