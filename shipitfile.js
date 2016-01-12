@@ -26,7 +26,7 @@ module.exports = function ( shipit ) {
       deployTo: '/var/www/site/stage.jppf.dev',
       keepReleases: 2,
       servers: 'deploy@jcloud.dvm',
-      postNpmInstall: 'gulp prod'
+      postNpmInstall: 'gulp prod --env=development'
     },
 
     staging: {
@@ -34,14 +34,14 @@ module.exports = function ( shipit ) {
       deployTo: '/var/www/staging.jppferguson.com',
       keepReleases: 2,
       servers: 'deploy@utopia.digo.jppferguson.com:' + sshPort,
-      postNpmInstall: 'gulp prod'
+      postNpmInstall: 'gulp prod --env=staging'
     },
 
     production: {
       branch: 'master',
       deployTo: '/var/www/jppferguson.com',
       servers: 'deploy@utopia.digo.jppferguson.com:' + sshPort,
-      postNpmInstall: 'gulp prod'
+      postNpmInstall: 'gulp prod --env=production'
     }
 
   } )
