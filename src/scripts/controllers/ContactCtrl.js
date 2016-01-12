@@ -6,21 +6,19 @@ export default function( $scope, $http, $log ) {
   $scope.sent = false
 
   $scope.submitForm = function() {
-    $http({
+    $http( {
       url: 'http://wordpress.jppferguson.com/app/themes/jppferguson/contact.php',
       method: 'POST',
       data: JSON.stringify( $scope.form ),
       transformRequest: false,
-      headers: { 'Content-Type': undefined }
+      headers: { 'Content-Type': undefined } // eslint-disable-line no-undefined
     } ).then( function( resp ) {
-        $log.info( resp.data )
-        if( resp.data.success === true ) {
-          $scope.sent = true
-        }
+      $log.info( resp.data )
+      if ( resp.data.success === true ) {
+        $scope.sent = true
+      }
     } )
 
   }
-
-
 
 }

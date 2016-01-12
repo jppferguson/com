@@ -103,7 +103,7 @@ gulp.task( 'modernizr:build', function() {
 
 
 gulp.task( 'ng-config:build', function() {
-  var environment = yargs.argv.env || 'development';
+  var environment = yargs.argv.env || 'development'
   gulp.src( config.sources.scripts.config + '/defaults.json' )
     .pipe( ngConstant( {
       name: 'appConfig',
@@ -115,7 +115,7 @@ gulp.task( 'ng-config:build', function() {
     .pipe( gulp.dest( config.sources.scripts.root ) )
 } )
 
-gulp.task( 'ng-config:watch', function() {
+gulp.task( 'ng-config:watch', [ 'ng-config:build' ], function() {
   gulp.watch( config.sources.scripts.config + '/*.json', [ 'ng-config:build' ] )
 } )
 

@@ -9,7 +9,7 @@ export default function( $compile ) {
       var $label = angular.element( $elem[0].querySelector( 'label' ) )
       var $input = angular.element( $elem[0].querySelector( '.form-control' ) )
       var model = attr.floatingLabel
-      var id = attr.floatingLabel.replace('form.','')
+      var id = attr.floatingLabel.replace( 'form.', '' )
       var text = $label.text()
 
       $elem.removeAttr( 'floating-label' )

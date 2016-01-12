@@ -15,7 +15,7 @@ export default function( $window, ScrollFactory, $rootScope ) {
 
       // listen for scroll updated events
       $scope.$on( 'scroll:updated', function( event, scroll ) {
-        mainNavShowHideOnScroll( scroll.current, scroll.down )
+        mainNavShowHideOnScroll( scroll.current, scroll.down ) // eslint-disable-line no-use-before-define
       } )
 
       function mainNavShowHideOnScroll( scrollPosition, isScrollingDown ) {

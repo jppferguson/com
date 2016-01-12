@@ -4,7 +4,7 @@ import angular        from 'angular'
 import fastClick      from 'fastclick'
 import ngAnimate      from 'angular-animate'
 import ngCookies      from 'angular-cookies'
-import ngDisqus       from 'angular-disqus/angular-disqus'
+import ngDisqus       from 'angular-disqus/angular-disqus' // eslint-disable-line no-unused-vars
 import ngGA           from 'angular-google-analytics'
 import ngRouter       from 'angular-ui-router'
 import ngSanitize     from 'angular-sanitize'
@@ -65,7 +65,7 @@ app.config( function( $compileProvider, $disqusProvider, $httpProvider, $interpo
     .setAccount( GA.ACCOUNT )
     .setPageEvent( '$stateChangeSuccess' )
     .disableAnalytics( !GA.ENABLED )
-  if( GA.DEBUGMODE ) {
+  if ( GA.DEBUGMODE ) {
     AnalyticsProvider.enterDebugMode()
   }
 
