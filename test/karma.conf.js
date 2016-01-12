@@ -49,7 +49,7 @@ module.exports = function ( karma ) {
     colors: true,
 
     // logging level: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: karma.LOG_DISABLE,
+    logLevel: karma.LOG_WARN,
 
     // watch files and execute tests whenever any file changes
     autoWatch: true,

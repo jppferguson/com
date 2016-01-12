@@ -37,4 +37,6 @@ gulp.task( 'styles:compile', function() {
 gulp.task( 'styles:watch', [ 'styles:build' ], function() {
   gulp.watch( config.sources.styles.glob, [ 'styles:compile' ] )
 } )
-gulp.task( 'styles:build', [ 'styles:compile', 'iconfont:build' ] )
+gulp.task( 'styles:build', [ 'iconfont:build' ], function(){
+  gulp.start('styles:compile')
+} )
