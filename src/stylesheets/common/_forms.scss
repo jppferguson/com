@@ -56,3 +56,9 @@
 .form-group .c-select.ng-pristine {
   color: $gray-light;
 }
+
+/* Errors */
+.form-group .ng-invalid.ng-touched {
+  border-color: $brand-danger;
+  color: $brand-danger;
+}

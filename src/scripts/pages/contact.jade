@@ -9,31 +9,68 @@
 
 section.section
   .container
-    .row
-      .col-sm-12.col-lg-6.col-lg-push-3
-        .form-group.row(floating-label="name")
+    form.row.container(ng-controller="ContactCtrl" novalidate ng-submit="submitForm()" name="contactForm")
+      h4(ng-show="sent") Your message was successfully sent!
+      .col-sm-12.col-lg-8.col-lg-push-2(ng-hide="sent")
+        .form-group(floating-label="form.name")
           label Full name
-          input.form-control
-        .form-group.row(floating-label="email")
+          input.form-control(required)
+        .form-group(floating-label="form.email")
           label Email Address
-          input.form-control
+          input.form-control(required)
         .row
-          .col-sm-6.form-group(floating-label="budget")
-            label Budget
-            select.c-select.form-control
-              option(value="Less than £1,000") Less than £1,000
-              option(value="Between £1,000 and £2,500") Between £1,000 and £2,500
-              option(value="Between £2,500 and £5,000") Between £2,500 and £5,000
-              option(value="More than £5,000") More than £5,000
-          .col-sm-6.form-group(floating-label="timeline")
-            label Timeline
-            select.c-select.form-control
-              option(value="ASAP or within a few days") ASAP or within a few days
-              option(value="A couple of weeks") A couple of weeks
-              option(value="A month or two") A month or two
-              option(value="Several months") Several months
-        .form-group.row(floating-label="enquiry")
-          label How can I help you?
-          textarea.form-control(elastic)
-        .form-group.row
-          button.pull-sm-right.btn.btn-sm.btn-primary-outline(type="submit") Send message
+          .col-xs-12.col-sm-6
+            .form-group(floating-label="form.budget")
+              label Budget
+              select.c-select.form-control(required)
+                option(value="Less than £1,000") Less than £1,000
+                option(value="Between £1,000 and £2,500") Between £1,000 and £2,500
+                option(value="Between £2,500 and £5,000") Between £2,500 and £5,000
+                option(value="More than £5,000") More than £5,000
+          .col-xs-12.col-sm-6
+            .form-group(floating-label="form.timeline")
+              label Timeline
+              select.c-select.form-control(required)
+                option(value="ASAP or within a few days") ASAP or within a few days
+                option(value="A couple of weeks") A couple of weeks
+                option(value="A month or two") A month or two
+                option(value="Several months") Several months
+          .col-xs-12
+            .form-group(floating-label="form.enquiry")
+              label How can I help you?
+              textarea.form-control(elastic required)
+        .row
+          .col-xs-6
+            .relative
+              p.small.text-muted.sans All fields are required (sorry).
+          .col-xs-6.text-xs-right
+            button.btn.btn-sm.btn-block.btn-primary-outline(type="submit" ng-disabled="contactForm.$invalid") Send message
+
+section.section.bg-blue.reverse
+  .container
+    h4.p-b-3 Contact Details
+    .row
+      .col-xs-12.col-md-8
+        ul.list-icon-bullets
+          li: a(href="mailto:hi@jppferguson.com")
+            i.icon.icon-email
+            | hi@jppferguson.com
+          li: a(href="tel:+44 7 554 835 935")
+            i.icon.icon-phone
+            | +44 7 554 835 935
+          li: a(href="skype:jppferguson")
+            i.icon.icon-skype
+            | jppferguson
+          li: a(href="http://twitter.com/jppferguson")
+            i.icon.icon-twitter
+            | @jppferguson
+
+      .col-xs-12.col-md-4(ng-controller="CVCtrl")
+        a.btn.btn-sm.btn-block.btn-primary-outline.m-b-1(href="{{ cvURL }}")
+          i.icon.icon-download
+          | Download my CV
+
+        div
+          a.btn.btn-xs.btn-block.btn-link(href="http://linkedin.com/in/jppferguson")
+            i.icon.icon-linkedin
+            | LinkedIn Profile
