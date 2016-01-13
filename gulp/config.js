@@ -37,7 +37,7 @@ config.sources.www = {}
 config.sources.www.root = src + '/public'
 config.sources.www.glob = [
   config.sources.www.root + '/**/*',
-  config.sources.www.root + '/.htaccess'
+  '!' + config.sources.www.root + '/.gitkeep'
 ]
 
 config.sources.fonts = {}

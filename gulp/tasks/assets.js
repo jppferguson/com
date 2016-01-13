@@ -77,7 +77,10 @@ gulp.task( 'images:watch', [ 'images:build' ], function() {
  *******************************/
 
 gulp.task( 'public:build', function() {
-  return gulp.src( config.sources.www.glob )
+  return gulp.src( config.sources.www.glob, {
+    dot: true,
+    base: config.sources.www.root
+  } )
     .pipe( gulp.dest( 'dist' ) )
 } )
 
