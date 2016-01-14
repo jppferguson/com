@@ -16,3 +16,13 @@
     max-width: 150px;
   }
 }
+.article {
+  p:first-child:first-letter {
+    @extend .sans;
+    float: left;
+    font-size: 320%;
+    line-height: .8;
+    padding-top: .1em;
+    padding-right: .1em;
+  }
+}

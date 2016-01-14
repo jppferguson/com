@@ -10,7 +10,7 @@ section.section
   .container
     .row
       .col-xs-12.col-lg-8.col-lg-push-2(ng-hide="isLoading")
-        article(ng-bind-html="article.content.rendered" highlight) {{article.content.rendered}}
+        article.article(ng-bind-html="article.content.rendered" highlight) {{article.content.rendered}}
 
     hr
 
