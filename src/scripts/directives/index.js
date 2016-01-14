@@ -2,6 +2,7 @@
 import a               from './a'
 import backgroundImage from './backgroundImage'
 import backgroundColour from './backgroundColour'
+import backgroundPosition from './backgroundPosition'
 import cookieConsent   from './cookieConsent'
 import elastic         from './elastic'
 import floatingLabel   from './floatingLabel'
@@ -19,6 +20,7 @@ var appDirectives = angular.module( 'appDirectives', [] )
   .directive( 'a',               a )
   .directive( 'backgroundColour', backgroundColour )
   .directive( 'backgroundImage', backgroundImage )
+  .directive( 'backgroundPosition', backgroundPosition )
   .directive( 'cookieConsent',   cookieConsent )
   .directive( 'elastic',         elastic )
   .directive( 'floatingLabel',   floatingLabel )

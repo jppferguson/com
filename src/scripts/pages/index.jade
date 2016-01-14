@@ -17,10 +17,10 @@ section.section.bg-dark.reverse
       .col-xs-12.col-md-6(ng-repeat="item in items | limitTo:featuredImages" ng-hide="isLoading")
         .tile(background-colour="{{ item.custom_meta.header_colour }}")
           a.tile-link.non-text-link(ui-sref="site.work.post({slug: item.slug})")
-          img.tile-img(ng-src="{{item.featured_image_thumbnail_url}}")
+          .tile-img(background-image="{{ item.featured_image_thumbnail_url }}" background-position="{{ item.custom_meta.header_focus }}")
           .tile-content
             h3(ng-bind-html="item.title.rendered") {{ item.title.rendered }}
-            p {{ item.custom_meta.subheader }}
+            p(prevent-orphans) {{ item.custom_meta.subheader }}
     .row
       .col-md-12
         a.btn.btn-primary-outline(ui-sref="site.work.index") All Work

@@ -1,5 +1,5 @@
 .reverse.bg-dark.header-offset.vh-50.relative(header-height)
-  .image-header(background-image="{{ item.featured_image_thumbnail_url }}")
+  .image-header(background-image="{{ item.featured_image_thumbnail_url }}" background-position="{{ item.custom_meta.header_focus }}")
   .container.center-center(ng-hide="isLoading")
     h1(ng-bind-html="item.title.rendered") {{ item.title.rendered }}
     p.lead {{ item.custom_meta.subheader }}
