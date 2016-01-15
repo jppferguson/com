@@ -103,9 +103,9 @@ config.sources.templates.build = [
 
 config.sources.tests = {}
 config.sources.tests.root = 'test'
-config.sources.tests.glob = config.sources.tests.root + '/**/*.spec.js'
+config.sources.tests.glob = config.sources.scripts.root + '/**/*.spec.js'
 config.sources.tests.karma = {
-  configFile: __dirname + '/../' + config.sources.tests.root + '/karma.conf.js',
+  configFile: __dirname + '/../karma.conf.js',
   browsers: [ 'PhantomJS' ],
   mochaReporter: {
     output: 'minimal'

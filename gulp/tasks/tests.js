@@ -8,7 +8,7 @@ import karma       from 'karma'
 var done
 var server
 
-gulp.task( 'karma:build', function() {
+gulp.task( 'karma:build', [ 'scripts:build' ], function() {
   // Run tests once and exit
   config.sources.tests.karma.singleRun = true
   server = new karma.Server( config.sources.tests.karma, done )

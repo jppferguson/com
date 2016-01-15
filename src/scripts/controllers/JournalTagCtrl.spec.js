@@ -1,25 +1,28 @@
+/* eslint camelcase:0 */
 'use strict'
 
+import 'angular-mocks/angular-mocks'
+
 describe( 'Unit: JournalTagCtrl', function() {
-  var JournalTagCtrl
-  var $scope
   beforeEach( angular.mock.module( 'App' ) )
 
   describe( 'with httpBackend', function() {
-    beforeEach( inject( function( $controller, $rootScope, $httpBackend, $stateParams, $sce, $sanitize, readingTime, API ) {
+    var $scope
+
+    beforeEach( angular.mock.inject( function( $controller, $rootScope, $httpBackend, $stateParams, $sce, $sanitize, readingTime, API ) {
       $scope = $rootScope.$new()
 
       $httpBackend.when( 'GET', API.ENDPOINT + 'posts?filter[tag]=' + $stateParams.tag )
         .respond( [ {
-          title:   { rendered: 'title'},
-          excerpt: { rendered: 'excerpt'},
-          content: { rendered: 'content'},
+          title: { rendered: 'title' },
+          excerpt: { rendered: 'excerpt' },
+          content: { rendered: 'content' },
           taxonomies_list: {
             post_tag: []
           }
         } ] )
 
-      JournalTagCtrl = $controller( 'JournalTagCtrl', { $scope: $scope } )
+      $controller( 'JournalTagCtrl', { $scope: $scope } )
       $httpBackend.flush()
     } ) )
 

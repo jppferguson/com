@@ -1,6 +1,6 @@
 module.exports = function ( karma ) {
   karma.set( {
-    basePath: '../',
+    basePath: '',
 
     frameworks: [
       'browserify',
@@ -10,24 +10,18 @@ module.exports = function ( karma ) {
 
     // preprocess matching files before serving them to the browser
     preprocessors: {
-      'src/scripts/**/*': [ 'browserify' ],
-      // 'test/unit/**/*.js': [ 'browserify' ],
+      'src/scripts/**/*.js': [ 'browserify' ]
     },
 
     files: [
-      // app
-      'src/scripts/**/*',
-      // vendor
-      'node_modules/angular-mocks/angular-mocks.js',
-      // tests
-      'test/unit/**/*.js'
+      'src/scripts/**/*.js'
     ],
 
     exclude: [
       '**/__**',
       'src/scripts/_config.js',
-      'test/coverage/**',
-      'test/karma.conf.js',
+      'scripts/_config.js',
+      'karma.conf.js',
     ],
 
     // Change Karma's debug.html to the mocha web reporter
