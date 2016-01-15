@@ -8,6 +8,7 @@ import ngDisqus       from 'angular-disqus/angular-disqus' // eslint-disable-lin
 import ngGA           from 'angular-google-analytics'
 import ngRouter       from 'angular-ui-router'
 import ngSanitize     from 'angular-sanitize'
+import ngUpdateMeta   from 'angular-update-meta/dist/update-meta' // eslint-disable-line no-unused-vars
 
 import appConfig      from './_config'
 import appRoutes      from './routes'
@@ -24,7 +25,8 @@ var appDependencies = [
   'ngDisqus',
   ngGA.name,
   ngRouter,
-  ngSanitize
+  ngSanitize,
+  'updateMeta'
 ]
 var customModules = [
   appConfig,

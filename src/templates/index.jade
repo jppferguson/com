@@ -2,20 +2,20 @@ doctype
 html.no-js(ng-app="App")
   head
     base(href="/")
+    title Jamie Ferguson
     meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    title(ng-bind-html="($title || ' ') + 'Jamie Ferguson'") Jamie Ferguson
-    meta(name='description', content='')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1, initial-scale=1, minimal-ui, user-scalable=no')
-    script(src="/assets/js/modernizr.js")
+    include ./includes/meta.jade
     include ./includes/favicon.jade
+    script(src="/assets/js/modernizr.js")
     link(rel="stylesheet", href="/assets/css/main.css")
   body
     loading(isLoading)
-    cookie-consent
     ui-view(name="site-header")
     .ui-view-container
       ui-view
     ui-view(name="site-footer")
+    cookie-consent
 
     script(src="/assets/js/app.js")

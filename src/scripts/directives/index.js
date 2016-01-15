@@ -11,6 +11,7 @@ import highlight       from './highlight'
 import likeWhatYouSee  from './likeWhatYouSee'
 import loading         from './loading'
 import mainNav         from './mainNav'
+import metaTags        from './metaTags'
 import preventOrphans  from './preventOrphans'
 import readingTime     from './readingTime'
 import uiSrefActiveIf  from './uiSrefActiveIf'
@@ -29,6 +30,7 @@ var appDirectives = angular.module( 'appDirectives', [] )
   .directive( 'likeWhatYouSee',  likeWhatYouSee )
   .directive( 'loading',         loading )
   .directive( 'mainNav',         mainNav )
+  .directive( 'metaTags',        metaTags )
   .directive( 'preventOrphans',  preventOrphans )
   .directive( 'readingTime',     readingTime )
   .directive( 'uiSrefActiveIf',  uiSrefActiveIf )

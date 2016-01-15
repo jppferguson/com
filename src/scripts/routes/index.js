@@ -43,12 +43,7 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
     .state( 'site.index', {
       url: '',
       controller: 'IndexCtrl',
-      template: pageIndex,
-      resolve: {
-        $title: function() {
-          return 'Welcome - '
-        }
-      }
+      template: pageIndex
     } )
     .state( 'site.journal', {
       abstract: true,
@@ -60,40 +55,17 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
     .state( 'site.journal.index', {
       url: '',
       controller: 'JournalCtrl',
-      template: pageJournal,
-      resolve: {
-        $title: function() {
-          return 'Journal - '
-        }
-      }
+      template: pageJournal
     } )
     .state( 'site.journal.tag', {
       url: 'tag/:tag/',
       controller: 'JournalTagCtrl',
-      template: pageJournalTag,
-      resolve: {
-        postTitle: [ '$stateParams', function( $stateParams ) {
-          return $stateParams.tag
-        } ],
-        $title: [ 'postTitle', function( postTitle ) {
-          return postTitle + ' - '
-        } ]
-      }
+      template: pageJournalTag
     } )
     .state( 'site.journal.post', {
       url: 'article/:slug/',
       controller: 'JournalSingleCtrl',
-      template: pageJournalSingle,
-      resolve: {
-        postTitle: [ '$stateParams', 'JournalFactory', function( $stateParams, JournalFactory ) {
-          return JournalFactory.single( $stateParams.slug ).then( function( item ) {
-            return item ? item.title ? item.title.rendered : false : false
-          } )
-        } ],
-        $title: [ 'postTitle', function( postTitle ) {
-          return postTitle + ' - '
-        } ]
-      }
+      template: pageJournalSingle
     } )
 
     // Work Routes
@@ -105,89 +77,39 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
     .state( 'site.work.index', {
       url: '',
       controller: 'WorkCtrl',
-      template: pageWork,
-      resolve: {
-        $title: function() {
-          return 'Work - '
-        }
-      }
+      template: pageWork
     } )
     .state( 'site.work.post', {
       url: ':slug/',
       controller: 'WorkSingleCtrl',
-      template: pageWorkSingle,
-      resolve: {
-        postTitle: [ '$stateParams', 'WorkFactory', function( $stateParams, WorkFactory ) {
-          return WorkFactory.single( $stateParams.slug ).then( function( item ) {
-            return item ? item.title ? item.title.rendered : false : false
-          } )
-        } ],
-        $title: [ 'postTitle', function( postTitle ) {
-          return postTitle + ' - '
-        } ]
-      }
+      template: pageWorkSingle
     } )
 
     .state( 'site.profile', {
       url: 'profile/',
       controller: 'PageCtrl',
-      template: pageProfile,
-      resolve: {
-        $title: function() {
-          return 'Profile - '
-        }
-      }
+      template: pageProfile
     } )
     .state( 'site.contact', {
       url: 'contact/',
-      template: pageContact,
-      resolve: {
-        $title: function() {
-          return 'Contact - '
-        }
-      }
+      template: pageContact
     } )
     .state( 'site.styleguide', {
       url: 'styleguide/',
-      template: pageStyleguide,
-      resolve: {
-        $title: function() {
-          return 'Style Guide - '
-        }
-      }
+      template: pageStyleguide
     } )
     .state( 'site.stuff', {
       url: 'stuff/',
-      template: pageStuff,
-      resolve: {
-        $title: function() {
-          return 'Stuff - '
-        }
-      }
+      template: pageStuff
     } )
     .state( 'site.404', {
       url: '404/',
-      template: page404,
-      resolve: {
-        $title: function() {
-          return 'Error 404 - '
-        }
-      }
+      template: page404
     } )
     // automagic pages
     .state( 'site.page', {
       url: ':page/',
       controller: 'PageCtrl',
-      template: pageGeneral,
-      resolve: {
-        pageTitle: [ '$stateParams', 'PageFactory', function( $stateParams, PageFactory ) {
-          return PageFactory.get( $stateParams.page ).then( function( item ) {
-            return item ? item.title ? item.title.rendered : false : false
-          } )
-        } ],
-        $title: [ 'pageTitle', function( pageTitle ) {
-          return pageTitle + ' - '
-        } ]
-      }
+      template: pageGeneral
     } )
 } ] )
