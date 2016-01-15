@@ -11,7 +11,7 @@ export default function( $http, $sce, API ) {
 
       var pageData
 
-      if( resp.data.length === 0) {
+      if ( resp.data.length === 0 ) {
         return false
       }
 
