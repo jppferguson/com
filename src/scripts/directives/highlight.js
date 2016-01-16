@@ -12,7 +12,7 @@ export default function( $timeout, $compile ) {
         angular.forEach( items, function( item ) {
           hljs.highlightBlock( item )
         } )
-      } )
+      }, 500 )
     }
   }
 }
