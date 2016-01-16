@@ -9,7 +9,6 @@ import gulpif       from 'gulp-if'
 import handleError  from '../helpers/handle-error'
 import sass         from 'gulp-sass'
 import nano         from 'gulp-cssnano'
-import rename       from 'gulp-rename'
 import sourcemaps   from 'gulp-sourcemaps'
 
 gulp.task( 'styles:compile', function() {
@@ -22,12 +21,9 @@ gulp.task( 'styles:compile', function() {
     .pipe( cssimport() )
     .on( 'error', handleError )
     .pipe( autoprefixer( config.settings.autoprefixer ) )
-    .pipe( gulpif( sourceMaps, sourcemaps.write() ) )
-    .pipe( gulp.dest( config.destinations.styles ) )
-    .pipe( gulpif( minifyStyles, rename( { suffix: '.min' } ) ) )
     .pipe( gulpif( minifyStyles, nano() ) )
     .pipe( gulpif( sourceMaps, sourcemaps.write( './' ) ) )
-    .pipe( gulpif( minifyStyles, gulp.dest( config.destinations.styles ) ) )
+    .pipe( gulp.dest( config.destinations.styles ) )
     .pipe( gulpif( browserSync.active, browserSync.reload( {
       stream: true,
       match: '**/*.css'
