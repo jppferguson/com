@@ -18,7 +18,7 @@ export default function( $http, $sce, API ) {
       pageData = resp.data[0]
 
       // trust each title, content and excerpt in the object
-      pageData.title.rendered = $sce.trustAsHtml( pageData.title.rendered )
+      pageData.title.rendered = pageData.custom_meta.header || $sce.trustAsHtml( pageData.title.rendered )
       pageData.excerpt.rendered = $sce.trustAsHtml( pageData.excerpt.rendered )
       pageData.content.rendered = $sce.trustAsHtml( pageData.content.rendered )
 
