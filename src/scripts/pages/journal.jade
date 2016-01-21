@@ -8,7 +8,7 @@ meta-tags(title="{{ page.title.rendered }}" description="{{ page.custom_meta.sub
 
 section.section
   .container
-    article.article-preview(ng-repeat="article in articles" ng-hide="isLoading")
+    article.article-preview(ng-repeat="article in articles")
       h2.display-3
         a(ui-sref="site.journal.post({slug: article.slug})" ng-bind-html="article.title.rendered" prevent-orphans) {{article.title.rendered}}
       p About a {{ article.readingTime }} read from

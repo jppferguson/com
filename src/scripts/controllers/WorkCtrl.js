@@ -1,10 +1,9 @@
 'use strict'
 
-export default function( $rootScope, $scope, $location, WorkFactory, PageFactory ) {
+export default function( $scope, $location, WorkFactory, PageFactory ) {
 
   var pageSlug = $location.path().substring( 1 )
 
-  $rootScope.isLoading = $rootScope.isLoading + 2
   $scope.featuredImages = 4
 
   PageFactory.get( pageSlug ).then( function( pageContent ) {
@@ -14,14 +13,11 @@ export default function( $rootScope, $scope, $location, WorkFactory, PageFactory
       // 404 if there's no data...
       $location.url( '/404' )
     }
-    $rootScope.isLoading = $rootScope.isLoading - 1
   } )
 
   WorkFactory.get().then( function( items ) {
 
     $scope.items = items
-
-    $rootScope.isLoading = $rootScope.isLoading - 1
 
   } )
 

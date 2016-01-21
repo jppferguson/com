@@ -7,7 +7,7 @@ meta-tags(title="{{ item.title.rendered }}" description="{{ item.custom_meta.sub
   .center.bottom.smoked-glass.p-a-2(ng-show="item.custom_meta.header_note")
     .container: small(ng-bind-html="item.custom_meta.header_note")
 
-section.section(ng-hide="isLoading")
+section.section
   .container
     .row
       .col-lg-8

@@ -15,7 +15,7 @@ section.section.bg-dark.reverse
     .row
       .col-md-12
         h4.p-b-3 Featured Case Studies
-      .col-xs-12.col-md-6(ng-repeat="item in items | limitTo:featuredImages" ng-hide="isLoading")
+      .col-xs-12.col-md-6(ng-repeat="item in items | limitTo:featuredImages")
         .tile(background-colour="{{ item.custom_meta.header_colour }}")
           a.tile-link.non-text-link(ui-sref="site.work.post({slug: item.slug})")
           .tile-img(background-image="{{ item.featured_image_thumbnail_url }}" background-position="{{ item.custom_meta.header_focus }}")
@@ -30,7 +30,7 @@ section.section.bg-dark.reverse
 section.section.bg-light.bg-journal
   .container(ng-controller="JournalCtrl")
     h4.p-b-3 Recent Articles
-    article.article-preview(ng-repeat="article in articles" ng-hide="isLoading")
+    article.article-preview(ng-repeat="article in articles")
       h2.display-3
         a(ui-sref="site.journal.post({slug: article.slug})" ng-bind-html="article.title.rendered" prevent-orphans) {{ article.title.rendered }}
       p.lead About a {{ article.readingTime }} read from

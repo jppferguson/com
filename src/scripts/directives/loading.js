@@ -3,9 +3,6 @@
 export default function( $http ) {
   return {
     restrict: 'AE',
-    scope: {
-      isLoading: '='
-    },
     replace: true,
     template: '<div class="loading hide"><div class="center-center">LOADING...</div></div>',
     link: function( $scope, $elem ) {

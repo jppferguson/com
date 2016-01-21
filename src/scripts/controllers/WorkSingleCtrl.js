@@ -1,8 +1,6 @@
 'use strict'
 
-export default function( $rootScope, $scope, $location, $stateParams, WorkFactory ) {
-
-  $rootScope.isLoading = $rootScope.isLoading + 1
+export default function( $scope, $location, $stateParams, WorkFactory ) {
 
   WorkFactory.single( $stateParams.slug ).then( function( item ) {
     if ( item ) {
@@ -11,7 +9,6 @@ export default function( $rootScope, $scope, $location, $stateParams, WorkFactor
       // 404 if there's no data...
       $location.url( '/404' )
     }
-    $rootScope.isLoading = $rootScope.isLoading - 1
   } )
 
 

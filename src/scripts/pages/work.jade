@@ -7,7 +7,7 @@ meta-tags(title="Work" description="Here are some projects I’ve worked on. Go 
   .center.bottom.smoked-glass.p-a-2(ng-show="page.custom_meta.header_note")
     .container: small(ng-bind-html="page.custom_meta.header_note")
 
-section.section.vh-50.bg-dark.reverse.relative(ng-repeat="item in items | limitTo:featuredImages" ng-hide="isLoading" background-colour="{{ item.custom_meta.header_colour }}" ng-class="{ 'bg-blue': !item.custom_meta.header_colour }")
+section.section.vh-50.bg-dark.reverse.relative(ng-repeat="item in items | limitTo:featuredImages" background-colour="{{ item.custom_meta.header_colour }}" ng-class="{ 'bg-blue': !item.custom_meta.header_colour }")
   .container
     .row.flex-center
       .col-md-6(ng-show="item.featured_image_thumbnail_url" ng-class="{'col-md-push-6': $index % 2 }")
@@ -27,7 +27,7 @@ section.section.vh-50.bg-dark.reverse.relative(ng-repeat="item in items | limitT
 section.section.relative
   .container
     h4.p-b-3 From the Archive
-    article.article-preview.clearfix(ng-repeat="item in items | limitTo : 10 : featuredImages" ng-hide="isLoading" style="background-color:{{item.header_colour}};")
+    article.article-preview.clearfix(ng-repeat="item in items | limitTo : 10 : featuredImages" style="background-color:{{item.header_colour}};")
       .row.flex-center
         .col-xs-4.col-md-3
           a(ui-sref="site.work.post({slug: item.slug})")

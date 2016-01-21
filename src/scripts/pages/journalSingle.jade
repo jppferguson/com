@@ -1,6 +1,6 @@
 meta-tags(title="Journal" description="{{ article.excerpt.rendered }}" type="article")
 .reverse.bg-green.header-offset.vh-50.relative(header-height)
-  .container.center-center(ng-hide="isLoading")
+  .container.center-center
     h1(ng-bind-html="article.title.rendered") {{ article.title.rendered }}
     p.lead About a {{ article.readingTime }} read from
       = ' '
@@ -10,7 +10,7 @@ meta-tags(title="Journal" description="{{ article.excerpt.rendered }}" type="art
 section.section
   .container
     .row
-      .col-xs-12.col-lg-8.col-lg-push-2(ng-hide="isLoading")
+      .col-xs-12.col-lg-8.col-lg-push-2
         article.article(ng-bind-html="article.content.rendered" highlight) {{article.content.rendered}}
 
     hr
