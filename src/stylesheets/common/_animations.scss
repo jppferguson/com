@@ -48,7 +48,7 @@
   pointer-events: none;
   transition: opacity 0ms 150ms ease, visibility 150ms 0ms ease;
   visibility: visible;
-  z-index: 999;
+  z-index: 1010;
   &:before {
     $loadSize: 42px;
     background: url(../img/logo.png) no-repeat 50% 50%;
