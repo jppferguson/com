@@ -139,6 +139,24 @@ hr {
     }
   }
 }
+ol.outline {
+  list-style-type: upper-roman;
+  ol {
+    list-style-type: upper-alpha;
+
+    ol {
+      list-style-type: decimal;
+
+      ol {
+        list-style-type: lower-alpha;
+
+        ol {
+          list-style-type: lower-roman;
+        }
+      }
+    }
+  }
+}
 @include media-breakpoint-up(md) {
   .columns-2 { column-count: 2; }
   .columns-3 { column-count: 3; }
