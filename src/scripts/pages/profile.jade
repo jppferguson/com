@@ -1,8 +1,8 @@
 meta-tags(title="{{ page.title.rendered }}" description="{{ page.custom_meta.subheader }}" type="profile")
 .reverse.bg-green.header-offset.vh-50.relative(header-height)
   .container.center-center
-    h1(ng-bind-html="page.title.rendered") {{ page.title.rendered }}
-    p.lead(ng-show="page.custom_meta.subheader") {{ page.custom_meta.subheader }}
+    h1(ng-bind-html="page.title.rendered")
+    p.lead(ng-bind-html="page.custom_meta.subheader")
   .bottom
     .center-center
       img.profile-img.img-circle(src="/assets/img/jamie-ferguson.jpg")

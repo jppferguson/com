@@ -1,12 +1,10 @@
 meta-tags(title="Contact" description="Have an interesting project? Awesome! Let’s have a chat about how I can help you.")
 .reverse.bg-blue.header-offset.vh-50.relative(header-height)
   .container.center-center
-    h1 Let’s talk
-    p.lead Have an interesting project? Awesome!
-      br
-      strong Let’s have a chat about how I can help you.
-  .center.bottom.smoked-glass.p-a-2
-    .container: small Plus: If you need further man-power on your project, I might know someone to help you out as well.
+    h1(ng-bind-html="page.title.rendered")
+    p(ng-repeat="line in (page.custom_meta.subheader | newlines) track by $index" ng-class="{lead: $index === 0}" ng-bind-html="line | markdown")
+  .center.bottom.smoked-glass.p-a-2(ng-show="page.custom_meta.header_note")
+    .container: small(ng-bind-html="page.custom_meta.header_note")
 
 section.section
   .container

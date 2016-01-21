@@ -18,8 +18,21 @@ describe( 'Unit: JournalCtrl', function() {
           title: { rendered: 'title' },
           excerpt: { rendered: 'excerpt' },
           content: { rendered: 'content' },
+          custom_meta: {
+            header: 'header'
+          },
           taxonomies_list: {
             post_tag: []
+          }
+        } ] )
+
+      $httpBackend.when( 'GET', API.ENDPOINT + 'pages/?filter[name]=' )
+        .respond( [ {
+          title: { rendered: 'title' },
+          excerpt: { rendered: 'excerpt' },
+          content: { rendered: 'content' },
+          custom_meta: {
+            header: 'header'
           }
         } ] )
 
@@ -29,6 +42,10 @@ describe( 'Unit: JournalCtrl', function() {
 
     it( 'should set tags property', function() {
       expect( $scope.articles[0].tags ).toEqual( [] )
+    } )
+
+    it( 'should set the page title from custom_meta', function() {
+      expect( $scope.page.title.rendered ).toEqual( 'header' )
     } )
   } )
 

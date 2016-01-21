@@ -92,6 +92,7 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
     } )
     .state( 'site.contact', {
       url: 'contact/',
+      controller: 'PageCtrl',
       template: pageContact
     } )
     .state( 'site.styleguide', {

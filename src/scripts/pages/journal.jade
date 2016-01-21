@@ -1,9 +1,10 @@
-meta-tags(title="Journal" description="I dabble in a bit of writing every now &amp; then. Mainly about design, code, freelancing but sometimes just random shit.")
+meta-tags(title="{{ page.title.rendered }}" description="{{ page.custom_meta.subheader }}")
 .reverse.bg-green.header-offset.vh-50.relative(header-height)
   .container.center-center
-    h1 Journal
-    p.lead I dabble in a bit of writing every now &amp; then.
-    p Mainly about design, code, freelancing but sometimes just random shit.
+    h1(ng-bind-html="page.title.rendered")
+    p(ng-repeat="line in (page.custom_meta.subheader | newlines) track by $index" ng-class="{lead: $index === 0}" ng-bind-html="line")
+  .center.bottom.smoked-glass.p-a-2(ng-show="page.custom_meta.header_note")
+    .container: small(ng-bind-html="page.custom_meta.header_note")
 
 section.section
   .container

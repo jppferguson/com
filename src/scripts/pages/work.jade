@@ -1,9 +1,11 @@
 meta-tags(title="Work" description="Here are some projects I’ve worked on. Go on — pick one.")
 .reverse.bg-blue.header-offset.vh-50.relative(header-height)
   .container.center-center
-    h1 Work
-    p.lead Here are some projects I’ve worked on.
-    p Go on — pick one.
+    h1(ng-bind-html="page.title.rendered")
+    p(ng-repeat="line in (page.custom_meta.subheader | newlines) track by $index" ng-class="{lead: $index === 0}" ng-bind-html="line")
+
+  .center.bottom.smoked-glass.p-a-2(ng-show="page.custom_meta.header_note")
+    .container: small(ng-bind-html="page.custom_meta.header_note")
 
 section.section.vh-50.bg-dark.reverse.relative(ng-repeat="item in items | limitTo:featuredImages" ng-hide="isLoading" background-colour="{{ item.custom_meta.header_colour }}" ng-class="{ 'bg-blue': !item.custom_meta.header_colour }")
   .container

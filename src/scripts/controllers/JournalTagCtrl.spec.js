@@ -17,6 +17,9 @@ describe( 'Unit: JournalTagCtrl', function() {
           title: { rendered: 'title' },
           excerpt: { rendered: 'excerpt' },
           content: { rendered: 'content' },
+          custom_meta: {
+            header: 'header'
+          },
           taxonomies_list: {
             post_tag: []
           }

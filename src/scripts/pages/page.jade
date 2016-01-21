@@ -1,8 +1,11 @@
 meta-tags(title="{{ page.title.rendered }}" description="{{ page.custom_meta.subheader }}")
 .reverse.bg-dark.header-offset.vh-50.relative(background-image="{{ page.featured_image_thumbnail_url }}" background-colour="{{ page.custom_meta.header_colour }}" header-height)
   .container.center-center
-    h1(ng-bind-html="page.title.rendered") {{ page.title.rendered }}
-    p.lead(ng-show="page.custom_meta.subheader") {{ page.custom_meta.subheader }}
+    h1(ng-bind-html="page.title.rendered")
+    p(ng-repeat="line in (page.custom_meta.subheader | newlines) track by $index" ng-class="{lead: $index === 0}" ng-bind-html="line")
+
+  .center.bottom.smoked-glass.p-a-2(ng-show="page.custom_meta.header_note")
+    .container: small(ng-bind-html="page.custom_meta.header_note")
 
 section.section
   .container
