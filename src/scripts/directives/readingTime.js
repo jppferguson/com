@@ -14,10 +14,7 @@ export default function( readingTime ) {
       $scope.$watch( function() {
         return $scope.textToRead
       }, function( text ) {
-        $scope.txt = readingTime.get( text, {
-          wordsPerMinute: $scope.wordsPerMinute,
-          format: $scope.format
-        } )
+        $scope.txt = readingTime.get( text, $scope.wordsPerMinute )
       } )
     }
   }

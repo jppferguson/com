@@ -1,5 +1,8 @@
 .tag {
   margin-left: .5em;
+  &:first-child {
+    margin-left: 0;
+  }
 }
 .article-preview {
   position: relative;
@@ -24,5 +27,11 @@
     line-height: .8;
     padding-top: .1em;
     padding-right: .1em;
+  }
+}
+.article-meta {
+  @extend .list-inline-bullets;
+  li:before {
+    color: #ccc;
   }
 }

@@ -2,10 +2,11 @@ meta-tags(title="Journal" description="{{ article.excerpt.rendered }}" type="art
 .reverse.bg-green.header-offset.vh-50.relative(header-height)
   .container.center-center
     h1(ng-bind-html="article.title.rendered") {{ article.title.rendered }}
-    p.lead About a {{ article.readingTime }} read from
-      = ' '
-      em {{ article.date | date:format:'mediumDate' }}.
-    a.tag(ng-repeat="tag in article.tags" ui-sref="site.journal.tag({tag: tag.name})" ng-show="article.tags[0]") \#{{tag.name}}
+    ul.article-meta
+      li: date {{ article.date | date:format:'mediumDate' }}
+      li {{ article.readingTime }}
+      li
+        a.tag(ng-repeat="tag in article.tags" ui-sref="site.journal.tag({tag: tag.name})" ng-show="article.tags[0]") \#{{tag.name}}
 
 section.section
   .container

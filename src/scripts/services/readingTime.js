@@ -2,42 +2,17 @@
 
 export default function() {
 
-  var formats = {
-    value: function( time ) {
-      return time
-    },
-
-    text: function( time ) {
-      var result = ''
-
-      if ( !time.minutes && !time.seconds ) {
-        result = result + 'moment'
-      }
-
-      if ( time.minutes ) {
-        result = result + time.minutes + ' min. '
-      }
-
-      if ( time.seconds ) {
-        result = result + time.seconds + ' sec. '
-      }
-
-      return result
-    }
-  }
-
   return {
-    get: function( text = '', custom ) {
-      var words  = text.trim().split( /\s+/g ).length
-      var wps    = ( custom && custom.wordsPerMinute || 210 ) / 60
-      var rts    = words / wps
-      var format = custom && custom.format || 'text'
-      var mins   = Math.floor( rts / 60 )
-      var secs   = Math.round( rts - mins * 60 )
-      return formats[ format ].call( this, {
-        minutes: mins,
-        seconds: secs
-      } )
+    get: function( text, wordsPerMinute = 200 ) {
+      var minutes
+      minutes = text.split( ' ' ).length / wordsPerMinute
+      if ( minutes > 0 && minutes < 0.5 ) {
+        return 'a few seconds read'
+      }
+      if ( minutes === 0 ) {
+        minutes = 1
+      }
+      return Math.round( minutes ) + ' min read'
     }
   }
 
