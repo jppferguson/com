@@ -23,6 +23,15 @@ export default function( $http, $sce, API ) {
     } )
   }
 
+  factory.getFeatured = function() {
+
+    return $http.get( API.ENDPOINT + 'portfolio?orderby=meta_value_num&filter[meta_key]=featured' ).then( function( res ) {
+
+      return trustHTMLContent( res.data )
+
+    } )
+  }
+
   factory.single = function( slug ) {
 
     return $http.get( API.ENDPOINT + 'portfolio/?filter[name]=' + slug ).then( function( res ) {

@@ -3,9 +3,6 @@
 export default function( $scope,  $location, PageFactory ) {
 
   var pageSlug = $location.path().substring( 1 )
-  if ( pageSlug === '' ) {
-    pageSlug = 'profile'
-  }
 
   PageFactory.get( pageSlug ).then( function( pageContent ) {
     if ( pageContent ) {

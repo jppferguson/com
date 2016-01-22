@@ -1,21 +1,19 @@
 meta-tags(title="Jamie Ferguson, Creative Developer" append-title="false" description="I specialise in crafting digital experiences.")
 .reverse.bg-home.header-offset.vh-90.relative(header-height)
   .container.center-center
-    h1.bold Hi, I’m Jamie.
-    p.lead I specialise in
-      em=" crafting "
-      | digital experiences.
+    h1.bold(ng-bind-html="indexPage.title.rendered")
+    p.lead(ng-bind-html="indexPage.custom_meta.subheader | markdown")
     .p-t-3: a.btn.btn-primary-outline(ui-sref="site.work.index") View some work I've done
   .center.bottom.p-a-2
     small.text-muted.sans or scroll for more
     .icon.icon-angle-double-down.animate-down
 
 section.section.bg-dark.reverse
-  .container(ng-controller="WorkCtrl")
+  .container
     .row
       .col-md-12
         h4.p-b-3 Featured Case Studies
-      .col-xs-12.col-md-6(ng-repeat="item in items | limitTo:featuredImages")
+      .col-xs-12.col-md-6(ng-repeat="item in workItems | limitTo:featuredImages")
         .tile(background-colour="{{ item.custom_meta.header_colour }}")
           a.tile-link.non-text-link(ui-sref="site.work.post({slug: item.slug})")
           .tile-img(background-image="{{ item.featured_image_thumbnail_url }}" background-position="{{ item.custom_meta.header_focus }}")
@@ -28,9 +26,9 @@ section.section.bg-dark.reverse
 
 
 section.section.bg-light.bg-journal
-  .container(ng-controller="JournalCtrl")
+  .container
     h4.p-b-3 Recent Articles
-    article.article-preview(ng-repeat="article in articles")
+    article.article-preview(ng-repeat="article in journalArticles")
       h2.display-3
         a(ui-sref="site.journal.post({slug: article.slug})" ng-bind-html="article.title.rendered" prevent-orphans) {{ article.title.rendered }}
       ul.article-meta
@@ -41,8 +39,8 @@ section.section.bg-light.bg-journal
     a.btn.btn-primary-outline(ui-sref="site.journal.index") All Articles
 
 section.section.bg-green.bg-profile.reverse
-  .container(ng-controller="PageCtrl")
+  .container
     h4.p-b-3 Profile
     h2.display-3 I'm a kiwi
-    div(ng-bind-html="page.excerpt.rendered") {{ page.excerpt.rendered }}
+    div(ng-bind-html="profilePage.excerpt.rendered") {{ profilePage.excerpt.rendered }}
     a.btn.btn-primary-outline(ui-sref="site.profile") More about me
