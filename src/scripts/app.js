@@ -120,29 +120,4 @@ app.run( [ '$rootScope', '$log', '$anchorScroll', '$window', '$timeout', '$state
     $log.info( 'fromParams', fromParams )
   } )
 
-  function getTitleValue( title ) {
-    return angular.isFunction( title ) ? title() : title
-  }
-
-  $rootScope.$on( '$stateChangeSuccess', function() {
-    var state
-    var title = getTitleValue( $state.$current.locals.globals.$title )
-    $timeout( function() {
-      $rootScope.$title = title
-    } )
-
-    $rootScope.$breadcrumbs = []
-    state = $state.$current
-    while ( state ) {
-      if ( state.resolve && state.resolve.$title ) {
-        $rootScope.$breadcrumbs.unshift( {
-          title: getTitleValue( state.locals.globals.$title ),
-          state: state.self.name,
-          stateParams: state.locals.globals.$stateParams
-        } )
-      }
-      state = state.parent
-    }
-  } )
-
 } ] )

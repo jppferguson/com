@@ -10,7 +10,7 @@ html.no-js(ng-app="App")
     include ./includes/favicon.jade
     script(src="/assets/js/modernizr.js")
     link(rel="stylesheet", href="/assets/css/main.css")
-  body
+  body(body-class)
     loading(isLoading)
     ui-view(name="site-header")
     .ui-view-container

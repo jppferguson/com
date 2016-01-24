@@ -43,12 +43,18 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
     .state( 'site.index', {
       url: '',
       controller: 'IndexCtrl',
-      template: pageIndex
+      template: pageIndex,
+      data: {
+        bodyClass: 'home'
+      }
     } )
     .state( 'site.journal', {
       abstract: true,
       template: '<ui-view/>',
-      url: 'journal/'
+      url: 'journal/',
+      data: {
+        bodyClass: 'journal'
+      }
     } )
 
     // Journal Routes
@@ -72,7 +78,10 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
     .state( 'site.work', {
       abstract: true,
       template: '<ui-view/>',
-      url: 'work/'
+      url: 'work/',
+      data: {
+        bodyClass: 'work'
+      }
     } )
     .state( 'site.work.index', {
       url: '',
@@ -88,29 +97,47 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
     .state( 'site.profile', {
       url: 'profile/',
       controller: 'PageCtrl',
-      template: pageProfile
+      template: pageProfile,
+      data: {
+        bodyClass: 'profile'
+      }
     } )
     .state( 'site.contact', {
       url: 'contact/',
       controller: 'PageCtrl',
-      template: pageContact
+      template: pageContact,
+      data: {
+        bodyClass: 'contact'
+      }
     } )
     .state( 'site.styleguide', {
       url: 'styleguide/',
-      template: pageStyleguide
+      template: pageStyleguide,
+      data: {
+        bodyClass: 'styleguide'
+      }
     } )
     .state( 'site.stuff', {
       url: 'stuff/',
-      template: pageStuff
+      template: pageStuff,
+      data: {
+        bodyClass: 'stuff'
+      }
     } )
     .state( 'site.404', {
       url: '404/',
-      template: page404
+      template: page404,
+      data: {
+        bodyClass: 'page-404'
+      }
     } )
     // automagic pages
     .state( 'site.page', {
       url: ':page/',
       controller: 'PageCtrl',
-      template: pageGeneral
+      template: pageGeneral,
+      data: {
+        bodyClass: 'page'
+      }
     } )
 } ] )
