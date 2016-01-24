@@ -10,6 +10,7 @@ export default function( $rootScope ) {
     'blue',
     'green',
     'orange',
+    'red',
     'yellow'
   ]
   factory.defaultColour = factory.colours[0]

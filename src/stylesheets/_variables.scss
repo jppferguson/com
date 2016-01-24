@@ -1,19 +1,16 @@
 
 // Colours
 $colour-background-light:   #fffff9;
-$colour-background-green:   #8c7;
-$colour-background-blue:    #28a;
-$colour-background-orange:  #553;
 $colour-background-dark:    #3b3b3b;
-$colour-background-yellow:  #fed51a;
 
 $background-colours: (
   light:   $colour-background-light,
   dark:    $colour-background-dark,
-  blue:    $colour-background-blue,
-  green:   $colour-background-green,
-  orange:  $colour-background-orange,
-  yellow:  $colour-background-yellow
+  blue:    #4387A7,
+  green:   #71C762,
+  orange:  #ef6d3b,
+  red:     #bd0102,
+  yellow:  #FFC83D
 );
 
 $base-body-background: #222;

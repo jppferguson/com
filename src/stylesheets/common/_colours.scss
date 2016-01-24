@@ -17,10 +17,19 @@
   background-repeat: no-repeat;
   background-position: 100% 100%;
 }
+.bg-journal-reverse {
+  background-image: url(../img/bg-journal-reverse.png);
+  background-repeat: repeat;
+  background-position: 50% 50%;
+  background-size: 25%;
+}
 .bg-profile {
   background-image: url(../img/bg-profile.png);
   background-repeat: no-repeat;
-  background-position: -1% 50%;
+  background-position: 50% 50%;
+  .home & {
+    background-position: -1% 50%;
+  }
 }
 
 .reverse {
