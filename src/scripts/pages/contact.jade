@@ -1,5 +1,5 @@
 meta-tags(title="Contact" description="Have an interesting project? Awesome! Let’s have a chat about how I can help you.")
-.reverse.bg-blue.header-offset.vh-50.relative(header-height)
+.page-header.reverse.header-offset.vh-50.relative(header-height background-colour="{{ page.custom_meta.header_colour }}" background-colour-header)
   .container.center-center
     h1(ng-bind-html="page.title.rendered")
     p(ng-repeat="line in (page.custom_meta.subheader | newlines) track by $index" ng-class="{lead: $index === 0}" ng-bind-html="line | markdown")
@@ -45,7 +45,7 @@ section.section
           .col-xs-6.text-xs-right
             button.btn.btn-sm.btn-block.btn-primary-outline(type="submit" ng-disabled="contactForm.$invalid") Send message
 
-section.section.bg-blue.reverse
+section.section.reverse(background-colour="{{ page.custom_meta.header_colour }}")
   .container
     h4.p-b-3 Contact Details
     .row

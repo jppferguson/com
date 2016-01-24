@@ -7,6 +7,14 @@ $colour-background-orange:  #553;
 $colour-background-dark:    #3b3b3b;
 $colour-background-yellow:  #fed51a;
 
+$background-colours: (
+  light:   $colour-background-light,
+  dark:    $colour-background-dark,
+  blue:    $colour-background-blue,
+  green:   $colour-background-green,
+  orange:  $colour-background-orange,
+  yellow:  $colour-background-yellow
+);
 
 $base-body-background: #222;
 $block-default-background: $colour-background-light;

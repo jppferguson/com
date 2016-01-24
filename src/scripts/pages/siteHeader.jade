@@ -1,6 +1,6 @@
 header.header.reverse(ng-controller="HeaderCtrl")
   .nav(ng-class="{ 'nav-open': nav.isOpen, 'nav-fixed': nav.isFixed, 'nav-in-view': nav.inView, 'nav-past-header': nav.isPastHeader }" main-nav)
-    .container.relative
+    .container.relative.background-target
       button.ferg-burger.hidden-md-up.pull-xs-right(type="button" ng-click="nav.isOpen = !nav.isOpen; nav.inView = true") Menu
         b.un-top
         p.atty

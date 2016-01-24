@@ -1,5 +1,6 @@
 'use strict'
 
+import BackgroundFactory from './BackgroundFactory'
 import BodyFactory    from './BodyFactory'
 import JournalFactory from './JournalFactory'
 import MediaFactory   from './MediaFactory'
@@ -10,7 +11,8 @@ import WorkFactory    from './WorkFactory'
 
 var appServices = angular.module( 'appServices', [] )
   .service( 'readingTime',    readingTime )
-  .factory( 'BodyFactory',    BodyFactory )
+  .factory( 'BackgroundFactory', BackgroundFactory )
+  .service( 'BodyFactory',    BodyFactory )
   .service( 'JournalFactory', JournalFactory )
   .service( 'MediaFactory',   MediaFactory )
   .service( 'PageFactory',    PageFactory )

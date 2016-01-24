@@ -11,6 +11,11 @@ $header-z-bottom:    1000;
 $header-transition-in-duration:  300ms;
 $header-transition-out-duration: 240ms;
 
+.page-header {
+  background-color: $colour-background-dark;
+  transition: background-color 500ms ease-in-out;
+}
+
 .brand,
 .ferg-burger,
 .main-nav           { z-index: $header-z-top; }
@@ -20,15 +25,13 @@ $header-transition-out-duration: 240ms;
 .brand {
   font-family: $font-family-monospace;
   position: absolute;
-  left: $header-padding-sm;
+  left: 1.25rem;
   top: $header-padding-sm;
   @include media-breakpoint-up(md) {
     top: $header-padding-md;
-    left: $header-padding-md;
   }
   @include media-breakpoint-up(lg) {
     top: $header-padding-lg;
-    left: $header-padding-lg;
   }
   .text-wrap {
     font-size: 11px;
@@ -79,11 +82,10 @@ $header-transition-out-duration: 240ms;
   text-indent: -5000px;
   width: 1em;
   height: 1em;
-  right: $header-padding-sm;
+  right: 1.25rem;
   top: $header-padding-sm;
   @include media-breakpoint-up(md) {
     top: $header-padding-md;
-    right: $header-padding-sm;
   }
   .nav-past-header & {
     right: 1.25rem;
@@ -127,10 +129,10 @@ $header-transition-out-duration: 240ms;
               height     0ms   ease-in-out $header-transition-out-duration,
               bottom     0ms   ease-in-out $header-transition-out-duration;
 
-  &:after {
-    background: $colour-background-dark;
+  .background-target:after {
+    background: inherit;
     content: '';
-    position: absolute;
+    position: fixed;
     height: $header-height-sm;
     width: 100%;
     top: 0;
@@ -146,16 +148,16 @@ $header-transition-out-duration: 240ms;
     height: $header-height-sm;
     // position: fixed;
     transform: translate3d(0, -100%, 0);
-    &:after {
+    .background-target:after {
       transform: scale(1,1);
     }
-    &.nav-in-view:after {
+    &.nav-in-view .background-target:after {
       box-shadow: 0 0 30px 10px rgba(0,0,0,.3);
     }
   }
 
   @include media-breakpoint-up(md) {
-    &:after,
+    .background-target:after,
     &.nav-past-header {
       height: $header-height-md;
     }
@@ -163,10 +165,10 @@ $header-transition-out-duration: 240ms;
   @include media-breakpoint-up(md) {
     .container {
       max-width: none;
-      transition: width 300ms ease-in-out;
-      width: 100%;
+      transition: width 300ms 150ms ease-in-out;
+      width: 95%;
     }
-    &:after,
+    .background-target:after,
     &.nav-past-header {
       height: $header-height-md;
     }
@@ -175,7 +177,7 @@ $header-transition-out-duration: 240ms;
     }
   }
   @include media-breakpoint-up(lg) {
-    &:after,
+    .background-target:after,
     &.nav-past-header {
       height: $header-height-lg;
     }
@@ -220,17 +222,12 @@ $header-transition-out-duration: 240ms;
     background: none !important;
     font-size: .8rem;
     top: $header-padding-sm;
-    right: $header-padding-sm;
+    right: 1.25rem;
     @include media-breakpoint-up(md) {
-      right: $header-padding-md;
       top: $header-padding-md;
     }
     @include media-breakpoint-up(lg) {
-      right: $header-padding-lg;
       top: $header-padding-lg;
-    }
-    .nav-past-header & {
-      right: 1.25rem;
     }
     li {
       display: inline;
@@ -254,7 +251,7 @@ $header-transition-out-duration: 240ms;
     }
   }
   @include media-breakpoint-down(sm) {
-    background-color: $colour-background-dark;
+    background-color: inherit;
     position: fixed;
     top: 0;
     right: 0;
@@ -309,7 +306,6 @@ $header-transition-out-duration: 240ms;
     }
   }
 }
-
 .header-offset {
   padding-top: 150px;
   p {
