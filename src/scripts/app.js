@@ -4,11 +4,10 @@ import angular        from 'angular'
 import fastClick      from 'fastclick'
 import ngAnimate      from 'angular-animate'
 import ngCookies      from 'angular-cookies'
-import ngDisqus       from 'angular-disqus/angular-disqus' // eslint-disable-line no-unused-vars
 import ngGA           from 'angular-google-analytics'
 import ngRouter       from 'angular-ui-router'
 import ngSanitize     from 'angular-sanitize'
-import ngUpdateMeta   from 'angular-update-meta/dist/update-meta' // eslint-disable-line no-unused-vars
+import 'angular-update-meta/dist/update-meta'
 
 import appConfig      from './_config'
 import appRoutes      from './routes'
@@ -22,7 +21,6 @@ var app
 var appDependencies = [
   ngAnimate,
   ngCookies,
-  'ngDisqus',
   ngGA.name,
   ngRouter,
   ngSanitize,
@@ -44,7 +42,7 @@ customModules.forEach( function( model ) {
 
 app = angular.module( 'App', appDependencies )
 
-app.config( function( $compileProvider, $disqusProvider, $httpProvider, $interpolateProvider, $locationProvider, $logProvider, $urlMatcherFactoryProvider, AnalyticsProvider, ENV, GA, LOG ) {
+app.config( function( $compileProvider, $httpProvider, $interpolateProvider, $locationProvider, $logProvider, $urlMatcherFactoryProvider, AnalyticsProvider, ENV, GA, LOG ) {
 
   $locationProvider.html5Mode( true )
 
@@ -53,8 +51,6 @@ app.config( function( $compileProvider, $disqusProvider, $httpProvider, $interpo
 
   // Make a trailing slash optional for all routes
   $urlMatcherFactoryProvider.strictMode( false )
-
-  $disqusProvider.setShortname( 'jppferguson' )
 
   // Log debug to the console
   $logProvider.debugEnabled( LOG )
