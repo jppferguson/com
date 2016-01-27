@@ -1,7 +1,7 @@
 {
   "ENV": "development",
   "API": {
-    "ENDPOINT": "http://wordpress-jppferguson.dev/wp-json/wp/v2/"
+    "ENDPOINT": "//wordpress-jppferguson.dev/wp-json/wp/v2/"
   }
 }
 

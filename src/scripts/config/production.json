@@ -2,7 +2,7 @@
   "ENV": "production",
   "LOG": false,
   "API": {
-    "ENDPOINT": "http://wordpress.jppferguson.com/wp-json/wp/v2/"
+    "ENDPOINT": "//wordpress.jppferguson.com/wp-json/wp/v2/"
   },
   "GA": {
     "ACCOUNT": "UA-20860090-1",
