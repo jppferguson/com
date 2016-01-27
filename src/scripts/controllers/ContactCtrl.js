@@ -7,7 +7,7 @@ export default function( $scope, $http, $log ) {
 
   $scope.submitForm = function() {
     $http( {
-      url: 'http://wordpress.jppferguson.com/app/themes/jppferguson/contact.php',
+      url: '//wordpress.jppferguson.com/app/themes/jppferguson/contact.php',
       method: 'POST',
       data: JSON.stringify( $scope.form ),
       transformRequest: false,
