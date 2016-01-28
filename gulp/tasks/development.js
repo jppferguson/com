@@ -8,6 +8,6 @@ gulp.task( 'dev', [ 'clean' ], function( callback ) {
   global.isProduction = false
 
   // Note: this is a temp solution until gulp 4.* is released
-  run( [ 'assets:watch', 'lint:watch', 'scripts:watch', 'styles:watch', 'templates:watch', 'tests:watch' ], 'browser-sync', callback )
+  run( [ 'favicon:update', 'assets:watch', 'lint:watch', 'scripts:watch', 'styles:watch', 'templates:watch', 'tests:watch' ], 'browser-sync', callback )
 
 } )

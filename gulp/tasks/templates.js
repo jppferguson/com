@@ -7,7 +7,7 @@ import gulpif      from 'gulp-if'
 import jade        from 'gulp-jade'
 import handleError from '../helpers/handle-error'
 
-gulp.task( 'templates:build', function() {
+gulp.task( 'templates:build', [ 'favicon:template' ], function() {
   return gulp.src( config.sources.templates.build, { base: config.sources.templates.root } )
     .pipe( jade( {
       pretty: true

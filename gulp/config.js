@@ -44,6 +44,12 @@ config.sources.fonts = {}
 config.sources.fonts.root = src + '/fonts'
 config.sources.fonts.glob = config.sources.fonts.root + '/**/*'
 
+config.sources.favicon = {}
+config.sources.favicon.root = src + '/favicon'
+config.sources.favicon.appName = 'Jamie Ferguson'
+config.sources.favicon.master = config.sources.favicon.root + '/favicon.png'
+config.sources.favicon.dataFile = config.sources.favicon.root + '/_data.json'
+
 config.sources.icons = {}
 config.sources.icons.root = src + '/icons'
 config.sources.icons.className = 'icon'
@@ -118,6 +124,7 @@ config.destinations = {}
 config.destinations.root = dest
 config.destinations.bundle = 'app.js'
 config.destinations.assets = dest + '/assets'
+config.destinations.favicon = config.destinations.assets + '/favicon'
 config.destinations.fonts = config.destinations.assets + '/fonts'
 config.destinations.images = config.destinations.assets + '/img'
 config.destinations.scripts = config.destinations.assets + '/js'
