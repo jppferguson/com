@@ -5,14 +5,17 @@ import 'angular-mocks/angular-mocks'
 import response from './PageFactory.stub'
 
 describe( 'Unit: PageFactory', function() {
+  var $sce
   var page
 
   beforeEach( angular.mock.module( 'App' ) )
 
   describe( 'with httpBackend', function() {
 
-    beforeEach( angular.mock.inject( function( $httpBackend, $stateParams, PageFactory, API ) {
-      $httpBackend.when( 'GET', API.ENDPOINT + 'pages/?filter[name]=test' ).respond( response )
+    beforeEach( angular.mock.inject( function( $httpBackend, $stateParams, PageFactory, API, _$sce_ ) {
+      $sce = _$sce_
+      $httpBackend.whenGET( /pages\/.*/ ).respond( 200, response )
+      $httpBackend.whenGET( /.*/ ).respond( 200, '' )
 
       PageFactory.get( 'test' ).then( function( data ) {
         page = data
@@ -22,7 +25,7 @@ describe( 'Unit: PageFactory', function() {
     } ) )
 
     it( 'should have a title that can be overwritten by custom_meta.header', function() {
-      expect( page.title.rendered ).toEqual( 'header' )
+      expect( $sce.getTrustedHtml( page.title.rendered ) ).toEqual( 'header' )
     } )
 
   } )

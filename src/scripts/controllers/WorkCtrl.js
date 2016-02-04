@@ -1,8 +1,6 @@
 'use strict'
 
-export default function( $scope, $location, WorkFactory, PageFactory ) {
-
-  var pageSlug = $location.path().substring( 1 )
+export default function( $scope, pageContent, workItems ) {
 
   $scope.featuredImages = 4
   $scope.activeElement = -1
@@ -12,20 +10,7 @@ export default function( $scope, $location, WorkFactory, PageFactory ) {
     }
   }
 
-  PageFactory.get( pageSlug ).then( function( pageContent ) {
-    if ( pageContent ) {
-      $scope.page = pageContent
-    } else {
-      // 404 if there's no data...
-      $location.url( '/404' )
-    }
-  } )
-
-  WorkFactory.get().then( function( items ) {
-
-    $scope.items = items
-
-  } )
-
+  $scope.page = pageContent
+  $scope.items = workItems
 
 }

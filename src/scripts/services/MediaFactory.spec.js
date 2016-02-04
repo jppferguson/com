@@ -11,8 +11,9 @@ describe( 'Unit: MediaFactory', function() {
 
   describe( 'with httpBackend', function() {
 
-    beforeEach( angular.mock.inject( function( $httpBackend, $stateParams, MediaFactory, API ) {
-      $httpBackend.when( 'GET', API.ENDPOINT + 'media?filter[s]=cv' ).respond( response )
+    beforeEach( angular.mock.inject( function( $httpBackend, MediaFactory, API ) {
+      $httpBackend.whenGET( API.ENDPOINT + 'media?filter[s]=cv' ).respond( response )
+      $httpBackend.whenGET( /.*/ ).respond( '' )
 
       MediaFactory.getCV().then( function( data ) {
         cv = data

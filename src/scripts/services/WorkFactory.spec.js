@@ -16,9 +16,8 @@ describe( 'Unit: WorkFactory', function() {
 
     beforeEach( angular.mock.inject( function( $httpBackend, $stateParams, WorkFactory, API, _$sce_ ) {
       $sce = _$sce_
-      $httpBackend.when( 'GET', API.ENDPOINT + 'portfolio' ).respond( response )
-      $httpBackend.when( 'GET', API.ENDPOINT + 'portfolio/?filter[name]=test' ).respond( response )
-      $httpBackend.when( 'GET', API.ENDPOINT + 'portfolio?orderby=meta_value_num&filter[meta_key]=featured' ).respond( response )
+      $httpBackend.whenGET( /portfolio\/.*/ ).respond( 200, response )
+      $httpBackend.whenGET( /.*/ ).respond( 200, '' )
 
       WorkFactory.get().then( function( data ) {
         workLatest = data

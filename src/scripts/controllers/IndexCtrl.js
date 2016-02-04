@@ -1,22 +1,10 @@
 'use strict'
 
-export default function( $scope, JournalFactory, PageFactory, WorkFactory ) {
+export default function( $scope, pageContentIndex, pageContentProfile, journalArticles, workItems ) {
 
-  PageFactory.get( 'index' ).then( function( pageContent ) {
-    $scope.indexPage = pageContent
-  } )
-
-  WorkFactory.getFeatured().then( function( items ) {
-    $scope.workItems = items
-  } )
-
-  JournalFactory.latest().then( function( articles ) {
-    $scope.journalArticles = articles
-  } )
-
-  PageFactory.get( 'profile' ).then( function( pageContent ) {
-    $scope.profilePage = pageContent
-  } )
-
+  $scope.indexPage = pageContentIndex
+  $scope.workItems = workItems
+  $scope.journalArticles = journalArticles
+  $scope.profilePage = pageContentProfile
 
 }

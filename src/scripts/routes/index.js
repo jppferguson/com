@@ -17,7 +17,7 @@ import pageContact       from '../pages/contact.jade'
 import RedirectOldRoutes from './RedirectOldRoutes'
 import TrailingSlash     from './TrailingSlash'
 
-export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', function( $stateProvider, $urlRouterProvider ) {
+export default appRoutes.config( function( $stateProvider, $urlRouterProvider ) {
 
   $urlRouterProvider
     .otherwise( '/404' )
@@ -44,10 +44,26 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
       url: '',
       controller: 'IndexCtrl',
       template: pageIndex,
+      resolve: {
+        journalArticles: function( JournalFactory ) {
+          return JournalFactory.latest()
+        },
+        pageContentIndex: function( PageFactory ) {
+          return PageFactory.get( 'index' )
+        },
+        pageContentProfile: function( PageFactory ) {
+          return PageFactory.get( 'profile' )
+        },
+        workItems: function( WorkFactory ) {
+          return WorkFactory.getFeatured()
+        }
+      },
       data: {
         bodyClass: 'home'
       }
     } )
+
+    // Journal Routes
     .state( 'site.journal', {
       abstract: true,
       template: '<ui-view/>',
@@ -56,21 +72,37 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
         bodyClass: 'journal'
       }
     } )
-
-    // Journal Routes
     .state( 'site.journal.index', {
       url: '',
       controller: 'JournalCtrl',
+      resolve: {
+        articles: function( JournalFactory ) {
+          return JournalFactory.latest()
+        },
+        pageContent: function( PageFactory ) {
+          return PageFactory.get( 'journal' )
+        }
+      },
       template: pageJournal
     } )
     .state( 'site.journal.tag', {
       url: 'tag/:tag/',
       controller: 'JournalTagCtrl',
+      resolve: {
+        journalItems: function( JournalFactory, $stateParams ) {
+          return JournalFactory.tag( $stateParams.tag )
+        }
+      },
       template: pageJournalTag
     } )
     .state( 'site.journal.post', {
       url: 'article/:slug/',
       controller: 'JournalSingleCtrl',
+      resolve: {
+        journalItem: function( JournalFactory, $stateParams ) {
+          return JournalFactory.single( $stateParams.slug )
+        }
+      },
       template: pageJournalSingle
     } )
 
@@ -86,11 +118,24 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
     .state( 'site.work.index', {
       url: '',
       controller: 'WorkCtrl',
-      template: pageWork
+      template: pageWork,
+      resolve: {
+        workItems: function( WorkFactory ) {
+          return WorkFactory.get()
+        },
+        pageContent: function( PageFactory ) {
+          return PageFactory.get( 'work' )
+        }
+      }
     } )
     .state( 'site.work.post', {
       url: ':slug/',
       controller: 'WorkSingleCtrl',
+      resolve: {
+        workItem: function( WorkFactory, $stateParams ) {
+          return WorkFactory.single( $stateParams.slug )
+        }
+      },
       template: pageWorkSingle
     } )
 
@@ -98,6 +143,11 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
       url: 'profile/',
       controller: 'PageCtrl',
       template: pageProfile,
+      resolve: {
+        pageContent: function( PageFactory ) {
+          return PageFactory.get( 'profile' )
+        }
+      },
       data: {
         bodyClass: 'profile'
       }
@@ -105,6 +155,11 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
     .state( 'site.contact', {
       url: 'contact/',
       controller: 'PageCtrl',
+      resolve: {
+        pageContent: function( PageFactory ) {
+          return PageFactory.get( 'contact' )
+        }
+      },
       template: pageContact,
       data: {
         bodyClass: 'contact'
@@ -112,6 +167,11 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
     } )
     .state( 'site.styleguide', {
       url: 'styleguide/',
+      resolve: {
+        pageContent: function( PageFactory ) {
+          return PageFactory.get( 'styleguide' )
+        }
+      },
       template: pageStyleguide,
       data: {
         bodyClass: 'styleguide'
@@ -119,6 +179,11 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
     } )
     .state( 'site.stuff', {
       url: 'stuff/',
+      resolve: {
+        pageContent: function( PageFactory ) {
+          return PageFactory.get( 'stuff' )
+        }
+      },
       template: pageStuff,
       data: {
         bodyClass: 'stuff'
@@ -126,6 +191,11 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
     } )
     .state( 'site.404', {
       url: '404/',
+      resolve: {
+        pageContent: function( PageFactory ) {
+          return PageFactory.get( '404' )
+        }
+      },
       template: page404,
       data: {
         bodyClass: 'page-404'
@@ -135,9 +205,14 @@ export default appRoutes.config( [ '$stateProvider', '$urlRouterProvider', funct
     .state( 'site.page', {
       url: ':page/',
       controller: 'PageCtrl',
+      resolve: {
+        pageContent: function( PageFactory, $stateParams ) {
+          return PageFactory.get( $stateParams.page )
+        }
+      },
       template: pageGeneral,
       data: {
         bodyClass: 'page'
       }
     } )
-} ] )
+} )

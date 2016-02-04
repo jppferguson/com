@@ -16,9 +16,8 @@ describe( 'Unit: JournalFactory', function() {
 
     beforeEach( angular.mock.inject( function( $httpBackend, $stateParams, JournalFactory, API, _$sce_ ) {
       $sce = _$sce_
-      $httpBackend.when( 'GET', API.ENDPOINT + 'posts' ).respond( response )
-      $httpBackend.when( 'GET', API.ENDPOINT + 'posts/?filter[name]=test' ).respond( response )
-      $httpBackend.when( 'GET', API.ENDPOINT + 'posts?filter[tag]=tag' ).respond( response )
+      $httpBackend.whenGET( /posts\/.*/ ).respond( 200, response )
+      $httpBackend.whenGET( /.*/ ).respond( 200, '' )
 
       JournalFactory.latest().then( function( data ) {
         journalLatest = data

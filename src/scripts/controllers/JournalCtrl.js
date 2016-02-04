@@ -1,22 +1,8 @@
 'use strict'
 
-export default function( $scope, $location, JournalFactory, PageFactory ) {
+export default function( $scope, articles, pageContent ) {
 
-  var pageSlug = $location.path().substring( 1 )
-
-  PageFactory.get( pageSlug ).then( function( pageContent ) {
-    if ( pageContent ) {
-      $scope.page = pageContent
-    } else {
-      // 404 if there's no data...
-      $location.url( '/404' )
-    }
-  } )
-
-  JournalFactory.latest().then( function( articles ) {
-
-    $scope.articles = articles
-
-  } )
+  $scope.articles = articles
+  $scope.page = pageContent
 
 }

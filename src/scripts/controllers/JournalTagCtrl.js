@@ -1,14 +1,9 @@
 'use strict'
 
-export default function( $scope, $stateParams, JournalFactory ) {
+export default function( $scope, $stateParams, journalItems ) {
 
   $scope.tag = $stateParams.tag
-
-  JournalFactory.tag( $stateParams.tag ).then( function( articles ) {
-
-    $scope.articles = articles
-
-  } )
+  $scope.articles = journalItems
 
 
 }

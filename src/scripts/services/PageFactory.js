@@ -1,10 +1,11 @@
 'use strict'
 
-export default function( $http, $sce, API ) {
+export default function( $http, $location, $sce, API ) {
   var factory = {}
 
-  factory.get = function( slug ) {
+  factory.get = function( pageSlug = false ) {
 
+    var slug = pageSlug || $location.path().substring( 1 )
     var apiPath = API.ENDPOINT + 'pages/?filter[name]=' + slug
 
     return $http.get( apiPath ).then( function( resp ) {
