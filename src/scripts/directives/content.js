@@ -10,6 +10,7 @@ export default function( $compile ) {
       $el.removeAttr( 'content' ) // necessary to avoid infinite compile loop
       $el.attr( 'highlight', '' )
       $el.attr( 'preventOrphans', '' )
+      $el.attr( 'zoom', '' )
       fn = $compile( $el )
       return function( scope ) {
         fn( scope )

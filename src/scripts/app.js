@@ -8,6 +8,7 @@ import ngGA           from 'angular-google-analytics'
 import ngRouter       from 'angular-ui-router'
 import ngSanitize     from 'angular-sanitize'
 import 'angular-update-meta/dist/update-meta'
+import 'zoom-vanilla.js/dist/zoom-vanilla.min.js'
 
 import appConfig      from './_config'
 import appRoutes      from './routes'

@@ -19,6 +19,7 @@ import preventOrphans  from './preventOrphans'
 import readingTime     from './readingTime'
 import uiSrefActiveIf  from './uiSrefActiveIf'
 import workItem        from './workItem'
+import zoom            from './zoom'
 
 var appDirectives = angular.module( 'appDirectives', [] )
   .directive( 'a',               a )
@@ -41,5 +42,6 @@ var appDirectives = angular.module( 'appDirectives', [] )
   .directive( 'readingTime',     readingTime )
   .directive( 'uiSrefActiveIf',  uiSrefActiveIf )
   .directive( 'workItem',        workItem )
+  .directive( 'zoom',            zoom )
 
 export default appDirectives
