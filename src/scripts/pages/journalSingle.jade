@@ -1,7 +1,7 @@
 meta-tags(title="Journal" description="{{ article.excerpt.rendered }}" type="article")
 .page-header.reverse.header-offset.vh-50.relative(header-height background-colour="{{ page.custom_meta.header_colour }}" background-colour-header)
   .container.center-center
-    h1(ng-bind-html="article.title.rendered") {{ article.title.rendered }}
+    h1(ng-bind-html="article.title.rendered")
     ul.article-meta
       li: date {{ article.date | date:format:'mediumDate' }}
       li {{ article.readingTime }}
@@ -12,7 +12,7 @@ section.section
   .container
     .row
       .col-xs-12.col-lg-8.col-lg-push-2
-        article.article(ng-bind-html="article.content.rendered" highlight) {{article.content.rendered}}
+        article.article(ng-bind-html="article.content.rendered" content)
 
     hr
 

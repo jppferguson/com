@@ -30,7 +30,7 @@ section.section.bg-light.bg-journal
     h4.p-b-3 Recent Articles
     article.article-preview(ng-repeat="article in journalArticles")
       h2.display-3
-        a(ui-sref="site.journal.post({slug: article.slug})" ng-bind-html="article.title.rendered" prevent-orphans) {{ article.title.rendered }}
+        a(ui-sref="site.journal.post({slug: article.slug})" ng-bind-html="article.title.rendered" prevent-orphans)
       ul.article-meta
         li: date {{ article.date | date:format:'mediumDate' }}
         li {{ article.readingTime }}
@@ -42,5 +42,5 @@ section.section.bg-green.bg-profile.reverse
   .container
     h4.p-b-3 Profile
     h2.display-3 I'm a kiwi
-    div(ng-bind-html="profilePage.excerpt.rendered") {{ profilePage.excerpt.rendered }}
+    div(ng-bind-html="profilePage.excerpt.rendered" content)
     a.btn.btn-primary-outline(ui-sref="site.profile") More about me

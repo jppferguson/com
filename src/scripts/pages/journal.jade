@@ -10,7 +10,7 @@ section.section
   .container
     article.article-preview(ng-repeat="article in articles")
       h2.display-3
-        a(ui-sref="site.journal.post({slug: article.slug})" ng-bind-html="article.title.rendered" prevent-orphans) {{article.title.rendered}}
+        a(ui-sref="site.journal.post({slug: article.slug})" ng-bind-html="article.title.rendered" prevent-orphans)
       ul.article-meta
         li: date {{ article.date | date:format:'mediumDate' }}
         li {{ article.readingTime }}

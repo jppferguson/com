@@ -4,6 +4,7 @@ import backgroundImage from './backgroundImage'
 import backgroundColour from './backgroundColour'
 import backgroundPosition from './backgroundPosition'
 import bodyClass       from './bodyClass'
+import content         from './content'
 import cookieConsent   from './cookieConsent'
 import disqus          from './disqus'
 import elastic         from './elastic'
@@ -25,6 +26,7 @@ var appDirectives = angular.module( 'appDirectives', [] )
   .directive( 'backgroundImage', backgroundImage )
   .directive( 'backgroundPosition', backgroundPosition )
   .directive( 'bodyClass',       bodyClass )
+  .directive( 'content',         content )
   .directive( 'cookieConsent',   cookieConsent )
   .directive( 'disqus',          disqus )
   .directive( 'elastic',         elastic )

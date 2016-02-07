@@ -20,7 +20,7 @@ section.section.vh-50.bg-dark.reverse.relative(ng-repeat="item in items | limitT
               i(class="icon icon-{{ tag.slug }}")
       .work-content(ng-class="{ 'col-md-pull-6': $index % 2 && item.featured_image_thumbnail_url, 'col-md-6': item.featured_image_thumbnail_url, 'col-md-12': !item.featured_image_thumbnail_url }")
         h2.h1
-          a(ui-sref="site.work.post({slug: item.slug})" ng-bind-html="item.title.rendered" prevent-orphans) {{item.title.rendered}}
+          a(ui-sref="site.work.post({slug: item.slug})" ng-bind-html="item.title.rendered" prevent-orphans)
         p.lead {{ item.custom_meta.subheader }}
         a.btn.btn-sm.btn-primary-outline(ui-sref="site.work.post({slug: item.slug})") Find out more
 
