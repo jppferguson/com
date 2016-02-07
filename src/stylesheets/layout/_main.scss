@@ -17,13 +17,15 @@ body {
 .relative {
   position: relative;
 }
-.center-center {
-  @extend .center;
+.vertical-center {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 100%;
   transform: translate(-50%,-50%);
+}
+.center-center {
+  @extend .center;
+  @extend .vertical-center;
 }
 .bottom {
   position: absolute;
@@ -36,6 +38,12 @@ body {
   min-height: 50vh;
   .no-cssvhunit & {
     min-height: 500px;
+  }
+}
+.vh-70 {
+  min-height: 70vh;
+  .no-cssvhunit & {
+    min-height: 700px;
   }
 }
 .vh-90 {

@@ -1,0 +1,28 @@
+@include media-breakpoint-up(md) {
+  .work-section {
+    .img-window,
+    .work-content {
+      transition: transform ease-in-out 400ms;
+    }
+    .img-window {
+      width: 150%;
+    }
+    .img-content {
+      transition-duration: 250ms;
+    }
+    &:nth-child(even) .img-window,
+    &:nth-child(odd) .work-content {
+      transform: translate(20%, 0);
+    }
+    &:nth-child(even) .work-content,
+    &:nth-child(odd) .img-window {
+      transform: translate(-20%, 0);
+    }
+    &.active {
+      .img-window,
+      .work-content {
+        transform: translate(0, 0);
+      }
+    }
+  }
+}

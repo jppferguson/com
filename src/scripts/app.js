@@ -5,6 +5,7 @@ import fastClick      from 'fastclick'
 import ngAnimate      from 'angular-animate'
 import ngCookies      from 'angular-cookies'
 import ngGA           from 'angular-google-analytics'
+import ngInview       from 'angular-inview'
 import ngRouter       from 'angular-ui-router'
 import ngSanitize     from 'angular-sanitize'
 import 'angular-update-meta/dist/update-meta'
@@ -23,6 +24,7 @@ var appDependencies = [
   ngAnimate,
   ngCookies,
   ngGA.name,
+  ngInview.name,
   ngRouter,
   ngSanitize,
   'updateMeta'
