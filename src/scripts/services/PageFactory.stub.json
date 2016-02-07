@@ -1,0 +1,8 @@
+[ {
+  "title": { "rendered": "title" },
+  "excerpt": { "rendered": "excerpt" },
+  "content": { "rendered": "content" },
+  "custom_meta": {
+    "header": "header"
+  }
+} ]

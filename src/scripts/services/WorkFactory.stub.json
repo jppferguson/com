@@ -1,0 +1,8 @@
+[ {
+  "title": { "rendered": "title" },
+  "excerpt": { "rendered": "excerpt" },
+  "content": { "rendered": "<p class=\"lead\">content</p>" },
+  "custom_meta": {
+    "header": "header"
+  }
+} ]
