@@ -69,7 +69,7 @@
     "karma-phantomjs-launcher": "^0.2.2",
     "lodash": "^3.10.0",
     "marked": "^0.3.5",
-    "phantomjs": "^1.9.19",
+    "phantomjs": "^2.1.0",
     "run-sequence": "^1.1.4",
     "shipit-cli": "^1.4.1",
     "shipit-deploy": "jppferguson/shipit-deploy#feature-new-options",
