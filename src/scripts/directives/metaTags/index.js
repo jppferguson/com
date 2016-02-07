@@ -27,6 +27,11 @@ export default function( $location, $log ) {
           $log.debug( value.substr( 0, charLimit - 3 ) + '...' )
         }
       } )
+      attr.$observe( 'thumbnail', function( value ) {
+        if ( !value ) {
+          $scope.thumbnail = '/assets/img/jamie-ferguson.jpg'
+        }
+      } )
     }
   }
 }

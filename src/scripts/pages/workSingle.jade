@@ -1,4 +1,4 @@
-meta-tags(title="{{ item.title.rendered }}" description="{{ item.custom_meta.subheader }}")
+meta-tags(title="{{ item.title.rendered }}" description="{{ item.custom_meta.subheader }}" thumbnail="{{ item.featured_image_thumbnail_url }}")
 .page-header.reverse.bg-dark.header-offset.vh-50.relative(header-height)
   .image-header(background-image="{{ item.featured_image_thumbnail_url }}" background-position="{{ item.custom_meta.header_focus }}" background-colour="dark" background-colour-header)
   .container.center-center
