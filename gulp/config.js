@@ -27,6 +27,7 @@ config.settings.autoprefixer = [
   'ExplorerMobile >= 9'
 ]
 config.settings.minify = false
+config.settings.rev = true
 config.settings.sourceMaps = true
 
 // setup sources object
@@ -98,6 +99,14 @@ config.sources.styles.build = [
   config.sources.styles.root + '/main.scss'
 ]
 
+config.sources.rev = {}
+config.sources.rev.root = dest + '/assets'
+config.sources.rev.build = [
+  config.sources.rev.root + '/css/*.css',
+  config.sources.rev.root + '/js/*.js'
+]
+
+
 config.sources.templates = {}
 config.sources.templates.root = src + '/templates'
 config.sources.templates.ext = 'jade'
@@ -128,6 +137,7 @@ config.destinations.assets = dest + '/assets'
 config.destinations.favicon = config.destinations.assets + '/favicon'
 config.destinations.fonts = config.destinations.assets + '/fonts'
 config.destinations.images = config.destinations.assets + '/img'
+config.destinations.rev = config.destinations.assets
 config.destinations.scripts = config.destinations.assets + '/js'
 config.destinations.styles = config.destinations.assets + '/css'
 config.destinations.stylesheet = config.destinations.styles + '/main.css'
