@@ -79,6 +79,7 @@ config.sources.scripts.modernizr.tests = [
   'flexbox',
   'flexboxlegacy',
   'flexboxtweener',
+  'svg',
   'vhunit',
   'touchevents'
 ]

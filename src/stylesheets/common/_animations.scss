@@ -51,7 +51,7 @@
   z-index: 1010;
   &:before {
     $loadSize: 42px;
-    background: url(../img/logo.png) no-repeat 50% 50%;
+    background: url(../img/logo.svg) no-repeat 50% 50%;
     background-size: $loadSize;
     content: '';
     top: 50%;
@@ -64,6 +64,9 @@
     margin-left: -($loadSize/2);
     transform-origin: 50% 50%;
     animation: rotate 1200ms infinite ease-in-out;
+    .no-svg & {
+      background-image: url(../img/logo.png);
+    }
   }
   &.hide {
     opacity: 0;

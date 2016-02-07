@@ -61,7 +61,7 @@ $header-transition-out-duration: 240ms;
   }
 }
 .logo {
-  background: url(../img/logo.png) no-repeat 50% 50%;
+  background: url(../img/logo.svg) no-repeat 50% 50%;
   background-size: contain;
   font-size: $brand-size;
   margin-right: 1em;
@@ -70,6 +70,9 @@ $header-transition-out-duration: 240ms;
   height: 1em;
   .nav-past-header & {
     left: 1.25rem;
+  }
+  .no-svg & {
+    background-image: url(../img/logo.png);
   }
 }
 
