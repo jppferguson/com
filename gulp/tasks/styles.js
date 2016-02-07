@@ -11,7 +11,7 @@ import sass         from 'gulp-sass'
 import nano         from 'gulp-cssnano'
 import sourcemaps   from 'gulp-sourcemaps'
 
-gulp.task( 'styles:compile', function() {
+gulp.task( 'styles:compile', [ 'iconfont:build' ], function() {
   var sourceMaps   = !global.isProduction && !!config.settings.sourceMaps
   var minifyStyles = global.isProduction || config.settings.minify
 
@@ -33,6 +33,4 @@ gulp.task( 'styles:compile', function() {
 gulp.task( 'styles:watch', [ 'styles:build' ], function() {
   gulp.watch( config.sources.styles.glob, [ 'styles:compile' ] )
 } )
-gulp.task( 'styles:build', [ 'iconfont:build' ], function() {
-  gulp.start( 'styles:compile' )
-} )
+gulp.task( 'styles:build', [ 'styles:compile' ] )
