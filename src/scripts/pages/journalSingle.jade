@@ -1,5 +1,6 @@
 meta-tags(title="Journal" description="{{ article.excerpt.rendered }}" type="article" thumbnail="{{ page.featured_image_thumbnail_url }}")
-.page-header.reverse.header-offset.vh-50.relative(background-image="{{ article.featured_image_thumbnail_url }}" background-colour="{{ article.custom_meta.header_colour }}" background-colour-header header-height)
+.page-header.reverse.bg-dark.header-offset.vh-50.relative(header-height)
+  .image-header(background-image="{{ article.featured_image_thumbnail_url }}" background-position="{{ article.custom_meta.header_focus }}" background-colour="dark" background-colour-header)
   .container.center-center
     h1(ng-bind-html="article.title.rendered")
     ul.article-meta
