@@ -4,11 +4,11 @@ meta-tags(title="{{ page.title.rendered }}" description="{{ page.custom_meta.sub
     h1(ng-bind-html="page.title.rendered")
     p(ng-repeat="line in (page.custom_meta.subheader | newlines) track by $index" ng-class="{lead: $index === 0}" ng-bind-html="line")
 
-  .center.bottom.smoked-glass.p-a-2(ng-show="page.custom_meta.header_note")
+  .center.bottom.smoked-glass.p-2(ng-show="page.custom_meta.header_note")
     .container: small(ng-bind-html="page.custom_meta.header_note")
 
 section.section
   .container
     .row
-      .col-lg-8.col-lg-push-2
+      .col-lg-8.push-lg-2
         page(ng-bind-html="page.content.rendered" page-content)

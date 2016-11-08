@@ -17,7 +17,7 @@ gulp.task( 'styles:compile', [ 'iconfont:build' ], function() {
 
   return gulp.src( config.sources.styles.build, { base: config.sources.styles.root } )
     .pipe( gulpif( sourceMaps, sourcemaps.init() ) )
-    .pipe( sass() )
+    .pipe( sass( config.settings.sass ) )
     .pipe( cssimport() )
     .on( 'error', handleError )
     .pipe( autoprefixer( config.settings.autoprefixer ) )

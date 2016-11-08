@@ -3,8 +3,8 @@ meta-tags(title="Jamie Ferguson, Creative Developer" append-title="false" descri
   .container.center-center
     h1.bold(ng-bind-html="indexPage.title.rendered")
     p.lead(ng-bind-html="indexPage.custom_meta.subheader | markdown")
-    .p-t-3: a.btn.btn-primary-outline(ui-sref="site.work.index") View some work I've done
-  .center.bottom.p-a-2
+    .pt-3: a.btn.btn-outline-primary(ui-sref="site.work.index") View some work I've done
+  .center.bottom.p-2
     small.text-muted.sans or scroll for more
     .icon.icon-angle-double-down.animate-down
 
@@ -12,7 +12,7 @@ section.section.bg-dark.reverse
   .container
     .row
       .col-md-12
-        h4.p-b-3 Featured Case Studies
+        h4.pb-3 Featured Case Studies
       .col-xs-12.col-md-6(ng-repeat="item in workItems | limitTo:featuredImages")
         .tile(background-colour="{{ item.custom_meta.header_colour }}")
           a.tile-link.non-text-link(ui-sref="site.work.post({slug: item.slug})")
@@ -22,12 +22,12 @@ section.section.bg-dark.reverse
             p(prevent-orphans) {{ item.custom_meta.subheader }}
     .row
       .col-md-12
-        a.btn.btn-primary-outline(ui-sref="site.work.index") All Work
+        a.btn.btn-outline-primary(ui-sref="site.work.index") All Work
 
 
 section.section.bg-light.bg-journal
   .container
-    h4.p-b-3 Recent Articles
+    h4.pb-3 Recent Articles
     article.article-preview(ng-repeat="article in journalArticles")
       h2.display-3
         a(ui-sref="site.journal.post({slug: article.slug})" ng-bind-html="article.title.rendered" prevent-orphans)
@@ -36,11 +36,11 @@ section.section.bg-light.bg-journal
         li {{ article.readingTime }}
         li
           a.tag(ng-repeat="tag in article.tags" ui-sref="site.journal.tag({tag: tag.name})" ng-show="article.tags[0]") \#{{tag.name}}
-    a.btn.btn-primary-outline(ui-sref="site.journal.index") All Articles
+    a.btn.btn-outline-primary(ui-sref="site.journal.index") All Articles
 
 section.section.bg-green.bg-profile.reverse
   .container
-    h4.p-b-3 Profile
+    h4.pb-3 Profile
     h2.display-3 I'm a kiwi
     div(ng-bind-html="profilePage.excerpt.rendered" page-content)
-    a.btn.btn-primary-outline(ui-sref="site.profile") More about me
+    a.btn.btn-outline-primary(ui-sref="site.profile") More about me

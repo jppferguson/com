@@ -12,13 +12,13 @@ meta-tags(title="Journal" description="{{ article.excerpt.rendered }}" type="art
 section.section
   .container
     .row
-      .col-xs-12.col-lg-8.col-lg-push-2
+      .col-xs-12.col-lg-8.push-lg-2
         article.article(ng-bind-html="article.content.rendered" page-content)
 
     hr
 
     .row
-      disqus.col-xs-12.col-lg-8.col-lg-push-2(disqus-shortname="jppferguson" disqus-identifier="{{ article.id }}" disqus-title="{{ article.title.rendered }}" disqus-url="{{ article.url }}")
+      disqus.col-xs-12.col-lg-8.push-lg-2(disqus-shortname="jppferguson" disqus-identifier="{{ article.id }}" disqus-title="{{ article.title.rendered }}" disqus-url="{{ article.url }}")
 
   hr.hr-full
 

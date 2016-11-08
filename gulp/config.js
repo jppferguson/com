@@ -29,6 +29,9 @@ config.settings.autoprefixer = [
 config.settings.minify = false
 config.settings.rev = true
 config.settings.sourceMaps = true
+config.settings.sass = {
+  includePaths: './node_modules/'
+}
 
 // setup sources object
 config.sources = {}

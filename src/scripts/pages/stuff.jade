@@ -22,15 +22,15 @@ section.section
           .col-xs-6
             h4 Top Tracks
             ul.list-no-bullets
-              li.clearfix.p-b-1(ng-repeat="track in tracks")
-                a.pull-xs-left.p-r-1.non-text-link(href="{{ track.url }}"): img.img-circle(ng-src="{{ track.image[1]['#text'] }}")
+              li.clearfix.pb-1(ng-repeat="track in tracks")
+                a.pull-xs-left.pr-1.non-text-link(href="{{ track.url }}"): img.img-circle(ng-src="{{ track.image[1]['#text'] }}")
                 h6: a(href="{{ track.url }}") {{ track.name }}
                 .small: a(href="{{ track.artist.url }}") {{ track.artist.name }}
           .col-xs-6
             h4 Top Artists
             ul.list-no-bullets
-              li.clearfix.p-b-1(ng-repeat="artist in artists")
-                a.pull-xs-left.p-r-1.non-text-link(href="{{ artist.url }}"): img.img-circle(ng-src="{{ artist.image[1]['#text'] }}")
+              li.clearfix.pb-1(ng-repeat="artist in artists")
+                a.pull-xs-left.pr-1.non-text-link(href="{{ artist.url }}"): img.img-circle(ng-src="{{ artist.image[1]['#text'] }}")
                 h6: a(href="{{ artist.url }}") {{ artist.name }}
                 .small {{ artist.playcount }} Plays
 

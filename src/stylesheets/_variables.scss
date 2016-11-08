@@ -36,13 +36,13 @@ $gray-light:                #a8a8a8;
 
 
 // Vendor stuff
-$enable-flex: false;
+$enable-flex: true;
 $enable-rounded: false;
 $brand-primary: $colour-background-dark;
 $input-btn-border-width: 2px;
 
 $grid-columns:               12;
-$grid-gutter-width:          2.5rem;
+$grid-gutter-width-base:     2.5rem;
 
 $body-color:                 $gray-dark;
 $font-family-sans-serif:     'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -80,5 +80,16 @@ $display2-weight: 300;
 $display3-weight: 300;
 $display4-weight: 300;
 
-$line-height:    1.6;
+$line-height-base: 1.6;
 $lead-font-size: 1.5rem;
+
+// Buttons
+$btn-padding-x:  1rem;
+$btn-padding-y:  .6rem;
+$btn-padding-x-sm:  .8rem;
+$btn-padding-y-sm:  .4rem;
+
+// Forms
+$input-line-height: 1.5rem;
+$input-padding-x: 0;
+$input-padding-y: .65rem;
