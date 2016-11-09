@@ -5,6 +5,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "build": "gulp prod",
     "setup": "npm install && gulp ng-config:build",
     "test": "./node_modules/karma/bin/karma start karma.conf.js --single-run"
   },
