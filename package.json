@@ -33,7 +33,7 @@
     "browserify-istanbul": "^0.2.1",
     "browserify-ngannotate": "^2.0.0",
     "del": "^2.2.0",
-    "devices.css": "marvelapp/devices.css",
+    "Devices.css": "marvelapp/devices.css#7b88c304",
     "eslint-plugin-angular": "^0.15.0",
     "event-stream": "^3.3.2",
     "fastclick": "^1.0.6",
