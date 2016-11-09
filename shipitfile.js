@@ -32,7 +32,7 @@ module.exports = function ( shipit ) {
     staging: {
       branch: 'staging',
       deployTo: '/var/www/staging.jppferguson.com',
-      keepReleases: 2,
+      keepReleases: 5,
       servers: 'deploy@utopia.digo.jppferguson.com:' + sshPort,
       postNpmInstall: 'gulp prod --env=staging'
     },

@@ -29,7 +29,9 @@ section.section
                   i(class="icon icon-{{ tag.slug }}")
                   | {{ tag.name }}
           .card-block
-            a.card-link.btn.btn-sm.btn-primary.btn-block(href="{{ item.custom_meta.url }}" ng-hide="item.custom_meta.online === false || !item.custom_meta.url") Visit site &rarr;
+            a.card-link.btn.btn-sm.btn-primary.btn-block(href="{{ item.custom_meta.url }}" ng-hide="item.custom_meta.online === false || !item.custom_meta.url")
+              span(ng-hide="item.custom_meta.link_text") Visit site &rarr;
+              span(ng-show="item.custom_meta.link_text") {{ item.custom_meta.link_text }} &rarr;
             i(ng-show="item.custom_meta.online === 'false'") Site offline :'(
 
   hr.hr-full
