@@ -5,6 +5,7 @@ import backgroundColour from './backgroundColour'
 import backgroundPosition from './backgroundPosition'
 import bodyClass       from './bodyClass'
 import cookieConsent   from './cookieConsent'
+import device          from './device'
 import disqus          from './disqus'
 import elastic         from './elastic'
 import floatingLabel   from './floatingLabel'
@@ -28,6 +29,7 @@ var appDirectives = angular.module( 'appDirectives', [] )
   .directive( 'backgroundPosition', backgroundPosition )
   .directive( 'bodyClass',       bodyClass )
   .directive( 'cookieConsent',   cookieConsent )
+  .directive( 'device',          device )
   .directive( 'disqus',          disqus )
   .directive( 'elastic',         elastic )
   .directive( 'floatingLabel',   floatingLabel )

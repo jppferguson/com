@@ -11,11 +11,11 @@ section.section.work-section.vh-70.bg-dark.reverse.relative(ng-repeat="item in i
   .container
     .row
       .col-md-6(ng-show="item.featured_image_thumbnail_url" ng-class="{'push-md-6': $index % 2, 'pull-md-3': !($index % 2) }")
-        .img-window(ng-class="{ 'pull-md-right': !($index % 2 && item.featured_image_thumbnail_url)}")
-          i
+        div(device="{{item.custom_meta.featured_device}}" ng-class="{ 'pull-md-right': !($index % 2 && item.featured_image_thumbnail_url)}")
           a.non-text-link(ui-sref="site.work.post({slug: item.slug})")
             img.img-fluid(ng-src="{{item.featured_image_thumbnail_url}}" ng-show="item.featured_image_thumbnail_url")
-          ul.list-inline.icons
+          //- i
+          //- ul.list-inline.icons
             li(ng-repeat="tag in item.taxonomies_list.technology")
               i(class="icon icon-{{ tag.slug }}")
       .work-content(ng-class="{ 'pull-md-6': $index % 2 && item.featured_image_thumbnail_url, 'col-md-6': item.featured_image_thumbnail_url, 'col-md-12': !item.featured_image_thumbnail_url, 'text-md-right': $index % 2 && item.featured_image_thumbnail_url }")

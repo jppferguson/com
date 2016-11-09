@@ -1,0 +1,10 @@
+.top-bar(ng-show="hasTopBar()")
+.sleep(ng-show="hasSleep()")
+.volume(ng-show="hasVolume()")
+.camera
+.sensor(ng-show="hasSensor()")
+.speaker(ng-show="hasSpeaker()")
+.screen
+  ng-transclude
+.home(ng-show="hasHome()")
+.bottom-bar(ng-show="hasBottomBar()")
