@@ -34,7 +34,7 @@ export default function( $http, $sce, API ) {
 
   factory.single = function( slug ) {
 
-    return $http.get( API.ENDPOINT + 'portfolio/?filter[name]=' + slug ).then( function( res ) {
+    return $http.get( API.ENDPOINT + 'portfolio/?slug=' + slug ).then( function( res ) {
 
       return trustHTMLContent( res.data )[ 0 ]
 

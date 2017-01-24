@@ -36,7 +36,7 @@ export default function( $http, $sanitize, $sce, readingTime, API ) {
 
   factory.single = function( slug ) {
 
-    return $http.get( API.ENDPOINT + 'posts/?filter[name]=' + slug ).then( function( res ) {
+    return $http.get( API.ENDPOINT + 'posts/?slug=' + slug ).then( function( res ) {
 
       return trustHTMLContent( res.data )[ 0 ]
 
