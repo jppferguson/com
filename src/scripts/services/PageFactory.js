@@ -6,7 +6,7 @@ export default function( $http, $location, $sce, API ) {
   factory.get = function( pageSlug = false ) {
 
     var slug = pageSlug || $location.path().substring( 1 )
-    var apiPath = API.ENDPOINT + 'pages/?filter[name]=' + slug
+    var apiPath = API.ENDPOINT + 'pages/?slug=' + slug
 
     return $http.get( apiPath ).then( function( resp ) {
 
