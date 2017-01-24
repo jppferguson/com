@@ -12,11 +12,11 @@
     }
     &:nth-child(even) .img-window,
     &:nth-child(odd) .work-content {
-      transform: translate(20%, 0);
+      transform: translate(0, 5%);
     }
     &:nth-child(even) .work-content,
     &:nth-child(odd) .img-window {
-      transform: translate(-20%, 0);
+      transform: translate(0, -5%);
     }
     &.active {
       .img-window,
@@ -28,5 +28,22 @@
 }
 
 .work-content {
+  text-align: center;
   z-index: 30;
+}
+
+.marvel-device {
+  transform-origin: 0 0;
+  @include media-breakpoint-down(md) {
+    left: -8%;
+    transform: scale(0.75);
+  }
+  @include media-breakpoint-down(sm) {
+    left: -3%;
+    transform: scale(0.5);
+  }
+  @include media-breakpoint-down(xs) {
+    left: 12%;
+    transform: scale(0.3);
+  }
 }
